@@ -1,0 +1,9 @@
+<svg viewBox="0 0 720 70" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&amp;display=swap');
+    text { font-family: 'Press Start 2P', monospace; }
+  </style>
+  <text x="360" y="45" text-anchor="middle" font-size="20" fill="none"
+        stroke="#1B1B2F" stroke-width="6" stroke-linejoin="round">CONTRIBUTION MAP</text>
+  <text x="360" y="45" text-anchor="middle" font-size="20" fill="#FBD000">CONTRIBUTION MAP</text>
+</svg>
