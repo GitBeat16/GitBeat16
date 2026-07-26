@@ -44,7 +44,7 @@
 
   <!-- HUD: health / level bar -->
   <g transform="translate(700,22)" font-family="Trebuchet MS, Verdana, sans-serif" font-weight="700">
-    <text x="0" y="14" fill="#FFFFFF" font-size="14" stroke="#1B1B2F" stroke-width="3" paint-order="stroke">FIRST YEAR STUDENT</text>
+    <text x="0" y="14" fill="#FFFFFF" font-size="14" stroke="#1B1B2F" stroke-width="3" paint-order="stroke">SECOND YEAR CS STUDENT</text>
     <rect x="0" y="24" width="220" height="16" rx="8" fill="#FFFFFF" stroke="#1B1B2F" stroke-width="3"/>
     <rect x="3" y="27" width="180" height="10" rx="5" fill="#E52521"/>
   </g>
