@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="26" viewBox="0 0 880 26" fill="none" role="img" aria-label="divider">
+  <defs>
+    <linearGradient id="l" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0"/><stop offset="25%" stop-color="#ffffff" stop-opacity="0.55"/>
+      <stop offset="75%" stop-color="#9a9a9a" stop-opacity="0.55"/><stop offset="100%" stop-color="#9a9a9a" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <path d="M0 13h880" stroke="url(#l)" stroke-width="1.2"/>
+  <path d="M0 13h880" stroke="#ffffff" stroke-width="1.4" stroke-dasharray="10 870" opacity="0.9">
+    <animate attributeName="stroke-dashoffset" values="880;0" dur="4.5s" repeatCount="indefinite"/>
+  </path>
+  <g>
+    <animateTransform attributeName="transform" type="translate" values="0 0;0 0" dur="1s"/>
+    <path d="M432 13l8-7 8 7-8 7z" fill="#000000" stroke="#ffffff" stroke-opacity="0.8"/>
+    <circle cx="440" cy="13" r="2" fill="#ffffff">
+      <animate attributeName="opacity" values="1;0.2;1" dur="2s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+</svg>
