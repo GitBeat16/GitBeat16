@@ -6,7 +6,7 @@
 
 <img src="https://raw.githubusercontent.com/GitBeat16/GitBeat16/main/identity.svg" alt="Identity — Computer Engineering student at PICT, CGPA 9.44, MHT-CET 99.34 percentile" width="880">
 
-<img src="https://raw.githubusercontent.com/GitBeat16/GitBeat16/main/commit-arcade.svg" alt="Commit Arcade — every commit is an upgrade" width="880">
+<img src="https://raw.githubusercontent.com/GitBeat16/GitBeat16/main/commit-arcade.svg" alt="Commit Arcade — live contribution field" width="880">
 
 <img src="https://raw.githubusercontent.com/GitBeat16/GitBeat16/main/skill-tree.svg" alt="Skill tree — what is solid and what I am still learning" width="880">
 
@@ -43,12 +43,9 @@
 
 <img src="https://raw.githubusercontent.com/GitBeat16/GitBeat16/main/head-analytics.svg" alt="System Analytics" width="880">
 
-<img src="https://github-readme-stats.vercel.app/api?username=GitBeat16&show_icons=true&hide_border=true&include_all_commits=true&count_private=true&bg_color=000000&title_color=ffffff&icon_color=a0a0a0&text_color=a0a0a0&ring_color=ffffff&border_color=1f1f1f" alt="GitHub stats" height="170">
-<img src="https://streak-stats.demolab.com?user=GitBeat16&hide_border=true&background=000000&stroke=1f1f1f&ring=ffffff&fire=c9c9c9&currStreakNum=f2f2f2&sideNums=a0a0a0&currStreakLabel=ffffff&sideLabels=6e6e6e&dates=4d4d4d" alt="Contribution streak" height="170">
+<img src="https://raw.githubusercontent.com/GitBeat16/GitBeat16/main/analytics.svg" alt="Contribution analytics — totals, streaks and recent activity" width="880">
 
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=GitBeat16&layout=compact&hide_border=true&langs_count=8&bg_color=000000&title_color=ffffff&text_color=a0a0a0" alt="Top languages" height="165">
-
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=GitBeat16&bg_color=000000&color=a0a0a0&line=ffffff&point=ffffff&area=true&area_color=ffffff&title_color=ffffff&hide_border=true&custom_title=Contribution%20Activity" alt="Contribution activity graph" width="880">
+<img src="https://raw.githubusercontent.com/GitBeat16/GitBeat16/main/languages.svg" alt="Language distribution" width="880">
 
 <img src="https://raw.githubusercontent.com/GitBeat16/GitBeat16/main/divider.svg" alt="" width="880">
 

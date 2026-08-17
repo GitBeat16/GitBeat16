@@ -38,12 +38,12 @@
     </filter>
     <clipPath id="frame"><rect width="880" height="320" rx="20"/></clipPath>
 
-    <mask id="m1"><rect x="54" y="105" width="0" height="16" fill="#fff"><animate attributeName="width" values="0;0;62;62;62;0" keyTimes="0;0.02;0.085;0.97;0.99;1" dur="17s" repeatCount="indefinite"/></rect></mask>
-    <mask id="m2"><rect x="54" y="126" width="0" height="26" fill="#fff"><animate attributeName="width" values="0;0;186;186;186;0" keyTimes="0;0.10;0.19;0.97;0.99;1" dur="17s" repeatCount="indefinite"/></rect></mask>
-    <mask id="m3"><rect x="54" y="158" width="0" height="16" fill="#fff"><animate attributeName="width" values="0;0;108;108;108;0" keyTimes="0;0.22;0.30;0.97;0.99;1" dur="17s" repeatCount="indefinite"/></rect></mask>
-    <mask id="m4"><rect x="54" y="180" width="0" height="16" fill="#fff"><animate attributeName="width" values="0;0;424;424;424;0" keyTimes="0;0.32;0.47;0.97;0.99;1" dur="17s" repeatCount="indefinite"/></rect></mask>
-    <mask id="m5"><rect x="54" y="206" width="0" height="16" fill="#fff"><animate attributeName="width" values="0;0;130;130;130;0" keyTimes="0;0.50;0.58;0.97;0.99;1" dur="17s" repeatCount="indefinite"/></rect></mask>
-    <mask id="m6"><rect x="54" y="228" width="0" height="18" fill="#fff"><animate attributeName="width" values="0;0;352;352;352;0" keyTimes="0;0.60;0.75;0.97;0.99;1" dur="17s" repeatCount="indefinite"/></rect></mask>
+    <mask id="m1"><rect x="54" y="105" width="0" height="16" fill="#fff"><animate attributeName="width" values="0;0;70;70;70;0" keyTimes="0;0.02;0.085;0.97;0.99;1" dur="17s" repeatCount="indefinite"/></rect></mask>
+    <mask id="m2"><rect x="54" y="126" width="0" height="26" fill="#fff"><animate attributeName="width" values="0;0;206;206;206;0" keyTimes="0;0.10;0.19;0.97;0.99;1" dur="17s" repeatCount="indefinite"/></rect></mask>
+    <mask id="m3"><rect x="54" y="158" width="0" height="16" fill="#fff"><animate attributeName="width" values="0;0;118;118;118;0" keyTimes="0;0.22;0.30;0.97;0.99;1" dur="17s" repeatCount="indefinite"/></rect></mask>
+    <mask id="m4"><rect x="54" y="180" width="0" height="16" fill="#fff"><animate attributeName="width" values="0;0;464;464;464;0" keyTimes="0;0.32;0.47;0.97;0.99;1" dur="17s" repeatCount="indefinite"/></rect></mask>
+    <mask id="m5"><rect x="54" y="206" width="0" height="16" fill="#fff"><animate attributeName="width" values="0;0;142;142;142;0" keyTimes="0;0.50;0.58;0.97;0.99;1" dur="17s" repeatCount="indefinite"/></rect></mask>
+    <mask id="m6"><rect x="54" y="228" width="0" height="18" fill="#fff"><animate attributeName="width" values="0;0;382;382;382;0" keyTimes="0;0.60;0.75;0.97;0.99;1" dur="17s" repeatCount="indefinite"/></rect></mask>
   </defs>
 
   <g clip-path="url(#frame)">
@@ -79,7 +79,7 @@
 
       <!-- travelling caret -->
       <rect y="107" width="8" height="14" fill="#ffffff" opacity="0.9">
-        <animate attributeName="x" values="56;56;118;56;242;56;164;56;480;56;186;56;408;408;56" keyTimes="0;0.02;0.085;0.10;0.19;0.22;0.30;0.32;0.47;0.50;0.58;0.60;0.75;0.99;1" dur="17s" repeatCount="indefinite"/>
+        <animate attributeName="x" values="56;56;126;56;262;56;174;56;520;56;198;56;438;438;56" keyTimes="0;0.02;0.085;0.10;0.19;0.22;0.30;0.32;0.47;0.50;0.58;0.60;0.75;0.99;1" dur="17s" repeatCount="indefinite"/>
         <animate attributeName="y" values="107;107;131;131;160;160;181;181;208;208;231;231;107" keyTimes="0;0.085;0.10;0.19;0.22;0.30;0.32;0.47;0.50;0.58;0.60;0.99;1" dur="17s" repeatCount="indefinite"/>
         <animate attributeName="height" values="14;14;20;20;14;14;14;14;14;14;14;14;14" keyTimes="0;0.085;0.10;0.19;0.22;0.30;0.32;0.47;0.50;0.58;0.60;0.99;1" dur="17s" repeatCount="indefinite"/>
         <animate attributeName="opacity" values="0.95;0.1;0.95" dur="1.05s" repeatCount="indefinite"/>

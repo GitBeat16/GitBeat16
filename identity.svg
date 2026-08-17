@@ -83,33 +83,33 @@
       <path d="M492 76V202" stroke="#ffffff" stroke-opacity="0.07"/>
 
       <!-- stat rings -->
-      <g transform="translate(524,84)">
-        <rect width="98" height="112" rx="14" fill="#ffffff" fill-opacity="0.035" stroke="#ffffff" stroke-opacity="0.2"/>
-        <g transform="translate(49,50)">
+      <g transform="translate(506,84)">
+        <rect width="106" height="112" rx="14" fill="#ffffff" fill-opacity="0.035" stroke="#ffffff" stroke-opacity="0.2"/>
+        <g transform="translate(53,50)">
           <circle r="27" fill="none" stroke="#ffffff" stroke-opacity="0.07" stroke-width="5"/>
           <circle r="27" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-dasharray="169.6" stroke-dashoffset="9.5" transform="rotate(-90)">
             <animate attributeName="stroke-dashoffset" values="169.6;9.5" dur="1.6s" begin="0s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.1 1"/>
           </circle>
           <text y="6" text-anchor="middle" font-size="18" font-weight="700" fill="#f2f2f2">9.44</text>
         </g>
-        <text x="49" y="98" text-anchor="middle" font-size="9" fill="#6e6e6e" letter-spacing="1.4">CGPA / 10</text>
+        <text x="53" y="98" text-anchor="middle" font-size="8.5" fill="#6e6e6e" letter-spacing="0.9">CGPA / 10</text>
       </g>
 
-      <g transform="translate(632,84)">
-        <rect width="98" height="112" rx="14" fill="#ffffff" fill-opacity="0.035" stroke="#9a9a9a" stroke-opacity="0.2"/>
-        <g transform="translate(49,50)">
+      <g transform="translate(620,84)">
+        <rect width="106" height="112" rx="14" fill="#ffffff" fill-opacity="0.035" stroke="#9a9a9a" stroke-opacity="0.2"/>
+        <g transform="translate(53,50)">
           <circle r="27" fill="none" stroke="#ffffff" stroke-opacity="0.07" stroke-width="5"/>
           <circle r="27" fill="none" stroke="#9a9a9a" stroke-width="5" stroke-linecap="round" stroke-dasharray="169.6" stroke-dashoffset="1.1" transform="rotate(-90)">
             <animate attributeName="stroke-dashoffset" values="169.6;1.1" dur="1.6s" begin="0s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.1 1"/>
           </circle>
           <text y="6" text-anchor="middle" font-size="16" font-weight="700" fill="#f2f2f2">99.34</text>
         </g>
-        <text x="49" y="98" text-anchor="middle" font-size="9" fill="#6e6e6e" letter-spacing="1.4">MHT-CET %ILE</text>
+        <text x="53" y="98" text-anchor="middle" font-size="8.5" fill="#6e6e6e" letter-spacing="0.9">MHT-CET %ILE</text>
       </g>
 
-      <g transform="translate(740,84)">
-        <rect width="98" height="112" rx="14" fill="#ffffff" fill-opacity="0.035" stroke="#c9c9c9" stroke-opacity="0.22"/>
-        <g transform="translate(49,50)">
+      <g transform="translate(734,84)">
+        <rect width="106" height="112" rx="14" fill="#ffffff" fill-opacity="0.035" stroke="#c9c9c9" stroke-opacity="0.22"/>
+        <g transform="translate(53,50)">
           <circle r="27" fill="none" stroke="#ffffff" stroke-opacity="0.07" stroke-width="5"/>
           <circle r="27" fill="none" stroke="#c9c9c9" stroke-width="5" stroke-linecap="round" stroke-dasharray="169.6" stroke-dashoffset="0" transform="rotate(-90)">
             <animate attributeName="stroke-dashoffset" values="169.6;0" dur="1.6s" begin="0s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.1 1"/>
@@ -117,7 +117,7 @@
           <text y="-1" text-anchor="middle" font-size="20" font-weight="700" fill="#f2f2f2">1st</text>
           <text y="15" text-anchor="middle" font-size="8.5" fill="#c9c9c9" letter-spacing="2">PLACE</text>
         </g>
-        <text x="49" y="98" text-anchor="middle" font-size="9" fill="#6e6e6e" letter-spacing="1.4">IEEE TECHRUSH 26</text>
+        <text x="53" y="98" text-anchor="middle" font-size="8.5" fill="#6e6e6e" letter-spacing="0.9">IEEE TECHRUSH 26</text>
       </g>
     </g>
 
