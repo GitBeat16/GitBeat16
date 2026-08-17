@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="880" height="320" viewBox="0 0 880 320" fill="none" role="img" aria-label="Srushti Kalokhe - Computer Engineering Student, AI and Full Stack Developer">
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="320" viewBox="0 0 880 320" fill="none" role="img" aria-label="Srushti Kalokhe - Computer Engineering Student, AI/ML and Full Stack enthusiast">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#000000"/>
@@ -38,12 +38,12 @@
     </filter>
     <clipPath id="frame"><rect width="880" height="320" rx="20"/></clipPath>
 
-    <mask id="m1"><rect x="54" y="105" width="0" height="16" fill="#fff"><animate attributeName="width" values="0;0;70;70;70;0" keyTimes="0;0.02;0.085;0.97;0.99;1" dur="17s" repeatCount="indefinite"/></rect></mask>
-    <mask id="m2"><rect x="54" y="126" width="0" height="26" fill="#fff"><animate attributeName="width" values="0;0;206;206;206;0" keyTimes="0;0.10;0.19;0.97;0.99;1" dur="17s" repeatCount="indefinite"/></rect></mask>
-    <mask id="m3"><rect x="54" y="158" width="0" height="16" fill="#fff"><animate attributeName="width" values="0;0;118;118;118;0" keyTimes="0;0.22;0.30;0.97;0.99;1" dur="17s" repeatCount="indefinite"/></rect></mask>
-    <mask id="m4"><rect x="54" y="180" width="0" height="16" fill="#fff"><animate attributeName="width" values="0;0;464;464;464;0" keyTimes="0;0.32;0.47;0.97;0.99;1" dur="17s" repeatCount="indefinite"/></rect></mask>
-    <mask id="m5"><rect x="54" y="206" width="0" height="16" fill="#fff"><animate attributeName="width" values="0;0;142;142;142;0" keyTimes="0;0.50;0.58;0.97;0.99;1" dur="17s" repeatCount="indefinite"/></rect></mask>
-    <mask id="m6"><rect x="54" y="228" width="0" height="18" fill="#fff"><animate attributeName="width" values="0;0;382;382;382;0" keyTimes="0;0.60;0.75;0.97;0.99;1" dur="17s" repeatCount="indefinite"/></rect></mask>
+    <mask id="m1"><rect x="54" y="105" width="0" height="16" fill="#fff"><animate attributeName="width" values="0;0;68;68;68;0" keyTimes="0;0.02;0.085;0.97;0.99;1" dur="17s" repeatCount="indefinite"/></rect></mask>
+    <mask id="m2"><rect x="54" y="126" width="0" height="26" fill="#fff"><animate attributeName="width" values="0;0;201;201;201;0" keyTimes="0;0.10;0.19;0.97;0.99;1" dur="17s" repeatCount="indefinite"/></rect></mask>
+    <mask id="m3"><rect x="54" y="158" width="0" height="16" fill="#fff"><animate attributeName="width" values="0;0;114;114;114;0" keyTimes="0;0.22;0.30;0.97;0.99;1" dur="17s" repeatCount="indefinite"/></rect></mask>
+    <mask id="m4"><rect x="54" y="180" width="0" height="16" fill="#fff"><animate attributeName="width" values="0;0;471;471;471;0" keyTimes="0;0.32;0.47;0.97;0.99;1" dur="17s" repeatCount="indefinite"/></rect></mask>
+    <mask id="m5"><rect x="54" y="206" width="0" height="16" fill="#fff"><animate attributeName="width" values="0;0;138;138;138;0" keyTimes="0;0.50;0.58;0.97;0.99;1" dur="17s" repeatCount="indefinite"/></rect></mask>
+    <mask id="m6"><rect x="54" y="228" width="0" height="18" fill="#fff"><animate attributeName="width" values="0;0;386;386;386;0" keyTimes="0;0.60;0.75;0.97;0.99;1" dur="17s" repeatCount="indefinite"/></rect></mask>
   </defs>
 
   <g clip-path="url(#frame)">
@@ -69,17 +69,17 @@
       <circle cx="530" cy="75" r="3" fill="#ffffff"><animate attributeName="opacity" values="1;0.25;1" dur="1.6s" repeatCount="indefinite"/></circle>
 
       <g font-family="&apos;JetBrains Mono&apos;,&apos;Fira Code&apos;,&apos;IBM Plex Mono&apos;,&apos;Cascadia Mono&apos;,&apos;SF Mono&apos;,ui-monospace,SFMono-Regular,Menlo,Consolas,&apos;DejaVu Sans Mono&apos;,&apos;Courier New&apos;,monospace">
-        <g mask="url(#m1)"><text x="56" y="118" font-size="12.5" fill="#a0a0a0"><tspan fill="#9a9a9a">$</tspan> whoami</text></g>
-        <g mask="url(#m2)"><text x="56" y="146" font-size="21" font-weight="700" fill="url(#neon)" letter-spacing="0.4">Srushti Kalokhe</text></g>
-        <g mask="url(#m3)"><text x="56" y="171" font-size="12.5" fill="#a0a0a0"><tspan fill="#9a9a9a">$</tspan> cat role.txt</text></g>
-        <g mask="url(#m4)"><text x="56" y="193" font-size="12.5" fill="#c9c9c9">Computer Engineering Student · AI/ML + Full Stack Enthusiast</text></g>
-        <g mask="url(#m5)"><text x="56" y="219" font-size="12.5" fill="#a0a0a0"><tspan fill="#9a9a9a">$</tspan> ./status --live</text></g>
-        <g mask="url(#m6)"><text x="56" y="242" font-size="12.5" fill="#ffffff">Learning in public · building AI-powered projects</text></g>
+        <g mask="url(#m1)"><text x="56" y="118" font-size="12.5" fill="#a0a0a0" textLength="62" lengthAdjust="spacingAndGlyphs"><tspan fill="#9a9a9a">$</tspan> whoami</text></g>
+        <g mask="url(#m2)"><text x="56" y="146" font-size="21" font-weight="700" fill="url(#neon)" textLength="195.3" lengthAdjust="spacingAndGlyphs">Srushti Kalokhe</text></g>
+        <g mask="url(#m3)"><text x="56" y="171" font-size="12.5" fill="#a0a0a0" textLength="108.5" lengthAdjust="spacingAndGlyphs"><tspan fill="#9a9a9a">$</tspan> cat role.txt</text></g>
+        <g mask="url(#m4)"><text x="56" y="193" font-size="12.5" fill="#c9c9c9" textLength="465" lengthAdjust="spacingAndGlyphs">Computer Engineering Student · AI/ML + Full Stack Enthusiast</text></g>
+        <g mask="url(#m5)"><text x="56" y="219" font-size="12.5" fill="#a0a0a0" textLength="131.8" lengthAdjust="spacingAndGlyphs"><tspan fill="#9a9a9a">$</tspan> ./status --live</text></g>
+        <g mask="url(#m6)"><text x="56" y="242" font-size="12.5" fill="#ffffff" textLength="379.8" lengthAdjust="spacingAndGlyphs">Learning in public · building AI-powered projects</text></g>
       </g>
 
       <!-- travelling caret -->
       <rect y="107" width="8" height="14" fill="#ffffff" opacity="0.9">
-        <animate attributeName="x" values="56;56;126;56;262;56;174;56;520;56;198;56;438;438;56" keyTimes="0;0.02;0.085;0.10;0.19;0.22;0.30;0.32;0.47;0.50;0.58;0.60;0.75;0.99;1" dur="17s" repeatCount="indefinite"/>
+        <animate attributeName="x" values="56;56;114;56;247;56;160;56;517;56;184;56;432;432;56" keyTimes="0;0.02;0.085;0.10;0.19;0.22;0.30;0.32;0.47;0.50;0.58;0.60;0.75;0.99;1" dur="17s" repeatCount="indefinite"/>
         <animate attributeName="y" values="107;107;131;131;160;160;181;181;208;208;231;231;107" keyTimes="0;0.085;0.10;0.19;0.22;0.30;0.32;0.47;0.50;0.58;0.60;0.99;1" dur="17s" repeatCount="indefinite"/>
         <animate attributeName="height" values="14;14;20;20;14;14;14;14;14;14;14;14;14" keyTimes="0;0.085;0.10;0.19;0.22;0.30;0.32;0.47;0.50;0.58;0.60;0.99;1" dur="17s" repeatCount="indefinite"/>
         <animate attributeName="opacity" values="0.95;0.1;0.95" dur="1.05s" repeatCount="indefinite"/>

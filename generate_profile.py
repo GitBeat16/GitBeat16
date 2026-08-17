@@ -14,6 +14,7 @@ still succeeds; with a token it uses the real contribution calendar.
 import json
 import math
 import os
+import re
 import ssl
 import urllib.request
 from datetime import date, datetime, timedelta
@@ -83,6 +84,56 @@ def fetch():
     if "errors" in payload:
         raise RuntimeError(payload["errors"])
     return payload["data"]["user"]
+
+
+def scrape():
+    """Token-free live read of the public contribution calendar.
+
+    GitHub serves the same grid the profile page shows at
+    /users/<login>/contributions. This keeps the panels live even when the
+    workflow has no PAT, or when the default GITHUB_TOKEN cannot reach the
+    contributionsCollection API. Returns (days, total) or None.
+    """
+    url = "https://github.com/users/%s/contributions" % USER
+    req = urllib.request.Request(url, headers={
+        "User-Agent": "Mozilla/5.0 (compatible; gitbeat-profile-generator)",
+        "Accept": "text/html",
+    })
+    ctx = ssl.create_default_context()
+    with urllib.request.urlopen(req, timeout=30, context=ctx) as r:
+        html = r.read().decode("utf-8", "replace")
+
+    # tooltips carry the count: <tool-tip for="cell-id">8 contributions on ...</tool-tip>
+    tips = {}
+    for cell_id, text in re.findall(
+            r'<tool-tip[^>]*\bfor="([^"]+)"[^>]*>(.*?)</tool-tip>', html, re.S):
+        m = re.search(r'([\d,]+)\s+contribution', text)
+        tips[cell_id] = int(m.group(1).replace(",", "")) if m else 0
+
+    days = []
+    for cell in re.findall(r'<td[^>]*\bdata-date="[^"]+"[^>]*>', html):
+        d = re.search(r'data-date="(\d{4}-\d{2}-\d{2})"', cell).group(1)
+        m = re.search(r'data-count="(\d+)"', cell)          # older markup
+        if m:
+            count = int(m.group(1))
+        else:
+            cid = re.search(r'\bid="([^"]+)"', cell)
+            count = tips.get(cid.group(1), 0) if cid else 0
+        days.append({"date": d, "count": count})
+
+    if not days:
+        return None
+    days.sort(key=lambda x: x["date"])
+
+    total = sum(d["count"] for d in days)
+    stated = re.search(r'([\d,]+)\s+contributions? in the last year', html)
+    if stated:
+        want = int(stated.group(1).replace(",", ""))
+        if want and total != want:
+            print("scrape mismatch: cells=%d, page says %d" % (total, want))
+            if total == 0:
+                return None
+    return days, total
 
 
 def fallback():
@@ -423,7 +474,7 @@ def render_arcade(days, meta, cur, longest):
     # HUD driven by real numbers
     total = meta["total"]
     tiers = [(0, "Getting Started"), (100, "Building Habits"), (300, "Consistent Builder"),
-             (600, "Learning · Building"), (1000, "Shipping Regularly"), (2000, "Prolific")]
+             (600, "Building Momentum"), (1000, "Shipping Regularly"), (2000, "Prolific")]
     lvl_name, lvl_i = tiers[0][1], 0
     for i, (thr, name) in enumerate(tiers):
         if total >= thr:
@@ -432,7 +483,7 @@ def render_arcade(days, meta, cur, longest):
     if nxt:
         lo = tiers[lvl_i][0]
         pct = max(0.0, min(1.0, (total - lo) / float(nxt[0] - lo)))
-        nxt_label = f"NEXT: {nxt[1].upper()} ({nxt[0]})"
+        nxt_label = f"NEXT {nxt[1].upper()} ({nxt[0]})"
     else:
         pct, nxt_label = 1.0, "MAX TIER"
 
@@ -445,7 +496,10 @@ def render_arcade(days, meta, cur, longest):
     o.append('      <rect x="660" y="230" width="176" height="9" rx="4.5" fill="#ffffff" fill-opacity="0.06"/>')
     o.append(f'      <rect x="660" y="230" width="{round(176*pct,1)}" height="9" rx="4.5" fill="url(#xp)">'
              f'<animate attributeName="width" values="0;{round(176*pct,1)}" dur="1.8s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.1 1"/></rect>')
-    o.append(f'      <text x="836" y="222" text-anchor="end" font-size="8.5" fill="#a0a0a0" letter-spacing="0.6">{nxt_label}</text>')
+    # pin the width so a wider monospace fallback cannot run into the XP label
+    nxt_w = min(136.0, round(len(nxt_label) * (8.5 * 0.62 + 0.6), 1))
+    o.append(f'      <text x="836" y="222" text-anchor="end" font-size="8.5" fill="#a0a0a0" '
+             f'letter-spacing="0.6" textLength="{nxt_w}" lengthAdjust="spacingAndGlyphs">{nxt_label}</text>')
     o.append(f'''      <g transform="translate(660,256)">
         <rect width="84" height="40" rx="10" fill="#ffffff" fill-opacity="0.045" stroke="#ffffff" stroke-opacity="0.22"/>
         <text x="12" y="17" font-size="8.5" fill="#4d4d4d" letter-spacing="1.6">STREAK</text>
@@ -595,12 +649,44 @@ def main():
         print("fetch failed, using fallback:", e)
         user = None
 
+    days = meta = None
     if user:
         days, meta = shape(user)
-        print(f"live data: {meta['total']} contributions, {len(days)} days")
-    else:
+        print(f"live GraphQL data: {meta['total']} contributions, {len(days)} days")
+
+    # Live scrape covers the no-token case, and repairs a live response that
+    # came back with an empty calendar.
+    if not days or not meta or meta.get("total", 0) == 0:
+        try:
+            got = scrape()
+        except Exception as e:
+            print("scrape failed:", e)
+            got = None
+        if got:
+            s_days, s_total = got
+            print(f"live scrape: {s_total} contributions, {len(s_days)} days")
+            if meta:
+                days, meta["total"] = s_days, s_total
+            else:
+                days = s_days
+                meta = {"total": s_total, "commits": 0, "prs": 0, "issues": 0,
+                        "reviews": 0, "repos": 0, "stars": 0, "followers": 0,
+                        "languages": [], "placeholder": True}
+
+    if not days:
         days, meta = fallback()
-        print("no token - using captured seed calendar")
+        print("live read unavailable - using captured seed calendar")
+    else:
+        # keep the offline seed current so a future failed run still shows truth
+        try:
+            seed_path = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                                     "contributions_seed.json")
+            with open(seed_path, "w", encoding="utf-8") as f:
+                json.dump({"days": days, "total": meta["total"],
+                           "repos": meta.get("repos", 0),
+                           "captured": date.today().isoformat()}, f)
+        except Exception as e:
+            print("seed refresh skipped:", e)
 
     cur, longest = streaks(days)
     print(f"streaks: current={cur} longest={longest}")

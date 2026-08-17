@@ -570,7 +570,7 @@
       <text x="660" y="222" font-size="9.5" fill="#4d4d4d" letter-spacing="2.4">XP</text>
       <rect x="660" y="230" width="176" height="9" rx="4.5" fill="#ffffff" fill-opacity="0.06"/>
       <rect x="660" y="230" width="118.5" height="9" rx="4.5" fill="url(#xp)"><animate attributeName="width" values="0;118.5" dur="1.8s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.1 1"/></rect>
-      <text x="836" y="222" text-anchor="end" font-size="8.5" fill="#a0a0a0" letter-spacing="0.6">NEXT: LEARNING · BUILDING (600)</text>
+      <text x="836" y="222" text-anchor="end" font-size="8.5" fill="#a0a0a0" letter-spacing="0.6" textLength="136.0" lengthAdjust="spacingAndGlyphs">NEXT BUILDING MOMENTUM (600)</text>
       <g transform="translate(660,256)">
         <rect width="84" height="40" rx="10" fill="#ffffff" fill-opacity="0.045" stroke="#ffffff" stroke-opacity="0.22"/>
         <text x="12" y="17" font-size="8.5" fill="#4d4d4d" letter-spacing="1.6">STREAK</text>
