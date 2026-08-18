@@ -1,11 +1,10 @@
 {
   "login": "GitBeat16",
-  "syncedAt": "2026-08-17",
-  "source": "public GitHub contributions calendar (github.com/users/GitBeat16/contributions)",
-  "note": "Seed snapshot transcribed from the public GitHub contributions calendar. Totals are derived from days. `npm run sync:contributions` and the sync-contributions workflow overwrite this file with exact API data.",
+  "syncedAt": "2026-08-18",
+  "source": "GitHub GraphQL API (contributionsCollection)",
   "range": {
     "from": "2025-08-17",
-    "to": "2026-08-17"
+    "to": "2026-08-18"
   },
   "days": {
     "2025-09-07": 1,
@@ -25,7 +24,6 @@
     "2026-03-22": 63,
     "2026-03-23": 3,
     "2026-03-27": 6,
-    "2026-07-05": 2,
     "2026-07-06": 1,
     "2026-07-12": 2,
     "2026-07-17": 5,
@@ -47,6 +45,7 @@
     "2026-08-12": 9,
     "2026-08-13": 2,
     "2026-08-15": 4,
-    "2026-08-17": 1
+    "2026-08-17": 1,
+    "2026-08-18": 3
   }
 }
