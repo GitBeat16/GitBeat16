@@ -88,3 +88,30 @@ automatically, falling back to the SVG if it's absent.
 
 Keep the generator deterministic — no `Math.random()`, no `Date.now()` — so
 re-running it produces a clean diff.
+
+---
+
+## Profile view counter
+
+`README.md` embeds `https://<vercel-domain>/api/views?slug=profile` as an image.
+
+GitHub strips `<script>` from READMEs, so a counter can only ever be an image
+whose *request* is the thing being counted. That means the number is page hits
+relayed through GitHub's Camo image proxy — not unique visitors — and the panel
+says so in its own caption rather than implying more precision than exists.
+
+| file | role |
+| --- | --- |
+| `shared/counter.mjs` | draws the themed panel (same palette as every other asset) |
+| `shared/views-store.mjs` | Upstash-compatible Redis REST adapter + slug sanitiser |
+| `src/app/api/views/route.ts` | thin handler: tally, render, set no-store headers |
+
+Setup: deploy this repo to Vercel, then add **Upstash Redis** from the Vercel
+Marketplace (Storage tab). Vercel injects the credentials; both the modern
+(`UPSTASH_REDIS_REST_*`) and legacy (`KV_REST_API_*`) variable names are read.
+
+With no store bound the endpoint still returns a valid panel showing `—`, so a
+missing binding is a cosmetic problem rather than a broken image on the profile.
+
+`?peek=1` renders the current value without incrementing — useful for checking
+the number without inflating it.

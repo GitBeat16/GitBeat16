@@ -24,8 +24,11 @@ Currently turning ideas into software >.<
 <img src="readme/arsenal.svg" alt="Languages: C, C++, Python, TypeScript, JavaScript. Frameworks and libraries: Next.js App Router, React, React Native Expo, FastAPI, Tailwind CSS, Framer Motion, Streamlit. Databases and backend: MongoDB, Supabase Postgres, REST APIs, JWT and session auth, OAuth 2.0. Tools and platforms: Git and GitHub, Vercel, Railway, Claude and Groq APIs, Leaflet and d3-geo, Wix Studio. Spoken: English, Hindi, Marathi." width="100%" />
 
 <p align="right">
+  <img align="left" width="400" src="https://gitbeat16.vercel.app/api/views?slug=profile" alt="Profile views counter — page hits relayed through GitHub's image proxy" />
   <img width="132" src="readme/hanging-mascot.svg" alt="Web-Byte, the spider-suited mascot, abseiling down a long web strand, hanging and swaying at the bottom, then climbing back up" />
 </p>
+
+<br clear="all" />
 
 <img src="readme/sec-missions.svg" alt="Missions" width="100%" />
 
