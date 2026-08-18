@@ -4,14 +4,11 @@
 
 <img src="readme/sec-about.svg" alt="About" width="100%" />
 
-Second-year Computer Engineering student at **PICT Pune** (CGPA **9.44**), working mostly in
-TypeScript across **Next.js**, **React Native** and **FastAPI**.
-
-Most of what I build is full-stack and *finished* rather than prototyped — **Wanderly** shipped with
-hand-rolled auth (scrypt + HMAC session cookies + Google OAuth/PKCE), an offline-first store and a
-canvas-rendered globe, and won the **IEEE TechRush 26** frontend track. **BoardroomAI** puts eight AI
-executives in a room to argue over a founder's pitch. Right now I'm building **Lumi**, a React Native
-+ FastAPI AI companion app with emotion detection and voice interaction.
+Second-year Computer Engineering student @ PICT Pune 
+I build full-stack products with TypeScript, Next.js, React Native, and FastAPI.
+Interested in AI/ML, open source, system design, and developer tooling — with a particular curiosity for how things work beneath the abstraction.
+I learn by building, breaking, understanding, and rebuilding.
+Currently turning ideas into software >.<
 
 | | |
 | --- | --- |
