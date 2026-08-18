@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 208.63 34" width="208.63" height="34" role="img" aria-label="ksrushti1610@gmail.com" preserveAspectRatio="xMidYMid meet">
+<title>ksrushti1610@gmail.com</title>
+<defs>
+  <linearGradient id="bgGrad" x1="0" y1="0" x2="0.4" y2="1">
+    <stop offset="0" stop-color="#0C0F1B"/>
+    <stop offset="0.55" stop-color="#0B0D16"/>
+    <stop offset="1" stop-color="#06070E"/>
+  </linearGradient>
+  <linearGradient id="redGrad" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#E0475A"/>
+    <stop offset="1" stop-color="#B5303F"/>
+  </linearGradient>
+  <linearGradient id="navyGrad" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#4C63B6"/>
+    <stop offset="1" stop-color="#172143"/>
+  </linearGradient>
+  <linearGradient id="edgeGrad" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#B5303F" stop-opacity="0.9"/>
+    <stop offset="0.5" stop-color="#33406B" stop-opacity="0.55"/>
+    <stop offset="1" stop-color="#172143" stop-opacity="0.9"/>
+  </linearGradient>
+  <pattern id="halftone" width="6" height="6" patternUnits="userSpaceOnUse">
+    <circle cx="1.5" cy="1.5" r="0.75" fill="#FFFFFF" fill-opacity="0.035"/>
+    <circle cx="4.5" cy="4.5" r="0.75" fill="#FFFFFF" fill-opacity="0.02"/>
+  </pattern>
+  <filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="3.2" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="tinyGlow" x="-60%" y="-60%" width="220%" height="220%">
+    <feGaussianBlur stdDeviation="1.6" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter></defs>
+<style>
+  text{font-family:'Segoe UI', 'Helvetica Neue', 'DejaVu Sans', Arial, sans-serif;dominant-baseline:middle}
+  .d{font-family:'Trebuchet MS', 'Verdana', 'DejaVu Sans', sans-serif;font-weight:700;letter-spacing:0.5px}
+  .mono{font-family:'SFMono-Regular', 'DejaVu Sans Mono', Menlo, Consolas, monospace}
+  .t{fill:#ECE7E4}
+  .dim{fill:#9AA3BE}
+  .faint{fill:#5C6684}
+  .red{fill:#E0475A}
+  @media (prefers-reduced-motion: reduce){*{animation:none !important}}
+  @keyframes badgeGlow{0%,100%{opacity:.55}50%{opacity:1}}
+  .glow{animation:badgeGlow 3.4s ease-in-out infinite}
+  </style>
+  <rect x="0.7" y="0.7" width="207.23" height="32.6" rx="8" fill="#151B31" stroke="#232B47" stroke-width="1.4"/>
+  <path d="M8.7 0.7H200.63" stroke="#E0475A" stroke-width="2" opacity="0.9"/>
+  <g class="glow"><path d="M206.23 2.4L206.23 21.4M206.23 2.4L200.36 20.47M206.23 2.4L195.06 17.77M206.23 2.4L190.86 13.57M206.23 2.4L188.16 8.27M206.23 2.4L187.23 2.4M206.23 7.72Q205.51 6.92 204.59 7.46M204.59 7.46Q204.15 6.48 203.1 6.7M203.1 6.7Q202.99 5.64 201.93 5.53M201.93 5.53Q202.15 4.48 201.17 4.04M201.17 4.04Q201.71 3.12 200.91 2.4M206.23 11.9Q204.95 10.47 203.29 11.44M203.29 11.44Q202.52 9.68 200.65 10.09M200.65 10.09Q200.45 8.18 198.54 7.98M198.54 7.98Q198.95 6.11 197.19 5.34M197.19 5.34Q198.16 3.68 196.73 2.4M206.23 16.08Q204.39 14.02 202 15.41M202 15.41Q200.89 12.88 198.19 13.47M198.19 13.47Q197.91 10.72 195.16 10.44M195.16 10.44Q195.75 7.74 193.22 6.63M193.22 6.63Q194.61 4.24 192.55 2.4M206.23 21.4Q203.67 18.54 200.36 20.47M200.36 20.47Q198.81 16.96 195.06 17.77M195.06 17.77Q194.68 13.95 190.86 13.57M190.86 13.57Q191.67 9.82 188.16 8.27M188.16 8.27Q190.09 4.96 187.23 2.4" fill="none" stroke="#E0475A" stroke-width="1" opacity="0.3" stroke-linecap="round"/></g>
+  <g transform="translate(22.5 17) scale(0.7083)">
+    <path d="M-10.5 -7.5h21v15h-21z" fill="none" stroke="#E0475A" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M-10.5 -6.5 0 1.5 10.5 -6.5" fill="none" stroke="#E0475A" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" /></g>
+  <text x="40" y="17.5" font-size="12.5" class="t">ksrushti1610@gmail.com</text>
+</svg>

@@ -221,9 +221,9 @@ body::before {
 }
 .badge--navy { background: var(--navy); }
 
-.metrics { display: flex; gap: 26px; margin: 14px 0 0; }
-.metrics b { display: block; font-family: var(--display); font-size: 19px; color: var(--red-bright); }
-.metrics span { font-size: 10.5px; color: var(--faint); }
+/* repo links rendered as chips under each mission */
+.chip--link { display: inline-block; text-decoration: none; color: var(--text); transition: border-color .18s, transform .18s; }
+.chip--link:hover { border-color: var(--navy-glow); transform: translateY(-1px); }
 
 /* ───────────────────────────────────────────────── contribution */
 .contrib { }

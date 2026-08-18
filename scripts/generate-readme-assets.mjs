@@ -39,6 +39,7 @@ import {
   particleCss,
   bodyText,
 } from './lib/panels.mjs';
+import { icon } from './lib/icons.mjs';
 import { buildCalendar, level, deriveStats, MONTHS } from './lib/contributions.mjs';
 import { readProfile } from './lib/profile-loader.mjs';
 
@@ -60,41 +61,63 @@ function write(name, svg) {
 }
 
 /* ══════════════════════════════════════════════════════ 1. HANGING MASCOT */
+/**
+ * Long-drop easter egg. The mascot pays out a full-height strand, hangs and
+ * sways at the bottom, then reels itself back up. The canvas is deliberately
+ * tall so the descent reads as a real drop rather than a nudge — the mascot
+ * itself stays at its original scale.
+ */
 function hangingMascot() {
-  const w = 250;
-  const h = 300;
+  const w = 260;
+  const h = 520;
   const scale = 0.62;
-  const mx = (w - MASCOT_VIEWBOX.w * scale) / 2;
-  const my = 92;
+  const mx = R((w - MASCOT_VIEWBOX.w * scale) / 2);
+  const my = 344; // resting Y of the mascot's own top edge
+  const drop = 322; // how far it travels between the top and the resting spot
 
   const css = `
   ${mascotCss}
-  @keyframes dropIn{0%{transform:translateY(-190px);opacity:0}18%{opacity:1}46%{transform:translateY(6px)}62%{transform:translateY(-3px)}78%,100%{transform:translateY(0)}}
-  @keyframes lineGrow{0%{transform:scaleY(0)}30%,100%{transform:scaleY(1)}}
-  @keyframes tinyShot{0%,64%{opacity:0;transform:scaleX(.2)}70%{opacity:1;transform:scaleX(1)}84%{opacity:1}92%,100%{opacity:0}}
-  .rig{animation:dropIn 9s cubic-bezier(.25,.9,.35,1) infinite}
-  .line{transform-box:fill-box;transform-origin:50% 0%;animation:lineGrow 9s cubic-bezier(.25,.9,.35,1) infinite}
-  .tiny{transform-box:fill-box;transform-origin:0% 50%;animation:tinyShot 9s ease-out infinite}
+  @keyframes payOut{
+    0%,6%{transform:translateY(-${drop}px)}
+    40%{transform:translateY(14px)}
+    50%{transform:translateY(-8px)}
+    58%,84%{transform:translateY(0)}
+    100%{transform:translateY(-${drop}px)}
+  }
+  @keyframes lineOut{
+    0%,6%{transform:scaleY(.055)}
+    40%{transform:scaleY(1.04)}
+    58%,84%{transform:scaleY(1)}
+    100%{transform:scaleY(.055)}
+  }
+  @keyframes sway{0%,100%{transform:rotate(-4.5deg)}50%{transform:rotate(4.5deg)}}
+  @keyframes tinyShot{0%,66%{transform:scaleX(.05)}72%{transform:scaleX(1)}80%{transform:scaleX(1)}84%,100%{transform:scaleX(.05)}}
+  .swing{transform-box:fill-box;transform-origin:50% 0%;animation:sway 4.6s ease-in-out infinite}
+  .rig{animation:payOut 13s cubic-bezier(.3,.85,.35,1) infinite}
+  .line{transform-box:fill-box;transform-origin:50% 0%;animation:lineOut 13s cubic-bezier(.3,.85,.35,1) infinite}
+  .tiny{transform-box:fill-box;transform-origin:0% 50%;animation:tinyShot 13s ease-out infinite}
   `;
 
   const body = `
-  <g class="line">${strand(w / 2, 0, my + 26, { color: P.textFaint, w: 1.6 })}</g>
-  <g class="rig">
-    <g class="is-hang">
-      <g transform="translate(${R(mx)} ${my}) scale(${scale})">${mascotMarkup({ uid: 'hang' })}</g>
-    </g>
-    <g class="tiny">
-      <path d="M${R(mx + 150 * scale)} ${R(my + 186 * scale)} L${R(mx + 236 * scale)} ${R(my + 168 * scale)}"
-            stroke="${P.textDim}" stroke-width="1.8" stroke-linecap="round" fill="none" opacity="0.9"/>
-      <circle cx="${R(mx + 238 * scale)}" cy="${R(my + 167 * scale)}" r="2.6" fill="${P.textDim}"/>
+  <g class="swing">
+    <g class="line">${strand(w / 2, 0, my + 26, { color: P.textFaint, w: 1.6 })}</g>
+    <g class="rig">
+      <g class="is-hang">
+        <g transform="translate(${mx} ${my}) scale(${scale})">${mascotMarkup({ uid: 'hang' })}</g>
+      </g>
+      <g class="tiny">
+        <path d="M${R(mx + 150 * scale)} ${R(my + 186 * scale)} L${R(mx + 232 * scale)} ${R(my + 168 * scale)}"
+              stroke="${P.textDim}" stroke-width="1.8" stroke-linecap="round" fill="none" opacity="0.9"/>
+        <circle cx="${R(mx + 234 * scale)}" cy="${R(my + 167 * scale)}" r="2.6" fill="${P.textDim}"/>
+      </g>
     </g>
   </g>`;
 
   return svgDoc({
     w,
     h,
-    title: 'Web-Byte, the spider-suited mascot, descending on a web strand',
-    desc: 'Animated mascot lowering itself on a thread, swinging gently and flicking a small web.',
+    title: 'Web-Byte, the spider-suited mascot, abseiling down a long web strand',
+    desc: 'Animated mascot paying out a long thread, hanging and swaying at the bottom, then climbing back up.',
     css,
     body,
     bg: false,
@@ -140,7 +163,7 @@ function hero() {
 
   <g class="r1">
     <text x="44" y="76" font-size="12" class="faint mono" letter-spacing="3">${esc(
-      `PICT PUNE · ${profile.education.degree.toUpperCase()}`
+      `PICT PUNE · ${profile.education.field.toUpperCase()}`
     )}</text>
   </g>
   <g class="r2">
@@ -168,13 +191,23 @@ function hero() {
 
 /* ═════════════════════════════════════════════════════════════ 3. DIVIDER */
 function divider() {
-  const h = 34;
-  const y = 17;
+  // The spider is authored around (0,0) and spans roughly ±10 units before
+  // scaling, so the strip has to be tall enough to hold it whole. Previously
+  // the leg-twitch rule matched the *placement* group too, and a CSS transform
+  // replaces the transform attribute outright — which threw away the
+  // translate/scale and left the spider clipped by the top edge. The twitch now
+  // lives on its own inner group that carries no transform attribute.
+  const h = 46;
+  const y = 23;
+  const spiderScale = 0.86;
+  const travel = W - 140;
   const css = `
-  @keyframes crawl{0%{transform:translateX(0)}100%{transform:translateX(${W - 120}px)}}
-  @keyframes legTwitch{0%,100%{transform:rotate(0)}50%{transform:rotate(3deg)}}
-  .crawler{animation:crawl 22s linear infinite;transform-box:fill-box}
-  .crawler g{animation:legTwitch .5s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 50%}
+  @keyframes crawl{0%{transform:translateX(0)}50%{transform:translateX(${R(travel)}px)}100%{transform:translateX(0)}}
+  @keyframes legTwitch{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-1.6px)}}
+  .crawler{animation:crawl 30s ease-in-out infinite}
+  .twitch{transform-box:fill-box;transform-origin:50% 30%;animation:legTwitch .62s ease-in-out infinite}
+  .bob{transform-box:fill-box;animation:bob .62s ease-in-out infinite}
   @keyframes shimmer{0%,100%{opacity:.5}50%{opacity:.9}}
   .thread{animation:shimmer 5s ease-in-out infinite}
   `;
@@ -187,7 +220,11 @@ function divider() {
   <path class="thread" d="${sag.join('')}" stroke="${P.edgeHi}" stroke-width="1" fill="none" opacity="0.7"/>
   <circle cx="6" cy="${y}" r="3" fill="${P.red}"/>
   <circle cx="${W - 6}" cy="${y}" r="3" fill="${P.navyGlow}"/>
-  <g class="crawler"><g transform="translate(60 ${y}) scale(0.55)">${spiderMark(0, 0, 1, P.textDim)}</g></g>`;
+  <g class="crawler">
+    <g transform="translate(70 ${y}) scale(${spiderScale})">
+      <g class="bob"><g class="twitch">${spiderMark(0, 0, 1, P.textDim)}</g></g>
+    </g>
+  </g>`;
   return svgDoc({
     w: W,
     h,
@@ -277,75 +314,109 @@ function arsenal() {
 }
 
 /* ════════════════════════════════════════════════════════════ 6. MISSIONS */
-function missions() {
-  const cards = profile.missions;
-  const cardH = 168;
-  const gap = 16;
-  const h = cards.length * (cardH + gap) + 8;
+/**
+ * One SVG per mission so README.md can hang a row of *clickable* repo badges
+ * directly underneath each card. A link inside an SVG does nothing once GitHub
+ * embeds it through <img>, so anything that has to be clickable is emitted as
+ * its own small badge image and wrapped in a Markdown anchor instead.
+ */
+function missionCard(m, i) {
+  const isWin = m.accent === 'red';
+  const accent = isWin ? P.red : P.navy;
+  const chipAccent = isWin ? P.edgeHi : P.navyGlow;
 
-  const body = cards
-    .map((m, i) => {
-      const y = 4 + i * (cardH + gap);
-      const chips = chipRow(m.stack, {
-        x: 24,
-        y: y + 100,
-        maxWidth: W - 60,
-        accent: i % 2 ? P.navyGlow : P.edgeHi,
-        size: 11,
-        delayStep: 40,
-      });
+  const chips = chipRow(m.stack, {
+    x: 24,
+    y: 100,
+    maxWidth: W - 250,
+    accent: chipAccent,
+    size: 11,
+    delayStep: 40,
+  });
 
-      // metrics run left→right and finish flush with the right edge
-      const MW = 96;
-      const metricsX = W - 28 - m.metrics.length * MW;
-      const metrics = m.metrics
-        .map(
-          (mt, k) =>
-            `<g class="tile" style="animation-delay:${300 + k * 90}ms">
-              <text x="${R(metricsX + k * MW + MW - 12)}" y="${y + 52}" font-size="19" class="d" fill="${
-              P.redBright
-            }" text-anchor="end">${esc(mt.k)}</text>
-              <text x="${R(metricsX + k * MW + MW - 12)}" y="${y + 71}" font-size="10" class="faint" text-anchor="end">${esc(
-              mt.v
-            )}</text>
-            </g>`
-        )
-        .join('');
+  const descY = 100 + chips.height + 14;
+  const descLines = wrap(m.bullets[0], W - 56, 12);
+  const repoY = descY + descLines.length * 17 + 16;
+  const h = R(repoY + 30);
 
-      const badgeW = R(textWidth(m.badge, 10) * 1.22 + 26);
-      const badge = m.badge
-        ? `<g class="tile" style="animation-delay:220ms">
-             <rect x="${W - 28 - badgeW}" y="${y + 20}" width="${badgeW}" height="19" rx="9.5" fill="${
-            i === 0 ? P.red : P.navy
-          }"/>
-             <text x="${R(W - 28 - badgeW / 2)}" y="${y + 30}" font-size="10" class="d" fill="#FFF3F1" text-anchor="middle">${esc(
-            m.badge.toUpperCase()
-          )}</text>
-           </g>`
-        : '';
+  /* headline badge — the award reads as the loudest thing on the card */
+  const badgeW = R(textWidth(m.badge, 10.5) * 1.24 + (isWin ? 66 : 30));
+  const badge = m.badge
+    ? `<g class="tile" style="animation-delay:200ms">
+         <rect x="${R(W - 26 - badgeW)}" y="22" width="${badgeW}" height="26" rx="13" fill="${
+        isWin ? 'url(#redGrad)' : P.navy
+      }" stroke="${isWin ? P.redBright : P.navyLift}" stroke-width="1"/>
+         ${isWin ? icon('trophy', W - 26 - badgeW + 21, 35, 17, '#FFF1EE') : ''}
+         <text x="${R(W - 26 - badgeW / 2 + (isWin ? 16 : 0))}" y="36" font-size="10.5" class="d" fill="${
+        isWin ? '#FFF1EE' : '#D7DEF8'
+      }" text-anchor="middle" letter-spacing="1">${esc(m.badge.toUpperCase())}</text>
+       </g>`
+    : '';
 
-      return `
-      ${panel({ x: 0, y, w: W, h: cardH, cut: 18, accent: i === 0 ? P.red : P.navy })}
-      <text x="24" y="${y + 30}" font-size="11" class="d" fill="${P.textFaint}" letter-spacing="2.4">${esc(m.code)}</text>
-      <text x="24" y="${y + 58}" font-size="25" class="d t">${esc(m.name)}</text>
-      <text x="24" y="${y + 80}" font-size="12.5" class="dim">${esc(m.subtitle)}</text>
-      ${badge}
-      ${chips.markup}
-      ${bodyText(m.bullets[0], { x: 24, y: y + 140, maxWidth: W - 56, size: 12, lh: 17, cls: 'dim' })}
-      ${metrics}
-      ${cornerWeb(W - 1, y + 1, 56, 1, P.edgeHi, 0.3)}`;
+  /* repo location, drawn in-card; the clickable twin lives in README.md */
+  const repoLine = m.repos
+    .map((r, k) => {
+      const path = r.url.replace(/^https?:\/\/github\.com\//, '');
+      const tw = R(textWidth(path, 11.5) + 46);
+      const x = 24 + m.repos.slice(0, k).reduce((a, p) => a + R(textWidth(p.url.replace(/^https?:\/\/github\.com\//, ''), 11.5) + 46) + 10, 0);
+      return `<g class="tile" style="animation-delay:${320 + k * 90}ms">
+        <rect x="${x}" y="${R(repoY - 13)}" width="${tw}" height="26" rx="7" fill="${P.panelHi}" stroke="${P.edge}" stroke-width="1"/>
+        ${icon('branch', x + 17, repoY, 15, P.navyGlow)}
+        <text x="${x + 31}" y="${R(repoY + 0.5)}" font-size="11.5" class="dim mono">${esc(path)}</text>
+      </g>`;
     })
     .join('');
+
+  const body = `
+  ${panel({ x: 0, y: 0, w: W, h, cut: 18, accent })}
+  <text x="24" y="30" font-size="11" class="d" fill="${P.textFaint}" letter-spacing="2.4">${esc(m.code)}</text>
+  <text x="24" y="58" font-size="25" class="d t">${esc(m.name)}</text>
+  <text x="24" y="80" font-size="12.5" class="dim">${esc(m.subtitle)}</text>
+  ${badge}
+  ${chips.markup}
+  ${bodyText(m.bullets[0], { x: 24, y: descY, maxWidth: W - 56, size: 12, lh: 17, cls: 'dim' })}
+  ${repoLine}
+  ${cornerWeb(W - 1, 1, 56, 1, P.edgeHi, 0.3)}`;
 
   return svgDoc({
     w: W,
     h,
-    title: 'Project missions',
-    desc: cards.map((m) => `${m.name}: ${m.subtitle}. Built with ${m.stack.join(', ')}.`).join(' '),
+    title: `${m.name} — ${m.subtitle}`,
+    desc: `${m.code}: ${m.name}, ${m.subtitle}.${m.badge ? ` ${m.badge}.` : ''} Built with ${m.stack.join(
+      ', '
+    )}. ${m.bullets[0]} Repository: ${m.repos.map((r) => r.url).join(', ')}.`,
     css: `${chipCss}${tileCss}`,
     body,
     bg: false,
   });
+}
+
+/* ══════════════════════════════════════════════════════ 6b. LINK BADGES */
+/**
+ * Small standalone badge image, meant to be wrapped in a Markdown link:
+ *   [![alt](readme/btn-x.svg)](https://…)
+ * That is the only way to get a clickable, themed control into a README.
+ */
+function linkBadge({ label, glyph, accent = P.navyGlow, fill = P.panelHi, height = 34 }) {
+  const pad = 14;
+  const iconBox = 17;
+  const tw = textWidth(label, 12.5);
+  const w = R(pad + iconBox + 9 + tw + pad);
+  const cy = height / 2;
+
+  const css = `
+  @keyframes badgeGlow{0%,100%{opacity:.55}50%{opacity:1}}
+  .glow{animation:badgeGlow 3.4s ease-in-out infinite}
+  `;
+
+  const body = `
+  <rect x="0.7" y="0.7" width="${R(w - 1.4)}" height="${height - 1.4}" rx="8" fill="${fill}" stroke="${P.edge}" stroke-width="1.4"/>
+  <path d="M8.7 0.7H${R(w - 8)}" stroke="${accent}" stroke-width="2" opacity="0.9"/>
+  <g class="glow">${cornerWeb(w - 2.4, 2.4, 19, 1, accent, 0.3)}</g>
+  ${icon(glyph, pad + iconBox / 2, cy, iconBox, accent)}
+  <text x="${R(pad + iconBox + 9)}" y="${R(cy + 0.5)}" font-size="12.5" class="t">${esc(label)}</text>`;
+
+  return svgDoc({ w, h: height, title: label, css, body, bg: false });
 }
 
 /* ═══════════════════════════════════════════════ 7. CONTRIBUTION WEB (⭐) */
@@ -522,18 +593,22 @@ function achievements() {
   const items = profile.achievements;
   const rowH = 82;
   const h = items.length * (rowH + 12) + 8;
-  const icon = (kind, x, y) => {
-    if (kind === 'win')
-      return `<g><circle cx="${x}" cy="${y}" r="17" fill="${P.red}"/><path d="M${x - 7} ${y - 6}h14v5a7 7 0 0 1-14 0Z" fill="#FFF1EE"/><path d="M${
-        x - 3
-      } ${y + 1}h6v7h-6Z" fill="#FFF1EE"/><path d="M${x - 7} ${y + 8}h14v2.5h-14Z" fill="#FFF1EE"/></g>`;
-    if (kind === 'score')
-      return `<g><circle cx="${x}" cy="${y}" r="17" fill="${P.navy}"/><path d="M${x - 8} ${y + 5} l5 -9 l4 5 l6 -11" fill="none" stroke="#DCE6FF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></g>`;
-    return `<g><circle cx="${x}" cy="${y}" r="17" fill="${P.panelHi}" stroke="${P.edgeHi}" stroke-width="1.2"/>${spiderMark(
+  /* one distinct glyph per achievement, each in its own coloured medallion */
+  const MEDALLION = {
+    win: { glyph: 'trophy', ring: P.redBright, disc: P.red, ink: '#FFF1EE' },
+    agent: { glyph: 'agent', ring: P.navyGlow, disc: P.navy, ink: '#D7DEF8' },
+    code: { glyph: 'code', ring: P.edgeHi, disc: P.panelHi, ink: '#BFC9E8' },
+    globe: { glyph: 'globe', ring: P.navyLift, disc: P.panelHi, ink: '#AEB9DC' },
+    score: { glyph: 'score', ring: P.navyGlow, disc: P.navy, ink: '#DCE6FF' },
+  };
+  const medallion = (kind, x, y) => {
+    const m = MEDALLION[kind] || MEDALLION.code;
+    return `<g><circle cx="${x}" cy="${y}" r="19" fill="${m.disc}" stroke="${m.ring}" stroke-width="1.4"/>${icon(
+      m.glyph,
       x,
       y,
-      0.62,
-      P.textDim
+      21,
+      m.ink
     )}</g>`;
   };
 
@@ -542,7 +617,7 @@ function achievements() {
       const y = 4 + i * (rowH + 12);
       return `
       ${panel({ x: 0, y, w: W, h: rowH, cut: 12, accent: a.kind === 'win' ? P.red : P.navy })}
-      ${icon(a.kind, 40, y + rowH / 2)}
+      ${medallion(a.kind, 42, y + rowH / 2)}
       <text x="76" y="${y + 28}" font-size="15" class="d t">${esc(a.title)}</text>
       ${bodyText(a.detail, { x: 76, y: y + 50, maxWidth: W - 110, size: 11.5, lh: 16, cls: 'dim' })}`;
     })
@@ -612,26 +687,48 @@ function footer() {
 
 /* ════════════════════════════════════════════════════════════ 11. CONTACT */
 function contact() {
-  const h = 150;
-  const css = `${bubbleCss}${chipCss}${mascotCss}`;
+  const h = 168;
+  const css = `${bubbleCss}${chipCss}${mascotCss}${tileCss}`;
   const scale = 0.36;
+
+  /* icon + short handle, never a raw URL */
+  const rows = [
+    { glyph: 'mail', text: profile.identity.email, tint: P.redBright },
+    { glyph: 'branch', text: `@${profile.identity.githubHandle}`, tint: P.navyGlow },
+    { glyph: 'linkedin', text: profile.identity.linkedinHandle, tint: P.navyGlow },
+    { glyph: 'pin', text: profile.identity.location, tint: P.edgeHi },
+  ];
+
+  const colX = 344;
+  const rowStep = 33;
+  const rowTop = 40;
+
+  const list = rows
+    .map((r, i) => {
+      const cy = rowTop + i * rowStep;
+      return `<g class="tile" style="animation-delay:${140 + i * 90}ms">
+        <rect x="${colX - 4}" y="${R(cy - 15)}" width="30" height="30" rx="9" fill="${P.panelHi}" stroke="${P.edge}" stroke-width="1"/>
+        ${icon(r.glyph, colX + 11, cy, 17, r.tint)}
+        <text x="${colX + 40}" y="${R(cy + 0.5)}" font-size="13.5" class="t">${esc(r.text)}</text>
+      </g>`;
+    })
+    .join('');
+
   const body = `
   ${panel({ x: 0, y: 0, w: W, h, cut: 18, accent: P.red })}
   ${cornerWeb(1, 1, 90, 0, P.edgeHi, 0.3)}
-  <g class="is-excited"><g transform="translate(30 ${R(h - 14 - 240 * scale)}) scale(${scale})">${mascotMarkup({
+  ${cornerWeb(W - 1, h - 1, 70, 2, P.edgeHi, 0.24)}
+  <g class="is-excited"><g transform="translate(30 ${R(h - 16 - 240 * scale)}) scale(${scale})">${mascotMarkup({
     uid: 'ct',
     showTail: true,
   })}</g></g>
-  ${speechBubble({ x: 140, y: 26, text: profile.speech.contact, size: 19 })}
-  <text x="330" y="46" font-size="13" class="dim">${esc(profile.identity.email)}</text>
-  <text x="330" y="70" font-size="13" class="dim">${esc('github.com/' + profile.identity.handle)}</text>
-  <text x="330" y="94" font-size="13" class="dim">${esc('linkedin.com/in/srushti-kalokhe-95a887385')}</text>
-  <text x="330" y="118" font-size="13" class="dim">${esc(profile.identity.location)}</text>`;
+  ${speechBubble({ x: 140, y: 34, text: profile.speech.contact, size: 19 })}
+  ${list}`;
   return svgDoc({
     w: W,
     h,
     title: 'Contact panel',
-    desc: `Contact ${profile.identity.shortName}: ${profile.identity.email}, github.com/${profile.identity.handle}`,
+    desc: `Contact ${profile.identity.shortName}: email ${profile.identity.email}, GitHub @${profile.identity.githubHandle}, LinkedIn ${profile.identity.linkedinHandle}, based in ${profile.identity.location}.`,
     css,
     body,
     bg: false,
@@ -683,7 +780,23 @@ head('sec-stats.svg', 'SIGNAL', 'activity readout');
 head('sec-achievements.svg', 'ACHIEVEMENTS', 'wall of wins');
 head('sec-contact.svg', 'CONTACT', 'open a thread');
 write('arsenal.svg', arsenal());
-write('missions.svg', missions());
+
+/* one card per mission + a clickable badge per repository */
+profile.missions.forEach((m, i) => {
+  write(`mission-0${i + 1}.svg`, missionCard(m, i));
+  m.repos.forEach((r) => {
+    write(`btn-${r.slug}.svg`, linkBadge({ label: r.label, glyph: 'branch', accent: P.navyGlow }));
+  });
+});
+
+/* clickable contact controls */
+write('btn-mail.svg', linkBadge({ label: profile.identity.email, glyph: 'mail', accent: P.redBright }));
+write('btn-github.svg', linkBadge({ label: `@${profile.identity.githubHandle}`, glyph: 'branch', accent: P.navyGlow }));
+write(
+  'btn-linkedin.svg',
+  linkBadge({ label: profile.identity.linkedinHandle, glyph: 'linkedin', accent: P.navyGlow })
+);
+
 const cw = contributionWeb();
 write('contribution-web.svg', cw.svg);
 write('stats.svg', statsPanel(cw.cal, cw.stats));

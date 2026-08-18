@@ -41,9 +41,11 @@
   .faint{fill:#5C6684}
   .red{fill:#E0475A}
   @media (prefers-reduced-motion: reduce){*{animation:none !important}}
-@keyframes winPulse{0%,100%{opacity:.28}50%{opacity:1}}
-.win{animation:winPulse 4s ease-in-out infinite}
-.w0{animation-delay:0s}.w1{animation-delay:.8s}.w2{animation-delay:1.6s}.w3{animation-delay:2.4s}.w4{animation-delay:3.2s}
+@keyframes winPulse{0%,100%{opacity:.16}42%{opacity:1}58%{opacity:.9}}
+.win{animation:winPulse 3.6s ease-in-out infinite}
+.w0{animation-delay:0s}.w1{animation-delay:.45s}.w2{animation-delay:.9s}.w3{animation-delay:1.35s}
+.w4{animation-delay:1.8s}.w5{animation-delay:2.25s}.w6{animation-delay:2.7s}.w7{animation-delay:3.15s}
+.w1{animation-duration:4.4s}.w3{animation-duration:2.9s}.w5{animation-duration:5.1s}.w7{animation-duration:3.2s}
   /* additive motion only — cells are visible at their base style at all times */
   @keyframes cellIn{0%{transform:scale(.35)}72%{transform:scale(1.2)}100%{transform:scale(1)}}
   .c{transform-box:fill-box;transform-origin:50% 50%;animation:cellIn .55s cubic-bezier(.3,1.4,.5,1)}

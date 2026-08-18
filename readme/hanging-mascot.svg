@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 250 300" width="250" height="300" role="img" aria-label="Web-Byte, the spider-suited mascot, descending on a web strand" preserveAspectRatio="xMidYMid meet">
-<title>Web-Byte, the spider-suited mascot, descending on a web strand</title>
-<desc>Animated mascot lowering itself on a thread, swinging gently and flicking a small web.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 260 520" width="260" height="520" role="img" aria-label="Web-Byte, the spider-suited mascot, abseiling down a long web strand" preserveAspectRatio="xMidYMid meet">
+<title>Web-Byte, the spider-suited mascot, abseiling down a long web strand</title>
+<desc>Animated mascot paying out a long thread, hanging and swaying at the bottom, then climbing back up.</desc>
 <defs>
   <linearGradient id="bgGrad" x1="0" y1="0" x2="0.4" y2="1">
     <stop offset="0" stop-color="#0C0F1B"/>
@@ -82,20 +82,34 @@
 @media (prefers-reduced-motion: reduce){
   .wb-root,.wb-head,.wb-eyes,.wb-arm-r,.wb-webshot,.wb-tail{animation:none !important}
 }
-  @keyframes dropIn{0%{transform:translateY(-190px);opacity:0}18%{opacity:1}46%{transform:translateY(6px)}62%{transform:translateY(-3px)}78%,100%{transform:translateY(0)}}
-  @keyframes lineGrow{0%{transform:scaleY(0)}30%,100%{transform:scaleY(1)}}
-  @keyframes tinyShot{0%,64%{opacity:0;transform:scaleX(.2)}70%{opacity:1;transform:scaleX(1)}84%{opacity:1}92%,100%{opacity:0}}
-  .rig{animation:dropIn 9s cubic-bezier(.25,.9,.35,1) infinite}
-  .line{transform-box:fill-box;transform-origin:50% 0%;animation:lineGrow 9s cubic-bezier(.25,.9,.35,1) infinite}
-  .tiny{transform-box:fill-box;transform-origin:0% 50%;animation:tinyShot 9s ease-out infinite}
+  @keyframes payOut{
+    0%,6%{transform:translateY(-322px)}
+    40%{transform:translateY(14px)}
+    50%{transform:translateY(-8px)}
+    58%,84%{transform:translateY(0)}
+    100%{transform:translateY(-322px)}
+  }
+  @keyframes lineOut{
+    0%,6%{transform:scaleY(.055)}
+    40%{transform:scaleY(1.04)}
+    58%,84%{transform:scaleY(1)}
+    100%{transform:scaleY(.055)}
+  }
+  @keyframes sway{0%,100%{transform:rotate(-4.5deg)}50%{transform:rotate(4.5deg)}}
+  @keyframes tinyShot{0%,66%{transform:scaleX(.05)}72%{transform:scaleX(1)}80%{transform:scaleX(1)}84%,100%{transform:scaleX(.05)}}
+  .swing{transform-box:fill-box;transform-origin:50% 0%;animation:sway 4.6s ease-in-out infinite}
+  .rig{animation:payOut 13s cubic-bezier(.3,.85,.35,1) infinite}
+  .line{transform-box:fill-box;transform-origin:50% 0%;animation:lineOut 13s cubic-bezier(.3,.85,.35,1) infinite}
+  .tiny{transform-box:fill-box;transform-origin:0% 50%;animation:tinyShot 13s ease-out infinite}
   </style>
-  <g class="line"><g stroke="#5C6684" fill="none" stroke-linecap="round">
-    <path d="M125 0V118" stroke-width="1.6"/>
-    <path d="M122 10L128 14M122 24L128 28M122 38L128 42M122 52L128 56M122 66L128 70M122 80L128 84M122 94L128 98M122 108L128 112" stroke-width="1.1199999999999999" opacity="0.55"/>
+  <g class="swing">
+    <g class="line"><g stroke="#5C6684" fill="none" stroke-linecap="round">
+    <path d="M130 0V370" stroke-width="1.6"/>
+    <path d="M127 10L133 14M127 24L133 28M127 38L133 42M127 52L133 56M127 66L133 70M127 80L133 84M127 94L133 98M127 108L133 112M127 122L133 126M127 136L133 140M127 150L133 154M127 164L133 168M127 178L133 182M127 192L133 196M127 206L133 210M127 220L133 224M127 234L133 238M127 248L133 252M127 262L133 266M127 276L133 280M127 290L133 294M127 304L133 308M127 318L133 322M127 332L133 336M127 346L133 350M127 360L133 364" stroke-width="1.1199999999999999" opacity="0.55"/>
   </g></g>
-  <g class="rig">
-    <g class="is-hang">
-      <g transform="translate(50.6 92) scale(0.62)">
+    <g class="rig">
+      <g class="is-hang">
+        <g transform="translate(55.6 344) scale(0.62)">
   <defs>
     <linearGradient id="hang-suitG" x1="0" y1="0" x2="0.2" y2="1">
       <stop offset="0" stop-color="#BE3546"/>
@@ -176,11 +190,12 @@
       </g>
   </g>
   </g></g>
-    </g>
-    <g class="tiny">
-      <path d="M143.6 207.32 L196.92 196.16"
-            stroke="#9AA3BE" stroke-width="1.8" stroke-linecap="round" fill="none" opacity="0.9"/>
-      <circle cx="198.16" cy="195.54" r="2.6" fill="#9AA3BE"/>
+      </g>
+      <g class="tiny">
+        <path d="M148.6 459.32 L199.44 448.16"
+              stroke="#9AA3BE" stroke-width="1.8" stroke-linecap="round" fill="none" opacity="0.9"/>
+        <circle cx="200.68" cy="447.54" r="2.6" fill="#9AA3BE"/>
+      </g>
     </g>
   </g>
 </svg>

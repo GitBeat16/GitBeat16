@@ -51,7 +51,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              PICT PUNE · {education.degree.toUpperCase()}
+              PICT PUNE · {education.field.toUpperCase()}
             </motion.p>
 
             <motion.h1
@@ -152,13 +152,15 @@ export default function Home() {
         <section className="section">
           <SectionHead title="MISSIONS" kicker="things I shipped" />
           {missions.map((m, i) => (
-            <ComicPanel key={m.name} label={m.code} accent={i === 0 ? 'red' : 'navy'} delay={i * 0.06}>
+            <ComicPanel key={m.name} label={m.code} accent={m.accent === 'red' ? 'red' : 'navy'} delay={i * 0.06}>
               <div className="mission__top">
                 <div>
                   <h3>{m.name}</h3>
                   <p className="mission__sub">{m.subtitle}</p>
                 </div>
-                {m.badge && <span className={`badge ${i === 0 ? '' : 'badge--navy'}`}>{m.badge.toUpperCase()}</span>}
+                {m.badge && (
+                  <span className={`badge ${m.accent === 'red' ? '' : 'badge--navy'}`}>{m.badge.toUpperCase()}</span>
+                )}
               </div>
 
               <ul className="chips">
@@ -175,16 +177,15 @@ export default function Home() {
                 ))}
               </ul>
 
-              {m.metrics.length > 0 && (
-                <div className="metrics">
-                  {m.metrics.map((mt) => (
-                    <div key={mt.v}>
-                      <b>{mt.k}</b>
-                      <span>{mt.v}</span>
-                    </div>
-                  ))}
-                </div>
-              )}
+              <ul className="chips">
+                {m.repos.map((r) => (
+                  <li key={r.slug}>
+                    <a className="chip chip--link" href={r.url} target="_blank" rel="noreferrer">
+                      {r.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </ComicPanel>
           ))}
         </section>

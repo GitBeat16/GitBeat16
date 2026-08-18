@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 95.25 34" width="95.25" height="34" role="img" aria-label="aura_2" preserveAspectRatio="xMidYMid meet">
+<title>aura_2</title>
+<defs>
+  <linearGradient id="bgGrad" x1="0" y1="0" x2="0.4" y2="1">
+    <stop offset="0" stop-color="#0C0F1B"/>
+    <stop offset="0.55" stop-color="#0B0D16"/>
+    <stop offset="1" stop-color="#06070E"/>
+  </linearGradient>
+  <linearGradient id="redGrad" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#E0475A"/>
+    <stop offset="1" stop-color="#B5303F"/>
+  </linearGradient>
+  <linearGradient id="navyGrad" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#4C63B6"/>
+    <stop offset="1" stop-color="#172143"/>
+  </linearGradient>
+  <linearGradient id="edgeGrad" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#B5303F" stop-opacity="0.9"/>
+    <stop offset="0.5" stop-color="#33406B" stop-opacity="0.55"/>
+    <stop offset="1" stop-color="#172143" stop-opacity="0.9"/>
+  </linearGradient>
+  <pattern id="halftone" width="6" height="6" patternUnits="userSpaceOnUse">
+    <circle cx="1.5" cy="1.5" r="0.75" fill="#FFFFFF" fill-opacity="0.035"/>
+    <circle cx="4.5" cy="4.5" r="0.75" fill="#FFFFFF" fill-opacity="0.02"/>
+  </pattern>
+  <filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="3.2" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="tinyGlow" x="-60%" y="-60%" width="220%" height="220%">
+    <feGaussianBlur stdDeviation="1.6" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter></defs>
+<style>
+  text{font-family:'Segoe UI', 'Helvetica Neue', 'DejaVu Sans', Arial, sans-serif;dominant-baseline:middle}
+  .d{font-family:'Trebuchet MS', 'Verdana', 'DejaVu Sans', sans-serif;font-weight:700;letter-spacing:0.5px}
+  .mono{font-family:'SFMono-Regular', 'DejaVu Sans Mono', Menlo, Consolas, monospace}
+  .t{fill:#ECE7E4}
+  .dim{fill:#9AA3BE}
+  .faint{fill:#5C6684}
+  .red{fill:#E0475A}
+  @media (prefers-reduced-motion: reduce){*{animation:none !important}}
+  @keyframes badgeGlow{0%,100%{opacity:.55}50%{opacity:1}}
+  .glow{animation:badgeGlow 3.4s ease-in-out infinite}
+  </style>
+  <rect x="0.7" y="0.7" width="93.85" height="32.6" rx="8" fill="#151B31" stroke="#232B47" stroke-width="1.4"/>
+  <path d="M8.7 0.7H87.25" stroke="#4C63B6" stroke-width="2" opacity="0.9"/>
+  <g class="glow"><path d="M92.85 2.4L92.85 21.4M92.85 2.4L86.98 20.47M92.85 2.4L81.68 17.77M92.85 2.4L77.48 13.57M92.85 2.4L74.78 8.27M92.85 2.4L73.85 2.4M92.85 7.72Q92.13 6.92 91.21 7.46M91.21 7.46Q90.77 6.48 89.72 6.7M89.72 6.7Q89.61 5.64 88.55 5.53M88.55 5.53Q88.77 4.48 87.79 4.04M87.79 4.04Q88.33 3.12 87.53 2.4M92.85 11.9Q91.57 10.47 89.91 11.44M89.91 11.44Q89.14 9.68 87.27 10.09M87.27 10.09Q87.07 8.18 85.16 7.98M85.16 7.98Q85.57 6.11 83.81 5.34M83.81 5.34Q84.78 3.68 83.35 2.4M92.85 16.08Q91.01 14.02 88.62 15.41M88.62 15.41Q87.51 12.88 84.81 13.47M84.81 13.47Q84.53 10.72 81.78 10.44M81.78 10.44Q82.37 7.74 79.84 6.63M79.84 6.63Q81.23 4.24 79.17 2.4M92.85 21.4Q90.29 18.54 86.98 20.47M86.98 20.47Q85.43 16.96 81.68 17.77M81.68 17.77Q81.3 13.95 77.48 13.57M77.48 13.57Q78.29 9.82 74.78 8.27M74.78 8.27Q76.71 4.96 73.85 2.4" fill="none" stroke="#4C63B6" stroke-width="1" opacity="0.3" stroke-linecap="round"/></g>
+  <g transform="translate(22.5 17) scale(0.7083)">
+    <path d="M-5.5 -5.5V5.5" fill="none" stroke="#4C63B6" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M5.5 -3.2V-1C5.5 3.4 1.5 3 -5.5 4" fill="none" stroke="#4C63B6" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M-5.5 -9.6a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z" fill="#4C63B6"/>
+    <path d="M-5.5 3.6a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z" fill="#4C63B6"/>
+    <path d="M5.5 -9.6a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z" fill="#4C63B6"/></g>
+  <text x="40" y="17.5" font-size="12.5" class="t">aura_2</text>
+</svg>

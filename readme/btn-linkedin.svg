@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 151.87 34" width="151.87" height="34" role="img" aria-label="srushti-kalokhe" preserveAspectRatio="xMidYMid meet">
+<title>srushti-kalokhe</title>
+<defs>
+  <linearGradient id="bgGrad" x1="0" y1="0" x2="0.4" y2="1">
+    <stop offset="0" stop-color="#0C0F1B"/>
+    <stop offset="0.55" stop-color="#0B0D16"/>
+    <stop offset="1" stop-color="#06070E"/>
+  </linearGradient>
+  <linearGradient id="redGrad" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#E0475A"/>
+    <stop offset="1" stop-color="#B5303F"/>
+  </linearGradient>
+  <linearGradient id="navyGrad" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#4C63B6"/>
+    <stop offset="1" stop-color="#172143"/>
+  </linearGradient>
+  <linearGradient id="edgeGrad" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#B5303F" stop-opacity="0.9"/>
+    <stop offset="0.5" stop-color="#33406B" stop-opacity="0.55"/>
+    <stop offset="1" stop-color="#172143" stop-opacity="0.9"/>
+  </linearGradient>
+  <pattern id="halftone" width="6" height="6" patternUnits="userSpaceOnUse">
+    <circle cx="1.5" cy="1.5" r="0.75" fill="#FFFFFF" fill-opacity="0.035"/>
+    <circle cx="4.5" cy="4.5" r="0.75" fill="#FFFFFF" fill-opacity="0.02"/>
+  </pattern>
+  <filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="3.2" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="tinyGlow" x="-60%" y="-60%" width="220%" height="220%">
+    <feGaussianBlur stdDeviation="1.6" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter></defs>
+<style>
+  text{font-family:'Segoe UI', 'Helvetica Neue', 'DejaVu Sans', Arial, sans-serif;dominant-baseline:middle}
+  .d{font-family:'Trebuchet MS', 'Verdana', 'DejaVu Sans', sans-serif;font-weight:700;letter-spacing:0.5px}
+  .mono{font-family:'SFMono-Regular', 'DejaVu Sans Mono', Menlo, Consolas, monospace}
+  .t{fill:#ECE7E4}
+  .dim{fill:#9AA3BE}
+  .faint{fill:#5C6684}
+  .red{fill:#E0475A}
+  @media (prefers-reduced-motion: reduce){*{animation:none !important}}
+  @keyframes badgeGlow{0%,100%{opacity:.55}50%{opacity:1}}
+  .glow{animation:badgeGlow 3.4s ease-in-out infinite}
+  </style>
+  <rect x="0.7" y="0.7" width="150.47" height="32.6" rx="8" fill="#151B31" stroke="#232B47" stroke-width="1.4"/>
+  <path d="M8.7 0.7H143.87" stroke="#4C63B6" stroke-width="2" opacity="0.9"/>
+  <g class="glow"><path d="M149.47 2.4L149.47 21.4M149.47 2.4L143.6 20.47M149.47 2.4L138.3 17.77M149.47 2.4L134.1 13.57M149.47 2.4L131.4 8.27M149.47 2.4L130.47 2.4M149.47 7.72Q148.75 6.92 147.83 7.46M147.83 7.46Q147.39 6.48 146.34 6.7M146.34 6.7Q146.23 5.64 145.17 5.53M145.17 5.53Q145.39 4.48 144.41 4.04M144.41 4.04Q144.95 3.12 144.15 2.4M149.47 11.9Q148.19 10.47 146.53 11.44M146.53 11.44Q145.76 9.68 143.89 10.09M143.89 10.09Q143.69 8.18 141.78 7.98M141.78 7.98Q142.19 6.11 140.43 5.34M140.43 5.34Q141.4 3.68 139.97 2.4M149.47 16.08Q147.63 14.02 145.24 15.41M145.24 15.41Q144.13 12.88 141.43 13.47M141.43 13.47Q141.15 10.72 138.4 10.44M138.4 10.44Q138.99 7.74 136.46 6.63M136.46 6.63Q137.85 4.24 135.79 2.4M149.47 21.4Q146.91 18.54 143.6 20.47M143.6 20.47Q142.05 16.96 138.3 17.77M138.3 17.77Q137.92 13.95 134.1 13.57M134.1 13.57Q134.91 9.82 131.4 8.27M131.4 8.27Q133.33 4.96 130.47 2.4" fill="none" stroke="#4C63B6" stroke-width="1" opacity="0.3" stroke-linecap="round"/></g>
+  <g transform="translate(22.5 17) scale(0.7083)">
+    <path d="M-10.5 -10.5h21v21h-21z" fill="none" stroke="#4C63B6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M-6.6 -6.6a1.9 1.9 0 1 1 0 3.8 1.9 1.9 0 0 1 0-3.8Z" fill="#4C63B6"/>
+    <path d="M-8.2 -1.2h3.2v8.6h-3.2z" fill="#4C63B6"/>
+    <path d="M-2 -1.2h3.1v1.3a3.5 3.5 0 0 1 6.3 2.2v5.1h-3.2v-4.5a1.6 1.6 0 0 0-3.2 0v4.5h-3z" fill="#4C63B6"/></g>
+  <text x="40" y="17.5" font-size="12.5" class="t">srushti-kalokhe</text>
+</svg>

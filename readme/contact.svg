@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 880 150" width="880" height="150" role="img" aria-label="Contact panel" preserveAspectRatio="xMidYMid meet">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 880 168" width="880" height="168" role="img" aria-label="Contact panel" preserveAspectRatio="xMidYMid meet">
 <title>Contact panel</title>
-<desc>Contact Srushti Kalokhe: srushtipict@gmail.com, github.com/GitBeat16</desc>
+<desc>Contact Srushti Kalokhe: email ksrushti1610@gmail.com, GitHub @GitBeat16, LinkedIn srushti-kalokhe, based in Pune, Maharashtra.</desc>
 <defs>
   <linearGradient id="bgGrad" x1="0" y1="0" x2="0.4" y2="1">
     <stop offset="0" stop-color="#0C0F1B"/>
@@ -90,14 +90,17 @@
 @media (prefers-reduced-motion: reduce){
   .wb-root,.wb-head,.wb-eyes,.wb-arm-r,.wb-webshot,.wb-tail{animation:none !important}
 }
+@keyframes tileIn{0%{transform:translateY(11px) scale(.985)}100%{transform:translateY(0) scale(1)}}
+.tile{animation:tileIn .55s ease-out;transform-box:fill-box}
 </style>
   <g opacity="1">
-    <path d="M18 0H880V132L862 150H0V18Z" fill="#101426" stroke="#232B47" stroke-width="1.4"/>
-    <path d="M18 0H880V132L862 150H0V18Z" fill="url(#halftone)"/>
+    <path d="M18 0H880V150L862 168H0V18Z" fill="#101426" stroke="#232B47" stroke-width="1.4"/>
+    <path d="M18 0H880V150L862 168H0V18Z" fill="url(#halftone)"/>
     <path d="M18 0H880" stroke="#B5303F" stroke-width="2.2" fill="none" opacity="0.9"/>
   </g>
   <path d="M1 1L91 1M1 1L86.6 28.81M1 1L73.81 53.9M1 1L53.9 73.81M1 1L28.81 86.6M1 1L1 91M26.2 1Q22.41 4.39 24.97 8.79M24.97 8.79Q20.31 10.84 21.39 15.81M21.39 15.81Q16.32 16.32 15.81 21.39M15.81 21.39Q10.84 20.31 8.79 24.97M8.79 24.97Q4.39 22.41 1 26.2M46 1Q39.22 7.05 43.8 14.91M43.8 14.91Q35.48 18.57 37.41 27.45M37.41 27.45Q28.37 28.37 27.45 37.41M27.45 37.41Q18.57 35.48 14.91 43.8M14.91 43.8Q7.05 39.22 1 46M65.8 1Q56.04 9.72 62.63 21.02M62.63 21.02Q50.65 26.3 53.42 39.09M53.42 39.09Q40.41 40.41 39.09 53.42M39.09 53.42Q26.3 50.65 21.02 62.63M21.02 62.63Q9.72 56.04 1 65.8M91 1Q77.45 13.11 86.6 28.81M86.6 28.81Q69.96 36.14 73.81 53.9M73.81 53.9Q55.73 55.73 53.9 73.81M53.9 73.81Q36.14 69.96 28.81 86.6M28.81 86.6Q13.11 77.45 1 91" fill="none" stroke="#33406B" stroke-width="1" opacity="0.3" stroke-linecap="round"/>
-  <g class="is-excited"><g transform="translate(30 49.6) scale(0.36)">
+  <path d="M879 167L809 167M879 167L812.43 145.37M879 167L822.37 125.86M879 167L837.86 110.37M879 167L857.37 100.43M879 167L879 97M859.4 167Q862.35 164.36 860.36 160.94M860.36 160.94Q863.98 159.35 863.14 155.48M863.14 155.48Q867.08 155.08 867.48 151.14M867.48 151.14Q871.35 151.98 872.94 148.36M872.94 148.36Q876.36 150.35 879 147.4M844 167Q849.27 162.29 845.71 156.18M845.71 156.18Q852.18 153.33 850.68 146.43M850.68 146.43Q857.72 145.72 858.43 138.68M858.43 138.68Q865.33 140.18 868.18 133.71M868.18 133.71Q874.29 137.27 879 132M828.6 167Q836.19 160.22 831.07 151.43M831.07 151.43Q840.38 147.32 838.23 137.38M838.23 137.38Q848.35 136.35 849.38 126.23M849.38 126.23Q859.32 128.38 863.43 119.07M863.43 119.07Q872.22 124.19 879 116.6M809 167Q819.54 157.58 812.43 145.37M812.43 145.37Q825.36 139.67 822.37 125.86M822.37 125.86Q836.43 124.43 837.86 110.37M837.86 110.37Q851.67 113.36 857.37 100.43M857.37 100.43Q869.58 107.54 879 97" fill="none" stroke="#33406B" stroke-width="1" opacity="0.24" stroke-linecap="round"/>
+  <g class="is-excited"><g transform="translate(30 65.6) scale(0.36)">
   <defs>
     <linearGradient id="ct-suitG" x1="0" y1="0" x2="0.2" y2="1">
       <stop offset="0" stop-color="#BE3546"/>
@@ -179,15 +182,41 @@
   </g>
   </g></g></g>
   <g class="bubble">
-    <rect x="140" y="26" width="111.64" height="47" rx="23.5" fill="#B5303F"/>
-    <path d="M166.79 69 l-6 20 l22 -14 Z" fill="#B5303F"/>
-    <rect x="140" y="26" width="111.64" height="47" rx="23.5" fill="url(#halftone)"/>
-    <rect x="140" y="26" width="111.64" height="47" rx="23.5" fill="none" stroke="#1A0A0F" stroke-width="2.4"/>
-    <path d="M166.79 69 l-6 20 l22 -14 Z" fill="none" stroke="#1A0A0F" stroke-width="2.4" stroke-linejoin="round"/>
-    <text x="195.82" y="50.5" font-size="19" class="d" fill="#FFF6F4" text-anchor="middle">SHIP IT.</text>
+    <rect x="140" y="34" width="111.64" height="47" rx="23.5" fill="#B5303F"/>
+    <path d="M166.79 77 l-6 20 l22 -14 Z" fill="#B5303F"/>
+    <rect x="140" y="34" width="111.64" height="47" rx="23.5" fill="url(#halftone)"/>
+    <rect x="140" y="34" width="111.64" height="47" rx="23.5" fill="none" stroke="#1A0A0F" stroke-width="2.4"/>
+    <path d="M166.79 77 l-6 20 l22 -14 Z" fill="none" stroke="#1A0A0F" stroke-width="2.4" stroke-linejoin="round"/>
+    <text x="195.82" y="58.5" font-size="19" class="d" fill="#FFF6F4" text-anchor="middle">SHIP IT.</text>
   </g>
-  <text x="330" y="46" font-size="13" class="dim">srushtipict@gmail.com</text>
-  <text x="330" y="70" font-size="13" class="dim">github.com/GitBeat16</text>
-  <text x="330" y="94" font-size="13" class="dim">linkedin.com/in/srushti-kalokhe-95a887385</text>
-  <text x="330" y="118" font-size="13" class="dim">Pune, Maharashtra</text>
+  <g class="tile" style="animation-delay:140ms">
+        <rect x="340" y="25" width="30" height="30" rx="9" fill="#151B31" stroke="#232B47" stroke-width="1"/>
+        <g transform="translate(355 40) scale(0.7083)">
+    <path d="M-10.5 -7.5h21v15h-21z" fill="none" stroke="#E0475A" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M-10.5 -6.5 0 1.5 10.5 -6.5" fill="none" stroke="#E0475A" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" /></g>
+        <text x="384" y="40.5" font-size="13.5" class="t">ksrushti1610@gmail.com</text>
+      </g><g class="tile" style="animation-delay:230ms">
+        <rect x="340" y="58" width="30" height="30" rx="9" fill="#151B31" stroke="#232B47" stroke-width="1"/>
+        <g transform="translate(355 73) scale(0.7083)">
+    <path d="M-5.5 -5.5V5.5" fill="none" stroke="#4C63B6" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M5.5 -3.2V-1C5.5 3.4 1.5 3 -5.5 4" fill="none" stroke="#4C63B6" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M-5.5 -9.6a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z" fill="#4C63B6"/>
+    <path d="M-5.5 3.6a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z" fill="#4C63B6"/>
+    <path d="M5.5 -9.6a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z" fill="#4C63B6"/></g>
+        <text x="384" y="73.5" font-size="13.5" class="t">@GitBeat16</text>
+      </g><g class="tile" style="animation-delay:320ms">
+        <rect x="340" y="91" width="30" height="30" rx="9" fill="#151B31" stroke="#232B47" stroke-width="1"/>
+        <g transform="translate(355 106) scale(0.7083)">
+    <path d="M-10.5 -10.5h21v21h-21z" fill="none" stroke="#4C63B6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M-6.6 -6.6a1.9 1.9 0 1 1 0 3.8 1.9 1.9 0 0 1 0-3.8Z" fill="#4C63B6"/>
+    <path d="M-8.2 -1.2h3.2v8.6h-3.2z" fill="#4C63B6"/>
+    <path d="M-2 -1.2h3.1v1.3a3.5 3.5 0 0 1 6.3 2.2v5.1h-3.2v-4.5a1.6 1.6 0 0 0-3.2 0v4.5h-3z" fill="#4C63B6"/></g>
+        <text x="384" y="106.5" font-size="13.5" class="t">srushti-kalokhe</text>
+      </g><g class="tile" style="animation-delay:410ms">
+        <rect x="340" y="124" width="30" height="30" rx="9" fill="#151B31" stroke="#232B47" stroke-width="1"/>
+        <g transform="translate(355 139) scale(0.7083)">
+    <path d="M0 10.5C-4.6 4.6 -7 1.6 -7 -1.6a7 7 0 0 1 14 0c0 3.2 -2.4 6.2 -7 12.1Z" fill="none" stroke="#33406B" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M0 -4.2a2.6 2.6 0 1 1 0 5.2 2.6 2.6 0 0 1 0-5.2Z" fill="none" stroke="#33406B" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" /></g>
+        <text x="384" y="139.5" font-size="13.5" class="t">Pune, Maharashtra</text>
+      </g>
 </svg>

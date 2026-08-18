@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 240.25 34" width="240.25" height="34" role="img" aria-label="Sahay · adaptive_learning_ngo" preserveAspectRatio="xMidYMid meet">
+<title>Sahay · adaptive_learning_ngo</title>
+<defs>
+  <linearGradient id="bgGrad" x1="0" y1="0" x2="0.4" y2="1">
+    <stop offset="0" stop-color="#0C0F1B"/>
+    <stop offset="0.55" stop-color="#0B0D16"/>
+    <stop offset="1" stop-color="#06070E"/>
+  </linearGradient>
+  <linearGradient id="redGrad" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#E0475A"/>
+    <stop offset="1" stop-color="#B5303F"/>
+  </linearGradient>
+  <linearGradient id="navyGrad" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#4C63B6"/>
+    <stop offset="1" stop-color="#172143"/>
+  </linearGradient>
+  <linearGradient id="edgeGrad" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#B5303F" stop-opacity="0.9"/>
+    <stop offset="0.5" stop-color="#33406B" stop-opacity="0.55"/>
+    <stop offset="1" stop-color="#172143" stop-opacity="0.9"/>
+  </linearGradient>
+  <pattern id="halftone" width="6" height="6" patternUnits="userSpaceOnUse">
+    <circle cx="1.5" cy="1.5" r="0.75" fill="#FFFFFF" fill-opacity="0.035"/>
+    <circle cx="4.5" cy="4.5" r="0.75" fill="#FFFFFF" fill-opacity="0.02"/>
+  </pattern>
+  <filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="3.2" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="tinyGlow" x="-60%" y="-60%" width="220%" height="220%">
+    <feGaussianBlur stdDeviation="1.6" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter></defs>
+<style>
+  text{font-family:'Segoe UI', 'Helvetica Neue', 'DejaVu Sans', Arial, sans-serif;dominant-baseline:middle}
+  .d{font-family:'Trebuchet MS', 'Verdana', 'DejaVu Sans', sans-serif;font-weight:700;letter-spacing:0.5px}
+  .mono{font-family:'SFMono-Regular', 'DejaVu Sans Mono', Menlo, Consolas, monospace}
+  .t{fill:#ECE7E4}
+  .dim{fill:#9AA3BE}
+  .faint{fill:#5C6684}
+  .red{fill:#E0475A}
+  @media (prefers-reduced-motion: reduce){*{animation:none !important}}
+  @keyframes badgeGlow{0%,100%{opacity:.55}50%{opacity:1}}
+  .glow{animation:badgeGlow 3.4s ease-in-out infinite}
+  </style>
+  <rect x="0.7" y="0.7" width="238.85" height="32.6" rx="8" fill="#151B31" stroke="#232B47" stroke-width="1.4"/>
+  <path d="M8.7 0.7H232.25" stroke="#4C63B6" stroke-width="2" opacity="0.9"/>
+  <g class="glow"><path d="M237.85 2.4L237.85 21.4M237.85 2.4L231.98 20.47M237.85 2.4L226.68 17.77M237.85 2.4L222.48 13.57M237.85 2.4L219.78 8.27M237.85 2.4L218.85 2.4M237.85 7.72Q237.13 6.92 236.21 7.46M236.21 7.46Q235.77 6.48 234.72 6.7M234.72 6.7Q234.61 5.64 233.55 5.53M233.55 5.53Q233.77 4.48 232.79 4.04M232.79 4.04Q233.33 3.12 232.53 2.4M237.85 11.9Q236.57 10.47 234.91 11.44M234.91 11.44Q234.14 9.68 232.27 10.09M232.27 10.09Q232.07 8.18 230.16 7.98M230.16 7.98Q230.57 6.11 228.81 5.34M228.81 5.34Q229.78 3.68 228.35 2.4M237.85 16.08Q236.01 14.02 233.62 15.41M233.62 15.41Q232.51 12.88 229.81 13.47M229.81 13.47Q229.53 10.72 226.78 10.44M226.78 10.44Q227.37 7.74 224.84 6.63M224.84 6.63Q226.23 4.24 224.17 2.4M237.85 21.4Q235.29 18.54 231.98 20.47M231.98 20.47Q230.43 16.96 226.68 17.77M226.68 17.77Q226.3 13.95 222.48 13.57M222.48 13.57Q223.29 9.82 219.78 8.27M219.78 8.27Q221.71 4.96 218.85 2.4" fill="none" stroke="#4C63B6" stroke-width="1" opacity="0.3" stroke-linecap="round"/></g>
+  <g transform="translate(22.5 17) scale(0.7083)">
+    <path d="M-5.5 -5.5V5.5" fill="none" stroke="#4C63B6" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M5.5 -3.2V-1C5.5 3.4 1.5 3 -5.5 4" fill="none" stroke="#4C63B6" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M-5.5 -9.6a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z" fill="#4C63B6"/>
+    <path d="M-5.5 3.6a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z" fill="#4C63B6"/>
+    <path d="M5.5 -9.6a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z" fill="#4C63B6"/></g>
+  <text x="40" y="17.5" font-size="12.5" class="t">Sahay · adaptive_learning_ngo</text>
+</svg>

@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 880 226" width="880" height="226" role="img" aria-label="Streamlit Applications — StockZ Terminal · Sahay" preserveAspectRatio="xMidYMid meet">
+<title>Streamlit Applications — StockZ Terminal · Sahay</title>
+<desc>MISSION 04: Streamlit Applications, StockZ Terminal · Sahay. Built with Python, Streamlit, Plotly, pandas, NumPy. StockZ Terminal — a quantitative paper-trading dashboard that detects chart formations such as bullish engulfing and hammer over a 120-day window, simulates order execution with configurable per-trade risk, and reports win-rate statistics. Repository: https://github.com/GitBeat16/stockz1, https://github.com/GitBeat16/adaptive_learning_ngo.</desc>
+<defs>
+  <linearGradient id="bgGrad" x1="0" y1="0" x2="0.4" y2="1">
+    <stop offset="0" stop-color="#0C0F1B"/>
+    <stop offset="0.55" stop-color="#0B0D16"/>
+    <stop offset="1" stop-color="#06070E"/>
+  </linearGradient>
+  <linearGradient id="redGrad" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#E0475A"/>
+    <stop offset="1" stop-color="#B5303F"/>
+  </linearGradient>
+  <linearGradient id="navyGrad" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#4C63B6"/>
+    <stop offset="1" stop-color="#172143"/>
+  </linearGradient>
+  <linearGradient id="edgeGrad" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#B5303F" stop-opacity="0.9"/>
+    <stop offset="0.5" stop-color="#33406B" stop-opacity="0.55"/>
+    <stop offset="1" stop-color="#172143" stop-opacity="0.9"/>
+  </linearGradient>
+  <pattern id="halftone" width="6" height="6" patternUnits="userSpaceOnUse">
+    <circle cx="1.5" cy="1.5" r="0.75" fill="#FFFFFF" fill-opacity="0.035"/>
+    <circle cx="4.5" cy="4.5" r="0.75" fill="#FFFFFF" fill-opacity="0.02"/>
+  </pattern>
+  <filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="3.2" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="tinyGlow" x="-60%" y="-60%" width="220%" height="220%">
+    <feGaussianBlur stdDeviation="1.6" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter></defs>
+<style>
+  text{font-family:'Segoe UI', 'Helvetica Neue', 'DejaVu Sans', Arial, sans-serif;dominant-baseline:middle}
+  .d{font-family:'Trebuchet MS', 'Verdana', 'DejaVu Sans', sans-serif;font-weight:700;letter-spacing:0.5px}
+  .mono{font-family:'SFMono-Regular', 'DejaVu Sans Mono', Menlo, Consolas, monospace}
+  .t{fill:#ECE7E4}
+  .dim{fill:#9AA3BE}
+  .faint{fill:#5C6684}
+  .red{fill:#E0475A}
+  @media (prefers-reduced-motion: reduce){*{animation:none !important}}
+/* Motion is purely additive: no fill-mode, so before and after the animation
+   the element renders at its base style. Content is never hidden by a delay,
+   by an offscreen-throttled image, or by prefers-reduced-motion.
+   (Never put a raw angle bracket in here: this stylesheet is inlined into XML.) */
+@keyframes chipIn{0%{transform:translateY(7px) scale(.98)}100%{transform:translateY(0) scale(1)}}
+.chip{transform-box:fill-box;transform-origin:50% 50%;animation:chipIn .5s ease-out}
+@keyframes tileIn{0%{transform:translateY(11px) scale(.985)}100%{transform:translateY(0) scale(1)}}
+.tile{animation:tileIn .55s ease-out;transform-box:fill-box}
+</style>
+  <g opacity="1">
+    <path d="M18 0H880V208L862 226H0V18Z" fill="#101426" stroke="#232B47" stroke-width="1.4"/>
+    <path d="M18 0H880V208L862 226H0V18Z" fill="url(#halftone)"/>
+    <path d="M18 0H880" stroke="#172143" stroke-width="2.2" fill="none" opacity="0.9"/>
+  </g>
+  <text x="24" y="30" font-size="11" class="d" fill="#5C6684" letter-spacing="2.4">MISSION 04</text>
+  <text x="24" y="58" font-size="25" class="d t">Streamlit Applications</text>
+  <text x="24" y="80" font-size="12.5" class="dim">StockZ Terminal · Sahay</text>
+  <g class="chip" style="animation-delay:0ms">
+      <rect x="24" y="100" width="58.3" height="24" rx="7" fill="#151B31" stroke="#4C63B6" stroke-width="1"/>
+      <text x="53.15" y="112.5" font-size="11" class="t" text-anchor="middle">Python</text>
+    </g><g class="chip" style="animation-delay:40ms">
+      <rect x="90.3" y="100" width="75.9" height="24" rx="7" fill="#151B31" stroke="#4C63B6" stroke-width="1"/>
+      <text x="128.25" y="112.5" font-size="11" class="t" text-anchor="middle">Streamlit</text>
+    </g><g class="chip" style="animation-delay:80ms">
+      <rect x="174.2" y="100" width="53.68" height="24" rx="7" fill="#151B31" stroke="#4C63B6" stroke-width="1"/>
+      <text x="201.04" y="112.5" font-size="11" class="t" text-anchor="middle">Plotly</text>
+    </g><g class="chip" style="animation-delay:120ms">
+      <rect x="235.88" y="100" width="58.3" height="24" rx="7" fill="#151B31" stroke="#4C63B6" stroke-width="1"/>
+      <text x="265.03" y="112.5" font-size="11" class="t" text-anchor="middle">pandas</text>
+    </g><g class="chip" style="animation-delay:160ms">
+      <rect x="302.18" y="100" width="56.32" height="24" rx="7" fill="#151B31" stroke="#4C63B6" stroke-width="1"/>
+      <text x="330.34" y="112.5" font-size="11" class="t" text-anchor="middle">NumPy</text>
+    </g>
+  <text x="24" y="146" font-size="12" class="dim">StockZ Terminal — a quantitative paper-trading dashboard that detects chart formations such as bullish engulfing and hammer over a</text><text x="24" y="163" font-size="12" class="dim">120-day window, simulates order execution with configurable per-trade risk, and reports win-rate statistics.</text>
+  <g class="tile" style="animation-delay:320ms">
+        <rect x="24" y="183" width="148.69" height="26" rx="7" fill="#151B31" stroke="#232B47" stroke-width="1"/>
+        <g transform="translate(41 196) scale(0.625)">
+    <path d="M-5.5 -5.5V5.5" fill="none" stroke="#4C63B6" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M5.5 -3.2V-1C5.5 3.4 1.5 3 -5.5 4" fill="none" stroke="#4C63B6" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M-5.5 -9.6a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z" fill="#4C63B6"/>
+    <path d="M-5.5 3.6a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z" fill="#4C63B6"/>
+    <path d="M5.5 -9.6a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z" fill="#4C63B6"/></g>
+        <text x="55" y="196.5" font-size="11.5" class="dim mono">GitBeat16/stockz1</text>
+      </g><g class="tile" style="animation-delay:410ms">
+        <rect x="182.69" y="183" width="230" height="26" rx="7" fill="#151B31" stroke="#232B47" stroke-width="1"/>
+        <g transform="translate(199.69 196) scale(0.625)">
+    <path d="M-5.5 -5.5V5.5" fill="none" stroke="#4C63B6" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M5.5 -3.2V-1C5.5 3.4 1.5 3 -5.5 4" fill="none" stroke="#4C63B6" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M-5.5 -9.6a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z" fill="#4C63B6"/>
+    <path d="M-5.5 3.6a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z" fill="#4C63B6"/>
+    <path d="M5.5 -9.6a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z" fill="#4C63B6"/></g>
+        <text x="213.69" y="196.5" font-size="11.5" class="dim mono">GitBeat16/adaptive_learning_ngo</text>
+      </g>
+  <path d="M879 1L879 57M879 1L861.7 54.26M879 1L846.08 46.3M879 1L833.7 33.92M879 1L825.74 18.3M879 1L823 1M879 16.68Q876.89 14.32 874.15 15.91M874.15 15.91Q872.88 13.02 869.78 13.69M869.78 13.69Q869.46 10.54 866.31 10.22M866.31 10.22Q866.98 7.12 864.09 5.85M864.09 5.85Q865.68 3.11 863.32 1M879 29Q875.23 24.78 870.35 27.63M870.35 27.63Q868.07 22.46 862.54 23.65M862.54 23.65Q861.97 18.03 856.35 17.46M856.35 17.46Q857.54 11.93 852.37 9.65M852.37 9.65Q855.22 4.77 851 1M879 41.32Q873.58 35.25 866.54 39.35M866.54 39.35Q863.26 31.9 855.3 33.62M855.3 33.62Q854.48 25.52 846.38 24.7M846.38 24.7Q848.1 16.74 840.65 13.46M840.65 13.46Q844.75 6.42 838.68 1M879 57Q871.47 48.57 861.7 54.26M861.7 54.26Q857.14 43.91 846.08 46.3M846.08 46.3Q844.95 35.05 833.7 33.92M833.7 33.92Q836.09 22.86 825.74 18.3M825.74 18.3Q831.43 8.53 823 1" fill="none" stroke="#33406B" stroke-width="1" opacity="0.3" stroke-linecap="round"/>
+</svg>

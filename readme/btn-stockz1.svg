@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 158.75 34" width="158.75" height="34" role="img" aria-label="StockZ · stockz1" preserveAspectRatio="xMidYMid meet">
+<title>StockZ · stockz1</title>
+<defs>
+  <linearGradient id="bgGrad" x1="0" y1="0" x2="0.4" y2="1">
+    <stop offset="0" stop-color="#0C0F1B"/>
+    <stop offset="0.55" stop-color="#0B0D16"/>
+    <stop offset="1" stop-color="#06070E"/>
+  </linearGradient>
+  <linearGradient id="redGrad" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#E0475A"/>
+    <stop offset="1" stop-color="#B5303F"/>
+  </linearGradient>
+  <linearGradient id="navyGrad" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#4C63B6"/>
+    <stop offset="1" stop-color="#172143"/>
+  </linearGradient>
+  <linearGradient id="edgeGrad" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#B5303F" stop-opacity="0.9"/>
+    <stop offset="0.5" stop-color="#33406B" stop-opacity="0.55"/>
+    <stop offset="1" stop-color="#172143" stop-opacity="0.9"/>
+  </linearGradient>
+  <pattern id="halftone" width="6" height="6" patternUnits="userSpaceOnUse">
+    <circle cx="1.5" cy="1.5" r="0.75" fill="#FFFFFF" fill-opacity="0.035"/>
+    <circle cx="4.5" cy="4.5" r="0.75" fill="#FFFFFF" fill-opacity="0.02"/>
+  </pattern>
+  <filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="3.2" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="tinyGlow" x="-60%" y="-60%" width="220%" height="220%">
+    <feGaussianBlur stdDeviation="1.6" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter></defs>
+<style>
+  text{font-family:'Segoe UI', 'Helvetica Neue', 'DejaVu Sans', Arial, sans-serif;dominant-baseline:middle}
+  .d{font-family:'Trebuchet MS', 'Verdana', 'DejaVu Sans', sans-serif;font-weight:700;letter-spacing:0.5px}
+  .mono{font-family:'SFMono-Regular', 'DejaVu Sans Mono', Menlo, Consolas, monospace}
+  .t{fill:#ECE7E4}
+  .dim{fill:#9AA3BE}
+  .faint{fill:#5C6684}
+  .red{fill:#E0475A}
+  @media (prefers-reduced-motion: reduce){*{animation:none !important}}
+  @keyframes badgeGlow{0%,100%{opacity:.55}50%{opacity:1}}
+  .glow{animation:badgeGlow 3.4s ease-in-out infinite}
+  </style>
+  <rect x="0.7" y="0.7" width="157.35" height="32.6" rx="8" fill="#151B31" stroke="#232B47" stroke-width="1.4"/>
+  <path d="M8.7 0.7H150.75" stroke="#4C63B6" stroke-width="2" opacity="0.9"/>
+  <g class="glow"><path d="M156.35 2.4L156.35 21.4M156.35 2.4L150.48 20.47M156.35 2.4L145.18 17.77M156.35 2.4L140.98 13.57M156.35 2.4L138.28 8.27M156.35 2.4L137.35 2.4M156.35 7.72Q155.63 6.92 154.71 7.46M154.71 7.46Q154.27 6.48 153.22 6.7M153.22 6.7Q153.11 5.64 152.05 5.53M152.05 5.53Q152.27 4.48 151.29 4.04M151.29 4.04Q151.83 3.12 151.03 2.4M156.35 11.9Q155.07 10.47 153.41 11.44M153.41 11.44Q152.64 9.68 150.77 10.09M150.77 10.09Q150.57 8.18 148.66 7.98M148.66 7.98Q149.07 6.11 147.31 5.34M147.31 5.34Q148.28 3.68 146.85 2.4M156.35 16.08Q154.51 14.02 152.12 15.41M152.12 15.41Q151.01 12.88 148.31 13.47M148.31 13.47Q148.03 10.72 145.28 10.44M145.28 10.44Q145.87 7.74 143.34 6.63M143.34 6.63Q144.73 4.24 142.67 2.4M156.35 21.4Q153.79 18.54 150.48 20.47M150.48 20.47Q148.93 16.96 145.18 17.77M145.18 17.77Q144.8 13.95 140.98 13.57M140.98 13.57Q141.79 9.82 138.28 8.27M138.28 8.27Q140.21 4.96 137.35 2.4" fill="none" stroke="#4C63B6" stroke-width="1" opacity="0.3" stroke-linecap="round"/></g>
+  <g transform="translate(22.5 17) scale(0.7083)">
+    <path d="M-5.5 -5.5V5.5" fill="none" stroke="#4C63B6" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M5.5 -3.2V-1C5.5 3.4 1.5 3 -5.5 4" fill="none" stroke="#4C63B6" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M-5.5 -9.6a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z" fill="#4C63B6"/>
+    <path d="M-5.5 3.6a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z" fill="#4C63B6"/>
+    <path d="M5.5 -9.6a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z" fill="#4C63B6"/></g>
+  <text x="40" y="17.5" font-size="12.5" class="t">StockZ · stockz1</text>
+</svg>

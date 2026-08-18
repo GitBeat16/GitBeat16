@@ -161,10 +161,12 @@ export function skyline({ x, y, w, h, seed = 7, windows = true, glow = true }) {
           const r = rnd();
           if (r > 0.62) {
             const c = r > 0.9 ? P.redBright : r > 0.78 ? P.navyGlow : '#2A3352';
-            const lit = glow && r > 0.93;
+            // Most windows blink; the phase bucket is derived from the seeded
+            // stream so the city twinkles irregularly instead of in lockstep.
+            const lit = glow && r > 0.68;
             wins.push(
-              `<rect class="${lit ? `win w${i % 5}` : ''}" x="${R(wx)}" y="${R(wy)}" width="5" height="4" rx="1" fill="${c}" opacity="${
-                lit ? 0.95 : 0.5
+              `<rect class="${lit ? `win w${i % 8}` : ''}" x="${R(wx)}" y="${R(wy)}" width="5" height="4" rx="1" fill="${c}" opacity="${
+                lit ? 0.85 : 0.5
               }"/>`
             );
             i++;
@@ -178,9 +180,11 @@ export function skyline({ x, y, w, h, seed = 7, windows = true, glow = true }) {
 }
 
 export const skylineCss = `
-@keyframes winPulse{0%,100%{opacity:.28}50%{opacity:1}}
-.win{animation:winPulse 4s ease-in-out infinite}
-.w0{animation-delay:0s}.w1{animation-delay:.8s}.w2{animation-delay:1.6s}.w3{animation-delay:2.4s}.w4{animation-delay:3.2s}
+@keyframes winPulse{0%,100%{opacity:.16}42%{opacity:1}58%{opacity:.9}}
+.win{animation:winPulse 3.6s ease-in-out infinite}
+.w0{animation-delay:0s}.w1{animation-delay:.45s}.w2{animation-delay:.9s}.w3{animation-delay:1.35s}
+.w4{animation-delay:1.8s}.w5{animation-delay:2.25s}.w6{animation-delay:2.7s}.w7{animation-delay:3.15s}
+.w1{animation-duration:4.4s}.w3{animation-duration:2.9s}.w5{animation-duration:5.1s}.w7{animation-duration:3.2s}
 `;
 
 /* ----------------------------------------------------------- text helpers */
