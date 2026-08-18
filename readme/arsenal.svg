@@ -1,0 +1,170 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 880 416" width="880" height="416" role="img" aria-label="Spider Arsenal — languages, frameworks, databases, tools" preserveAspectRatio="xMidYMid meet">
+<title>Spider Arsenal — languages, frameworks, databases, tools</title>
+<desc>Languages: C, C++, Python, TypeScript, JavaScript. Frameworks &amp; Libraries: Next.js (App Router), React, React Native (Expo), FastAPI, Tailwind CSS, Framer Motion, Streamlit. Databases &amp; Backend: MongoDB, Supabase (PostgreSQL), REST APIs, JWT / session auth, OAuth 2.0. Tools &amp; Platforms: Git / GitHub, Vercel, Railway, Claude &amp; Groq APIs, Leaflet / d3-geo, Wix Studio. Spoken: English, Hindi, Marathi</desc>
+<defs>
+  <linearGradient id="bgGrad" x1="0" y1="0" x2="0.4" y2="1">
+    <stop offset="0" stop-color="#0C0F1B"/>
+    <stop offset="0.55" stop-color="#0B0D16"/>
+    <stop offset="1" stop-color="#06070E"/>
+  </linearGradient>
+  <linearGradient id="redGrad" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#E0475A"/>
+    <stop offset="1" stop-color="#B5303F"/>
+  </linearGradient>
+  <linearGradient id="navyGrad" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#4C63B6"/>
+    <stop offset="1" stop-color="#172143"/>
+  </linearGradient>
+  <linearGradient id="edgeGrad" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#B5303F" stop-opacity="0.9"/>
+    <stop offset="0.5" stop-color="#33406B" stop-opacity="0.55"/>
+    <stop offset="1" stop-color="#172143" stop-opacity="0.9"/>
+  </linearGradient>
+  <pattern id="halftone" width="6" height="6" patternUnits="userSpaceOnUse">
+    <circle cx="1.5" cy="1.5" r="0.75" fill="#FFFFFF" fill-opacity="0.035"/>
+    <circle cx="4.5" cy="4.5" r="0.75" fill="#FFFFFF" fill-opacity="0.02"/>
+  </pattern>
+  <filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="3.2" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="tinyGlow" x="-60%" y="-60%" width="220%" height="220%">
+    <feGaussianBlur stdDeviation="1.6" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter></defs>
+<style>
+  text{font-family:'Segoe UI', 'Helvetica Neue', 'DejaVu Sans', Arial, sans-serif;dominant-baseline:middle}
+  .d{font-family:'Trebuchet MS', 'Verdana', 'DejaVu Sans', sans-serif;font-weight:700;letter-spacing:0.5px}
+  .mono{font-family:'SFMono-Regular', 'DejaVu Sans Mono', Menlo, Consolas, monospace}
+  .t{fill:#ECE7E4}
+  .dim{fill:#9AA3BE}
+  .faint{fill:#5C6684}
+  .red{fill:#E0475A}
+  @media (prefers-reduced-motion: reduce){*{animation:none !important}}
+/* Motion is purely additive: no fill-mode, so before and after the animation
+   the element renders at its base style. Content is never hidden by a delay,
+   by an offscreen-throttled image, or by prefers-reduced-motion.
+   (Never put a raw angle bracket in here: this stylesheet is inlined into XML.) */
+@keyframes chipIn{0%{transform:translateY(7px) scale(.98)}100%{transform:translateY(0) scale(1)}}
+.chip{transform-box:fill-box;transform-origin:50% 50%;animation:chipIn .5s ease-out}
+</style>
+      <g opacity="1">
+    <path d="M14 8H428V120L414 134H0V22Z" fill="#101426" stroke="#232B47" stroke-width="1.4"/>
+    <path d="M14 8H428V120L414 134H0V22Z" fill="url(#halftone)"/>
+    <path d="M14 8H428" stroke="#B5303F" stroke-width="2.2" fill="none" opacity="0.9"/>
+  </g>
+      <text x="20" y="36" font-size="13" class="d red" letter-spacing="1.4">LANGUAGES</text>
+      <text x="408" y="36" font-size="10.5" class="faint" text-anchor="end">C++ proficient · Python familiar</text>
+      <g class="chip" style="animation-delay:0ms">
+      <rect x="20" y="60" width="28.32" height="24" rx="7" fill="#151B31" stroke="#33406B" stroke-width="1"/>
+      <text x="34.16" y="72.5" font-size="11.5" class="t" text-anchor="middle">C</text>
+    </g><g class="chip" style="animation-delay:45ms">
+      <rect x="56.32" y="60" width="40.98" height="24" rx="7" fill="#151B31" stroke="#33406B" stroke-width="1"/>
+      <text x="76.81" y="72.5" font-size="11.5" class="t" text-anchor="middle">C++</text>
+    </g><g class="chip" style="animation-delay:90ms">
+      <rect x="105.3" y="60" width="59.95" height="24" rx="7" fill="#151B31" stroke="#33406B" stroke-width="1"/>
+      <text x="135.28" y="72.5" font-size="11.5" class="t" text-anchor="middle">Python</text>
+    </g><g class="chip" style="animation-delay:135ms">
+      <rect x="173.25" y="60" width="82.83" height="24" rx="7" fill="#151B31" stroke="#33406B" stroke-width="1"/>
+      <text x="214.66" y="72.5" font-size="11.5" class="t" text-anchor="middle">TypeScript</text>
+    </g><g class="chip" style="animation-delay:180ms">
+      <rect x="264.08" y="60" width="82.83" height="24" rx="7" fill="#151B31" stroke="#33406B" stroke-width="1"/>
+      <text x="305.5" y="72.5" font-size="11.5" class="t" text-anchor="middle">JavaScript</text>
+    </g>
+      <path d="M427 9L427 49M427 9L414.64 47.04M427 9L403.49 41.36M427 9L394.64 32.51M427 9L388.96 21.36M427 9L387 9M427 20.2Q425.49 18.51 423.54 19.65M423.54 19.65Q422.63 17.58 420.42 18.06M420.42 18.06Q420.19 15.81 417.94 15.58M417.94 15.58Q418.42 13.37 416.35 12.46M416.35 12.46Q417.49 10.51 415.8 9M427 29Q424.31 25.99 420.82 28.02M420.82 28.02Q419.19 24.33 415.24 25.18M415.24 25.18Q414.84 21.16 410.82 20.76M410.82 20.76Q411.67 16.81 407.98 15.18M407.98 15.18Q410.01 11.69 407 9M427 37.8Q423.13 33.46 418.1 36.39M418.1 36.39Q415.76 31.07 410.07 32.3M410.07 32.3Q409.49 26.51 403.7 25.93M403.7 25.93Q404.93 20.24 399.61 17.9M399.61 17.9Q402.54 12.87 398.2 9M427 49Q421.62 42.98 414.64 47.04M414.64 47.04Q411.38 39.65 403.49 41.36M403.49 41.36Q402.68 33.32 394.64 32.51M394.64 32.51Q396.35 24.62 388.96 21.36M388.96 21.36Q393.02 14.38 387 9" fill="none" stroke="#33406B" stroke-width="1" opacity="0.28" stroke-linecap="round"/>
+      <g opacity="1">
+    <path d="M466 8H880V120L866 134H452V22Z" fill="#101426" stroke="#232B47" stroke-width="1.4"/>
+    <path d="M466 8H880V120L866 134H452V22Z" fill="url(#halftone)"/>
+    <path d="M466 8H880" stroke="#172143" stroke-width="2.2" fill="none" opacity="0.9"/>
+  </g>
+      <text x="472" y="36" font-size="13" class="d red" letter-spacing="1.4">FRAMEWORKS &amp; LIBRARIES</text>
+      <g class="chip" style="animation-delay:0ms">
+      <rect x="472" y="60" width="134.01" height="24" rx="7" fill="#151B31" stroke="#4C63B6" stroke-width="1"/>
+      <text x="539" y="72.5" font-size="11.5" class="t" text-anchor="middle">Next.js (App Router)</text>
+    </g><g class="chip" style="animation-delay:45ms">
+      <rect x="614.01" y="60" width="53.63" height="24" rx="7" fill="#151B31" stroke="#4C63B6" stroke-width="1"/>
+      <text x="640.83" y="72.5" font-size="11.5" class="t" text-anchor="middle">React</text>
+    </g><g class="chip" style="animation-delay:90ms">
+      <rect x="675.64" y="60" width="130.1" height="24" rx="7" fill="#151B31" stroke="#4C63B6" stroke-width="1"/>
+      <text x="740.69" y="72.5" font-size="11.5" class="t" text-anchor="middle">React Native (Expo)</text>
+    </g><g class="chip" style="animation-delay:135ms">
+      <rect x="472" y="92" width="63.86" height="24" rx="7" fill="#151B31" stroke="#4C63B6" stroke-width="1"/>
+      <text x="503.93" y="104.5" font-size="11.5" class="t" text-anchor="middle">FastAPI</text>
+    </g><g class="chip" style="animation-delay:180ms">
+      <rect x="543.86" y="92" width="92.49" height="24" rx="7" fill="#151B31" stroke="#4C63B6" stroke-width="1"/>
+      <text x="590.11" y="104.5" font-size="11.5" class="t" text-anchor="middle">Tailwind CSS</text>
+    </g><g class="chip" style="animation-delay:225ms">
+      <rect x="644.35" y="92" width="107.9" height="24" rx="7" fill="#151B31" stroke="#4C63B6" stroke-width="1"/>
+      <text x="698.3" y="104.5" font-size="11.5" class="t" text-anchor="middle">Framer Motion</text>
+    </g><g class="chip" style="animation-delay:270ms">
+      <rect x="760.25" y="92" width="78.35" height="24" rx="7" fill="#151B31" stroke="#4C63B6" stroke-width="1"/>
+      <text x="799.42" y="104.5" font-size="11.5" class="t" text-anchor="middle">Streamlit</text>
+    </g>
+      <path d="M879 9L879 49M879 9L866.64 47.04M879 9L855.49 41.36M879 9L846.64 32.51M879 9L840.96 21.36M879 9L839 9M879 20.2Q877.49 18.51 875.54 19.65M875.54 19.65Q874.63 17.58 872.42 18.06M872.42 18.06Q872.19 15.81 869.94 15.58M869.94 15.58Q870.42 13.37 868.35 12.46M868.35 12.46Q869.49 10.51 867.8 9M879 29Q876.31 25.99 872.82 28.02M872.82 28.02Q871.19 24.33 867.24 25.18M867.24 25.18Q866.84 21.16 862.82 20.76M862.82 20.76Q863.67 16.81 859.98 15.18M859.98 15.18Q862.01 11.69 859 9M879 37.8Q875.13 33.46 870.1 36.39M870.1 36.39Q867.76 31.07 862.07 32.3M862.07 32.3Q861.49 26.51 855.7 25.93M855.7 25.93Q856.93 20.24 851.61 17.9M851.61 17.9Q854.54 12.87 850.2 9M879 49Q873.62 42.98 866.64 47.04M866.64 47.04Q863.38 39.65 855.49 41.36M855.49 41.36Q854.68 33.32 846.64 32.51M846.64 32.51Q848.35 24.62 840.96 21.36M840.96 21.36Q845.02 14.38 839 9" fill="none" stroke="#33406B" stroke-width="1" opacity="0.28" stroke-linecap="round"/>
+      <g opacity="1">
+    <path d="M14 152H428V264L414 278H0V166Z" fill="#101426" stroke="#232B47" stroke-width="1.4"/>
+    <path d="M14 152H428V264L414 278H0V166Z" fill="url(#halftone)"/>
+    <path d="M14 152H428" stroke="#B5303F" stroke-width="2.2" fill="none" opacity="0.9"/>
+  </g>
+      <text x="20" y="180" font-size="13" class="d red" letter-spacing="1.4">DATABASES &amp; BACKEND</text>
+      <g class="chip" style="animation-delay:0ms">
+      <rect x="20" y="204" width="70.53" height="24" rx="7" fill="#151B31" stroke="#33406B" stroke-width="1"/>
+      <text x="55.27" y="216.5" font-size="11.5" class="t" text-anchor="middle">MongoDB</text>
+    </g><g class="chip" style="animation-delay:45ms">
+      <rect x="98.53" y="204" width="147.58" height="24" rx="7" fill="#151B31" stroke="#33406B" stroke-width="1"/>
+      <text x="172.32" y="216.5" font-size="11.5" class="t" text-anchor="middle">Supabase (PostgreSQL)</text>
+    </g><g class="chip" style="animation-delay:90ms">
+      <rect x="254.11" y="204" width="74.09" height="24" rx="7" fill="#151B31" stroke="#33406B" stroke-width="1"/>
+      <text x="291.16" y="216.5" font-size="11.5" class="t" text-anchor="middle">REST APIs</text>
+    </g><g class="chip" style="animation-delay:135ms">
+      <rect x="20" y="236" width="128.03" height="24" rx="7" fill="#151B31" stroke="#33406B" stroke-width="1"/>
+      <text x="84.02" y="248.5" font-size="11.5" class="t" text-anchor="middle">JWT / session auth</text>
+    </g><g class="chip" style="animation-delay:180ms">
+      <rect x="156.03" y="236" width="74.09" height="24" rx="7" fill="#151B31" stroke="#33406B" stroke-width="1"/>
+      <text x="193.07" y="248.5" font-size="11.5" class="t" text-anchor="middle">OAuth 2.0</text>
+    </g>
+      <path d="M427 153L427 193M427 153L414.64 191.04M427 153L403.49 185.36M427 153L394.64 176.51M427 153L388.96 165.36M427 153L387 153M427 164.2Q425.49 162.51 423.54 163.65M423.54 163.65Q422.63 161.58 420.42 162.06M420.42 162.06Q420.19 159.81 417.94 159.58M417.94 159.58Q418.42 157.37 416.35 156.46M416.35 156.46Q417.49 154.51 415.8 153M427 173Q424.31 169.99 420.82 172.02M420.82 172.02Q419.19 168.33 415.24 169.18M415.24 169.18Q414.84 165.16 410.82 164.76M410.82 164.76Q411.67 160.81 407.98 159.18M407.98 159.18Q410.01 155.69 407 153M427 181.8Q423.13 177.46 418.1 180.39M418.1 180.39Q415.76 175.07 410.07 176.3M410.07 176.3Q409.49 170.51 403.7 169.93M403.7 169.93Q404.93 164.24 399.61 161.9M399.61 161.9Q402.54 156.87 398.2 153M427 193Q421.62 186.98 414.64 191.04M414.64 191.04Q411.38 183.65 403.49 185.36M403.49 185.36Q402.68 177.32 394.64 176.51M394.64 176.51Q396.35 168.62 388.96 165.36M388.96 165.36Q393.02 158.38 387 153" fill="none" stroke="#33406B" stroke-width="1" opacity="0.28" stroke-linecap="round"/>
+      <g opacity="1">
+    <path d="M466 152H880V264L866 278H452V166Z" fill="#101426" stroke="#232B47" stroke-width="1.4"/>
+    <path d="M466 152H880V264L866 278H452V166Z" fill="url(#halftone)"/>
+    <path d="M466 152H880" stroke="#172143" stroke-width="2.2" fill="none" opacity="0.9"/>
+  </g>
+      <text x="472" y="180" font-size="13" class="d red" letter-spacing="1.4">TOOLS &amp; PLATFORMS</text>
+      <g class="chip" style="animation-delay:0ms">
+      <rect x="472" y="204" width="85.82" height="24" rx="7" fill="#151B31" stroke="#4C63B6" stroke-width="1"/>
+      <text x="514.91" y="216.5" font-size="11.5" class="t" text-anchor="middle">Git / GitHub</text>
+    </g><g class="chip" style="animation-delay:45ms">
+      <rect x="565.82" y="204" width="57.53" height="24" rx="7" fill="#151B31" stroke="#4C63B6" stroke-width="1"/>
+      <text x="594.58" y="216.5" font-size="11.5" class="t" text-anchor="middle">Vercel</text>
+    </g><g class="chip" style="animation-delay:90ms">
+      <rect x="631.35" y="204" width="65.7" height="24" rx="7" fill="#151B31" stroke="#4C63B6" stroke-width="1"/>
+      <text x="664.2" y="216.5" font-size="11.5" class="t" text-anchor="middle">Railway</text>
+    </g><g class="chip" style="animation-delay:135ms">
+      <rect x="705.05" y="204" width="123.77" height="24" rx="7" fill="#151B31" stroke="#4C63B6" stroke-width="1"/>
+      <text x="766.93" y="216.5" font-size="11.5" class="t" text-anchor="middle">Claude &amp; Groq APIs</text>
+    </g><g class="chip" style="animation-delay:180ms">
+      <rect x="472" y="236" width="113.54" height="24" rx="7" fill="#151B31" stroke="#4C63B6" stroke-width="1"/>
+      <text x="528.77" y="248.5" font-size="11.5" class="t" text-anchor="middle">Leaflet / d3-geo</text>
+    </g><g class="chip" style="animation-delay:225ms">
+      <rect x="593.54" y="236" width="82.26" height="24" rx="7" fill="#151B31" stroke="#4C63B6" stroke-width="1"/>
+      <text x="634.67" y="248.5" font-size="11.5" class="t" text-anchor="middle">Wix Studio</text>
+    </g>
+      <path d="M879 153L879 193M879 153L866.64 191.04M879 153L855.49 185.36M879 153L846.64 176.51M879 153L840.96 165.36M879 153L839 153M879 164.2Q877.49 162.51 875.54 163.65M875.54 163.65Q874.63 161.58 872.42 162.06M872.42 162.06Q872.19 159.81 869.94 159.58M869.94 159.58Q870.42 157.37 868.35 156.46M868.35 156.46Q869.49 154.51 867.8 153M879 173Q876.31 169.99 872.82 172.02M872.82 172.02Q871.19 168.33 867.24 169.18M867.24 169.18Q866.84 165.16 862.82 164.76M862.82 164.76Q863.67 160.81 859.98 159.18M859.98 159.18Q862.01 155.69 859 153M879 181.8Q875.13 177.46 870.1 180.39M870.1 180.39Q867.76 175.07 862.07 176.3M862.07 176.3Q861.49 170.51 855.7 169.93M855.7 169.93Q856.93 164.24 851.61 161.9M851.61 161.9Q854.54 156.87 850.2 153M879 193Q873.62 186.98 866.64 191.04M866.64 191.04Q863.38 183.65 855.49 185.36M855.49 185.36Q854.68 177.32 846.64 176.51M846.64 176.51Q848.35 168.62 840.96 165.36M840.96 165.36Q845.02 158.38 839 153" fill="none" stroke="#33406B" stroke-width="1" opacity="0.28" stroke-linecap="round"/>
+      <g opacity="1">
+    <path d="M14 296H428V376L414 390H0V310Z" fill="#101426" stroke="#232B47" stroke-width="1.4"/>
+    <path d="M14 296H428V376L414 390H0V310Z" fill="url(#halftone)"/>
+    <path d="M14 296H428" stroke="#B5303F" stroke-width="2.2" fill="none" opacity="0.9"/>
+  </g>
+      <text x="20" y="324" font-size="13" class="d red" letter-spacing="1.4">SPOKEN</text>
+      <g class="chip" style="animation-delay:0ms">
+      <rect x="20" y="348" width="61.44" height="24" rx="7" fill="#151B31" stroke="#33406B" stroke-width="1"/>
+      <text x="50.72" y="360.5" font-size="11.5" class="t" text-anchor="middle">English</text>
+    </g><g class="chip" style="animation-delay:45ms">
+      <rect x="89.44" y="348" width="48.8" height="24" rx="7" fill="#151B31" stroke="#33406B" stroke-width="1"/>
+      <text x="113.84" y="360.5" font-size="11.5" class="t" text-anchor="middle">Hindi</text>
+    </g><g class="chip" style="animation-delay:90ms">
+      <rect x="146.24" y="348" width="68.11" height="24" rx="7" fill="#151B31" stroke="#33406B" stroke-width="1"/>
+      <text x="180.3" y="360.5" font-size="11.5" class="t" text-anchor="middle">Marathi</text>
+    </g>
+      <path d="M427 297L427 337M427 297L414.64 335.04M427 297L403.49 329.36M427 297L394.64 320.51M427 297L388.96 309.36M427 297L387 297M427 308.2Q425.49 306.51 423.54 307.65M423.54 307.65Q422.63 305.58 420.42 306.06M420.42 306.06Q420.19 303.81 417.94 303.58M417.94 303.58Q418.42 301.37 416.35 300.46M416.35 300.46Q417.49 298.51 415.8 297M427 317Q424.31 313.99 420.82 316.02M420.82 316.02Q419.19 312.33 415.24 313.18M415.24 313.18Q414.84 309.16 410.82 308.76M410.82 308.76Q411.67 304.81 407.98 303.18M407.98 303.18Q410.01 299.69 407 297M427 325.8Q423.13 321.46 418.1 324.39M418.1 324.39Q415.76 319.07 410.07 320.3M410.07 320.3Q409.49 314.51 403.7 313.93M403.7 313.93Q404.93 308.24 399.61 305.9M399.61 305.9Q402.54 300.87 398.2 297M427 337Q421.62 330.98 414.64 335.04M414.64 335.04Q411.38 327.65 403.49 329.36M403.49 329.36Q402.68 321.32 394.64 320.51M394.64 320.51Q396.35 312.62 388.96 309.36M388.96 309.36Q393.02 302.38 387 297" fill="none" stroke="#33406B" stroke-width="1" opacity="0.28" stroke-linecap="round"/>
+</svg>

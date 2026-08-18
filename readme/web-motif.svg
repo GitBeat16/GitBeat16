@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 220 220" width="220" height="220" role="img" aria-label="Spider web motif" preserveAspectRatio="xMidYMid meet">
+<title>Spider web motif</title>
+<defs>
+  <linearGradient id="bgGrad" x1="0" y1="0" x2="0.4" y2="1">
+    <stop offset="0" stop-color="#0C0F1B"/>
+    <stop offset="0.55" stop-color="#0B0D16"/>
+    <stop offset="1" stop-color="#06070E"/>
+  </linearGradient>
+  <linearGradient id="redGrad" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#E0475A"/>
+    <stop offset="1" stop-color="#B5303F"/>
+  </linearGradient>
+  <linearGradient id="navyGrad" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#4C63B6"/>
+    <stop offset="1" stop-color="#172143"/>
+  </linearGradient>
+  <linearGradient id="edgeGrad" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#B5303F" stop-opacity="0.9"/>
+    <stop offset="0.5" stop-color="#33406B" stop-opacity="0.55"/>
+    <stop offset="1" stop-color="#172143" stop-opacity="0.9"/>
+  </linearGradient>
+  <pattern id="halftone" width="6" height="6" patternUnits="userSpaceOnUse">
+    <circle cx="1.5" cy="1.5" r="0.75" fill="#FFFFFF" fill-opacity="0.035"/>
+    <circle cx="4.5" cy="4.5" r="0.75" fill="#FFFFFF" fill-opacity="0.02"/>
+  </pattern>
+  <filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="3.2" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="tinyGlow" x="-60%" y="-60%" width="220%" height="220%">
+    <feGaussianBlur stdDeviation="1.6" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter></defs>
+<style>
+  text{font-family:'Segoe UI', 'Helvetica Neue', 'DejaVu Sans', Arial, sans-serif;dominant-baseline:middle}
+  .d{font-family:'Trebuchet MS', 'Verdana', 'DejaVu Sans', sans-serif;font-weight:700;letter-spacing:0.5px}
+  .mono{font-family:'SFMono-Regular', 'DejaVu Sans Mono', Menlo, Consolas, monospace}
+  .t{fill:#ECE7E4}
+  .dim{fill:#9AA3BE}
+  .faint{fill:#5C6684}
+  .red{fill:#E0475A}
+  @media (prefers-reduced-motion: reduce){*{animation:none !important}}
+  @keyframes spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+          .netw{transform-box:fill-box;transform-origin:50% 50%;animation:spin 90s linear infinite}</style>
+<g class="netw"><path d="M110 110L10 110M110 110L23.4 60M110 110L60 23.4M110 110L110 10M110 110L160 23.4M110 110L196.6 60M110 110L210 110M110 110L196.6 160M110 110L160 196.6M110 110L110 210M110 110L60 196.6M110 110L23.4 160M110 110L10 110M88 110Q91.72 105.1 90.95 99M90.95 99Q96.62 96.62 99 90.95M99 90.95Q105.1 91.72 110 88M110 88Q114.9 91.72 121 90.95M121 90.95Q123.38 96.62 129.05 99M129.05 99Q128.28 105.1 132 110M132 110Q128.28 114.9 129.05 121M129.05 121Q123.38 123.38 121 129.05M121 129.05Q114.9 128.28 110 132M110 132Q105.1 128.28 99 129.05M99 129.05Q96.62 123.38 90.95 121M90.95 121Q91.72 114.9 88 110M70 110Q76.77 101.1 75.36 90M75.36 90Q85.68 85.68 90 75.36M90 75.36Q101.1 76.77 110 70M110 70Q118.9 76.77 130 75.36M130 75.36Q134.32 85.68 144.64 90M144.64 90Q143.23 101.1 150 110M150 110Q143.23 118.9 144.64 130M144.64 130Q134.32 134.32 130 144.64M130 144.64Q118.9 143.23 110 150M110 150Q101.1 143.23 90 144.64M90 144.64Q85.68 134.32 75.36 130M75.36 130Q76.77 118.9 70 110M50 110Q60.16 96.64 58.04 80M58.04 80Q73.51 73.51 80 58.04M80 58.04Q96.64 60.16 110 50M110 50Q123.36 60.16 140 58.04M140 58.04Q146.49 73.51 161.96 80M161.96 80Q159.84 96.64 170 110M170 110Q159.84 123.36 161.96 140M161.96 140Q146.49 146.49 140 161.96M140 161.96Q123.36 159.84 110 170M110 170Q96.64 159.84 80 161.96M80 161.96Q73.51 146.49 58.04 140M58.04 140Q60.16 123.36 50 110M30 110Q43.54 92.19 40.72 70M40.72 70Q61.35 61.35 70 40.72M70 40.72Q92.19 43.54 110 30M110 30Q127.81 43.54 150 40.72M150 40.72Q158.65 61.35 179.28 70M179.28 70Q176.46 92.19 190 110M190 110Q176.46 127.81 179.28 150M179.28 150Q158.65 158.65 150 179.28M150 179.28Q127.81 176.46 110 190M110 190Q92.19 176.46 70 179.28M70 179.28Q61.35 158.65 40.72 150M40.72 150Q43.54 127.81 30 110M10 110Q26.93 87.74 23.4 60M23.4 60Q49.19 49.19 60 23.4M60 23.4Q87.74 26.93 110 10M110 10Q132.26 26.93 160 23.4M160 23.4Q170.81 49.19 196.6 60M196.6 60Q193.07 87.74 210 110M210 110Q193.07 132.26 196.6 160M196.6 160Q170.81 170.81 160 196.6M160 196.6Q132.26 193.07 110 210M110 210Q87.74 193.07 60 196.6M60 196.6Q49.19 170.81 23.4 160M23.4 160Q26.93 132.26 10 110" fill="none" stroke="#33406B" stroke-width="1.1" stroke-linecap="round" opacity="0.75"/></g>
+</svg>

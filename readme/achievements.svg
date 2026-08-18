@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 880 384" width="880" height="384" role="img" aria-label="Achievements" preserveAspectRatio="xMidYMid meet">
+<title>Achievements</title>
+<desc>IEEE TechRush 26 Hackathon — Winner (1st Place). Frontend Development track. Won 1st place in a four-member team for Wanderly, an adaptive AI travel dashboard built end to end during the hackathon. Pictoreal Hackathon — CodeTheCause 2025-26. Participated as a member of team 'The Semicolon', demonstrating innovation and teamwork. Impetus and Concepts 2026. Participated in this international-level technical event organised by Pune Institute of Computer Technology. MHT-CET 2024 — 99.34 percentile. Earned admission to PICT, one of the top engineering colleges in Pune.</desc>
+<defs>
+  <linearGradient id="bgGrad" x1="0" y1="0" x2="0.4" y2="1">
+    <stop offset="0" stop-color="#0C0F1B"/>
+    <stop offset="0.55" stop-color="#0B0D16"/>
+    <stop offset="1" stop-color="#06070E"/>
+  </linearGradient>
+  <linearGradient id="redGrad" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#E0475A"/>
+    <stop offset="1" stop-color="#B5303F"/>
+  </linearGradient>
+  <linearGradient id="navyGrad" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#4C63B6"/>
+    <stop offset="1" stop-color="#172143"/>
+  </linearGradient>
+  <linearGradient id="edgeGrad" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#B5303F" stop-opacity="0.9"/>
+    <stop offset="0.5" stop-color="#33406B" stop-opacity="0.55"/>
+    <stop offset="1" stop-color="#172143" stop-opacity="0.9"/>
+  </linearGradient>
+  <pattern id="halftone" width="6" height="6" patternUnits="userSpaceOnUse">
+    <circle cx="1.5" cy="1.5" r="0.75" fill="#FFFFFF" fill-opacity="0.035"/>
+    <circle cx="4.5" cy="4.5" r="0.75" fill="#FFFFFF" fill-opacity="0.02"/>
+  </pattern>
+  <filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="3.2" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="tinyGlow" x="-60%" y="-60%" width="220%" height="220%">
+    <feGaussianBlur stdDeviation="1.6" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter></defs>
+<style>
+  text{font-family:'Segoe UI', 'Helvetica Neue', 'DejaVu Sans', Arial, sans-serif;dominant-baseline:middle}
+  .d{font-family:'Trebuchet MS', 'Verdana', 'DejaVu Sans', sans-serif;font-weight:700;letter-spacing:0.5px}
+  .mono{font-family:'SFMono-Regular', 'DejaVu Sans Mono', Menlo, Consolas, monospace}
+  .t{fill:#ECE7E4}
+  .dim{fill:#9AA3BE}
+  .faint{fill:#5C6684}
+  .red{fill:#E0475A}
+  @media (prefers-reduced-motion: reduce){*{animation:none !important}}
+@keyframes tileIn{0%{transform:translateY(11px) scale(.985)}100%{transform:translateY(0) scale(1)}}
+.tile{animation:tileIn .55s ease-out;transform-box:fill-box}
+</style>
+      <g opacity="1">
+    <path d="M12 4H880V74L868 86H0V16Z" fill="#101426" stroke="#232B47" stroke-width="1.4"/>
+    <path d="M12 4H880V74L868 86H0V16Z" fill="url(#halftone)"/>
+    <path d="M12 4H880" stroke="#B5303F" stroke-width="2.2" fill="none" opacity="0.9"/>
+  </g>
+      <g><circle cx="40" cy="45" r="17" fill="#B5303F"/><path d="M33 39h14v5a7 7 0 0 1-14 0Z" fill="#FFF1EE"/><path d="M37 46h6v7h-6Z" fill="#FFF1EE"/><path d="M33 53h14v2.5h-14Z" fill="#FFF1EE"/></g>
+      <text x="76" y="32" font-size="15" class="d t">IEEE TechRush 26 Hackathon — Winner (1st Place)</text>
+      <text x="76" y="54" font-size="11.5" class="dim">Frontend Development track. Won 1st place in a four-member team for Wanderly, an adaptive AI travel dashboard built end to end</text><text x="76" y="70" font-size="11.5" class="dim">during the hackathon.</text>
+      <g opacity="1">
+    <path d="M12 98H880V168L868 180H0V110Z" fill="#101426" stroke="#232B47" stroke-width="1.4"/>
+    <path d="M12 98H880V168L868 180H0V110Z" fill="url(#halftone)"/>
+    <path d="M12 98H880" stroke="#172143" stroke-width="2.2" fill="none" opacity="0.9"/>
+  </g>
+      <g><circle cx="40" cy="139" r="17" fill="#151B31" stroke="#33406B" stroke-width="1.2"/><g class="spider-mark">
+    <path d="M38.51 138.07L33.84 134.07L30.08 133.27" fill="none" stroke="#9AA3BE" stroke-width="0.93" stroke-linecap="round" stroke-linejoin="round"/><path d="M41.49 138.07L46.16 134.07L49.92 133.27" fill="none" stroke="#9AA3BE" stroke-width="0.93" stroke-linecap="round" stroke-linejoin="round"/><path d="M38.51 138.07L33.37 136.04L30.08 136.55" fill="none" stroke="#9AA3BE" stroke-width="0.93" stroke-linecap="round" stroke-linejoin="round"/><path d="M41.49 138.07L46.63 136.04L49.92 136.55" fill="none" stroke="#9AA3BE" stroke-width="0.93" stroke-linecap="round" stroke-linejoin="round"/><path d="M38.51 138.07L33.19 138.42L30.08 140.51" fill="none" stroke="#9AA3BE" stroke-width="0.93" stroke-linecap="round" stroke-linejoin="round"/><path d="M41.49 138.07L46.81 138.42L49.92 140.51" fill="none" stroke="#9AA3BE" stroke-width="0.93" stroke-linecap="round" stroke-linejoin="round"/><path d="M38.51 138.07L33.25 140.91L30.08 144.66" fill="none" stroke="#9AA3BE" stroke-width="0.93" stroke-linecap="round" stroke-linejoin="round"/><path d="M41.49 138.07L46.75 140.91L49.92 144.66" fill="none" stroke="#9AA3BE" stroke-width="0.93" stroke-linecap="round" stroke-linejoin="round"/>
+    <ellipse cx="40" cy="136.15" rx="1.61" ry="1.92" fill="#9AA3BE"/>
+    <ellipse cx="40" cy="141.11" rx="2.11" ry="3.84" fill="#9AA3BE"/>
+  </g></g>
+      <text x="76" y="126" font-size="15" class="d t">Pictoreal Hackathon — CodeTheCause 2025-26</text>
+      <text x="76" y="148" font-size="11.5" class="dim">Participated as a member of team 'The Semicolon', demonstrating innovation and teamwork.</text>
+      <g opacity="1">
+    <path d="M12 192H880V262L868 274H0V204Z" fill="#101426" stroke="#232B47" stroke-width="1.4"/>
+    <path d="M12 192H880V262L868 274H0V204Z" fill="url(#halftone)"/>
+    <path d="M12 192H880" stroke="#172143" stroke-width="2.2" fill="none" opacity="0.9"/>
+  </g>
+      <g><circle cx="40" cy="233" r="17" fill="#151B31" stroke="#33406B" stroke-width="1.2"/><g class="spider-mark">
+    <path d="M38.51 232.07L33.84 228.07L30.08 227.27" fill="none" stroke="#9AA3BE" stroke-width="0.93" stroke-linecap="round" stroke-linejoin="round"/><path d="M41.49 232.07L46.16 228.07L49.92 227.27" fill="none" stroke="#9AA3BE" stroke-width="0.93" stroke-linecap="round" stroke-linejoin="round"/><path d="M38.51 232.07L33.37 230.04L30.08 230.55" fill="none" stroke="#9AA3BE" stroke-width="0.93" stroke-linecap="round" stroke-linejoin="round"/><path d="M41.49 232.07L46.63 230.04L49.92 230.55" fill="none" stroke="#9AA3BE" stroke-width="0.93" stroke-linecap="round" stroke-linejoin="round"/><path d="M38.51 232.07L33.19 232.42L30.08 234.51" fill="none" stroke="#9AA3BE" stroke-width="0.93" stroke-linecap="round" stroke-linejoin="round"/><path d="M41.49 232.07L46.81 232.42L49.92 234.51" fill="none" stroke="#9AA3BE" stroke-width="0.93" stroke-linecap="round" stroke-linejoin="round"/><path d="M38.51 232.07L33.25 234.91L30.08 238.66" fill="none" stroke="#9AA3BE" stroke-width="0.93" stroke-linecap="round" stroke-linejoin="round"/><path d="M41.49 232.07L46.75 234.91L49.92 238.66" fill="none" stroke="#9AA3BE" stroke-width="0.93" stroke-linecap="round" stroke-linejoin="round"/>
+    <ellipse cx="40" cy="230.15" rx="1.61" ry="1.92" fill="#9AA3BE"/>
+    <ellipse cx="40" cy="235.11" rx="2.11" ry="3.84" fill="#9AA3BE"/>
+  </g></g>
+      <text x="76" y="220" font-size="15" class="d t">Impetus and Concepts 2026</text>
+      <text x="76" y="242" font-size="11.5" class="dim">Participated in this international-level technical event organised by Pune Institute of Computer Technology.</text>
+      <g opacity="1">
+    <path d="M12 286H880V356L868 368H0V298Z" fill="#101426" stroke="#232B47" stroke-width="1.4"/>
+    <path d="M12 286H880V356L868 368H0V298Z" fill="url(#halftone)"/>
+    <path d="M12 286H880" stroke="#172143" stroke-width="2.2" fill="none" opacity="0.9"/>
+  </g>
+      <g><circle cx="40" cy="327" r="17" fill="#172143"/><path d="M32 332 l5 -9 l4 5 l6 -11" fill="none" stroke="#DCE6FF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></g>
+      <text x="76" y="314" font-size="15" class="d t">MHT-CET 2024 — 99.34 percentile</text>
+      <text x="76" y="336" font-size="11.5" class="dim">Earned admission to PICT, one of the top engineering colleges in Pune.</text>
+</svg>

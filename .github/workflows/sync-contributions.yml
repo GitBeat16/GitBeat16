@@ -1,0 +1,55 @@
+name: Sync contribution web
+
+# Keeps readme/contribution-web.svg (and the stats panel) in step with the
+# real GitHub contribution calendar. Runs daily, on every push to main, and
+# on demand from the Actions tab.
+
+on:
+  schedule:
+    - cron: '17 3 * * *' # 03:17 UTC daily
+  push:
+    branches: [main]
+    paths:
+      - 'data/**'
+      - 'shared/**'
+      - 'scripts/**'
+      - '.github/workflows/sync-contributions.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-contributions
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Pull the real contribution calendar
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_LOGIN: ${{ github.repository_owner }}
+        run: node scripts/sync-contributions.mjs
+
+      - name: Regenerate README assets
+        run: node scripts/generate-readme-assets.mjs
+
+      - name: Commit if anything changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if [ -n "$(git status --porcelain data readme)" ]; then
+            git add data readme
+            git commit -m "chore: sync contribution web [skip ci]"
+            git push
+          else
+            echo "no changes"
+          fi

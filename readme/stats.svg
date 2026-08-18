@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 880 132" width="880" height="132" role="img" aria-label="GitHub activity summary" preserveAspectRatio="xMidYMid meet">
+<title>GitHub activity summary</title>
+<desc>CONTRIBUTIONS · 12 MO: 511. ACTIVE DAYS: 40. BEST DAY · JAN 16: 89. LONGEST STREAK: 9d</desc>
+<defs>
+  <linearGradient id="bgGrad" x1="0" y1="0" x2="0.4" y2="1">
+    <stop offset="0" stop-color="#0C0F1B"/>
+    <stop offset="0.55" stop-color="#0B0D16"/>
+    <stop offset="1" stop-color="#06070E"/>
+  </linearGradient>
+  <linearGradient id="redGrad" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#E0475A"/>
+    <stop offset="1" stop-color="#B5303F"/>
+  </linearGradient>
+  <linearGradient id="navyGrad" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#4C63B6"/>
+    <stop offset="1" stop-color="#172143"/>
+  </linearGradient>
+  <linearGradient id="edgeGrad" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#B5303F" stop-opacity="0.9"/>
+    <stop offset="0.5" stop-color="#33406B" stop-opacity="0.55"/>
+    <stop offset="1" stop-color="#172143" stop-opacity="0.9"/>
+  </linearGradient>
+  <pattern id="halftone" width="6" height="6" patternUnits="userSpaceOnUse">
+    <circle cx="1.5" cy="1.5" r="0.75" fill="#FFFFFF" fill-opacity="0.035"/>
+    <circle cx="4.5" cy="4.5" r="0.75" fill="#FFFFFF" fill-opacity="0.02"/>
+  </pattern>
+  <filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="3.2" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="tinyGlow" x="-60%" y="-60%" width="220%" height="220%">
+    <feGaussianBlur stdDeviation="1.6" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter></defs>
+<style>
+  text{font-family:'Segoe UI', 'Helvetica Neue', 'DejaVu Sans', Arial, sans-serif;dominant-baseline:middle}
+  .d{font-family:'Trebuchet MS', 'Verdana', 'DejaVu Sans', sans-serif;font-weight:700;letter-spacing:0.5px}
+  .mono{font-family:'SFMono-Regular', 'DejaVu Sans Mono', Menlo, Consolas, monospace}
+  .t{fill:#ECE7E4}
+  .dim{fill:#9AA3BE}
+  .faint{fill:#5C6684}
+  .red{fill:#E0475A}
+  @media (prefers-reduced-motion: reduce){*{animation:none !important}}
+@keyframes tileIn{0%{transform:translateY(11px) scale(.985)}100%{transform:translateY(0) scale(1)}}
+.tile{animation:tileIn .55s ease-out;transform-box:fill-box}
+</style>
+<g class="tile" style="animation-delay:0ms">
+    <g opacity="1">
+    <path d="M10 8H206V106L196 116H0V18Z" fill="#151B31" stroke="#232B47" stroke-width="1.4"/>
+    <path d="M10 8H206V106L196 116H0V18Z" fill="url(#halftone)"/>
+    <path d="M10 8H206" stroke="#E0475A" stroke-width="2.2" fill="none" opacity="0.9"/>
+  </g>
+    <text x="103" y="53.36" font-size="26" class="d" fill="#E0475A" text-anchor="middle">511</text>
+    <text x="103" y="87.92" font-size="11" class="faint" text-anchor="middle" letter-spacing="1">CONTRIBUTIONS · 12 MO</text>
+  </g><g class="tile" style="animation-delay:110ms">
+    <g opacity="1">
+    <path d="M230 8H426V106L416 116H220V18Z" fill="#151B31" stroke="#232B47" stroke-width="1.4"/>
+    <path d="M230 8H426V106L416 116H220V18Z" fill="url(#halftone)"/>
+    <path d="M230 8H426" stroke="#E0475A" stroke-width="2.2" fill="none" opacity="0.9"/>
+  </g>
+    <text x="323" y="53.36" font-size="26" class="d" fill="#E0475A" text-anchor="middle">40</text>
+    <text x="323" y="87.92" font-size="11" class="faint" text-anchor="middle" letter-spacing="1">ACTIVE DAYS</text>
+  </g><g class="tile" style="animation-delay:220ms">
+    <g opacity="1">
+    <path d="M450 8H646V106L636 116H440V18Z" fill="#151B31" stroke="#232B47" stroke-width="1.4"/>
+    <path d="M450 8H646V106L636 116H440V18Z" fill="url(#halftone)"/>
+    <path d="M450 8H646" stroke="#E0475A" stroke-width="2.2" fill="none" opacity="0.9"/>
+  </g>
+    <text x="543" y="53.36" font-size="26" class="d" fill="#E0475A" text-anchor="middle">89</text>
+    <text x="543" y="87.92" font-size="11" class="faint" text-anchor="middle" letter-spacing="1">BEST DAY · JAN 16</text>
+  </g><g class="tile" style="animation-delay:330ms">
+    <g opacity="1">
+    <path d="M670 8H866V106L856 116H660V18Z" fill="#151B31" stroke="#232B47" stroke-width="1.4"/>
+    <path d="M670 8H866V106L856 116H660V18Z" fill="url(#halftone)"/>
+    <path d="M670 8H866" stroke="#E0475A" stroke-width="2.2" fill="none" opacity="0.9"/>
+  </g>
+    <text x="763" y="53.36" font-size="26" class="d" fill="#E0475A" text-anchor="middle">9d</text>
+    <text x="763" y="87.92" font-size="11" class="faint" text-anchor="middle" letter-spacing="1">LONGEST STREAK</text>
+  </g>
+</svg>

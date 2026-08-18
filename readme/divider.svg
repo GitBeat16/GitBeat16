@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 880 34" width="880" height="34" role="img" aria-label="Web strand divider with a small spider crawling along it" preserveAspectRatio="xMidYMid meet">
+<title>Web strand divider with a small spider crawling along it</title>
+<defs>
+  <linearGradient id="bgGrad" x1="0" y1="0" x2="0.4" y2="1">
+    <stop offset="0" stop-color="#0C0F1B"/>
+    <stop offset="0.55" stop-color="#0B0D16"/>
+    <stop offset="1" stop-color="#06070E"/>
+  </linearGradient>
+  <linearGradient id="redGrad" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#E0475A"/>
+    <stop offset="1" stop-color="#B5303F"/>
+  </linearGradient>
+  <linearGradient id="navyGrad" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#4C63B6"/>
+    <stop offset="1" stop-color="#172143"/>
+  </linearGradient>
+  <linearGradient id="edgeGrad" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#B5303F" stop-opacity="0.9"/>
+    <stop offset="0.5" stop-color="#33406B" stop-opacity="0.55"/>
+    <stop offset="1" stop-color="#172143" stop-opacity="0.9"/>
+  </linearGradient>
+  <pattern id="halftone" width="6" height="6" patternUnits="userSpaceOnUse">
+    <circle cx="1.5" cy="1.5" r="0.75" fill="#FFFFFF" fill-opacity="0.035"/>
+    <circle cx="4.5" cy="4.5" r="0.75" fill="#FFFFFF" fill-opacity="0.02"/>
+  </pattern>
+  <filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="3.2" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="tinyGlow" x="-60%" y="-60%" width="220%" height="220%">
+    <feGaussianBlur stdDeviation="1.6" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter></defs>
+<style>
+  text{font-family:'Segoe UI', 'Helvetica Neue', 'DejaVu Sans', Arial, sans-serif;dominant-baseline:middle}
+  .d{font-family:'Trebuchet MS', 'Verdana', 'DejaVu Sans', sans-serif;font-weight:700;letter-spacing:0.5px}
+  .mono{font-family:'SFMono-Regular', 'DejaVu Sans Mono', Menlo, Consolas, monospace}
+  .t{fill:#ECE7E4}
+  .dim{fill:#9AA3BE}
+  .faint{fill:#5C6684}
+  .red{fill:#E0475A}
+  @media (prefers-reduced-motion: reduce){*{animation:none !important}}
+  @keyframes crawl{0%{transform:translateX(0)}100%{transform:translateX(760px)}}
+  @keyframes legTwitch{0%,100%{transform:rotate(0)}50%{transform:rotate(3deg)}}
+  .crawler{animation:crawl 22s linear infinite;transform-box:fill-box}
+  .crawler g{animation:legTwitch .5s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 50%}
+  @keyframes shimmer{0%,100%{opacity:.5}50%{opacity:.9}}
+  .thread{animation:shimmer 5s ease-in-out infinite}
+  </style>
+  <path class="thread" d="M0 17 H880" stroke="#232B47" stroke-width="1.2" fill="none"/>
+  <path class="thread" d="M40 17Q68 24 96 17M96 17Q124 24 152 17M152 17Q180 24 208 17M208 17Q236 24 264 17M264 17Q292 24 320 17M320 17Q348 24 376 17M376 17Q404 24 432 17M432 17Q460 24 488 17M488 17Q516 24 544 17M544 17Q572 24 600 17M600 17Q628 24 656 17M656 17Q684 24 712 17M712 17Q740 24 768 17M768 17Q796 24 824 17M824 17Q852 24 880 17" stroke="#33406B" stroke-width="1" fill="none" opacity="0.7"/>
+  <circle cx="6" cy="17" r="3" fill="#B5303F"/>
+  <circle cx="874" cy="17" r="3" fill="#4C63B6"/>
+  <g class="crawler"><g transform="translate(60 17) scale(0.55)"><g class="spider-mark">
+    <path d="M-2.4 -1.5L-9.94 -7.95L-16 -9.24" fill="none" stroke="#9AA3BE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M2.4 -1.5L9.94 -7.95L16 -9.24" fill="none" stroke="#9AA3BE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M-2.4 -1.5L-10.7 -4.77L-16 -3.95" fill="none" stroke="#9AA3BE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M2.4 -1.5L10.7 -4.77L16 -3.95" fill="none" stroke="#9AA3BE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M-2.4 -1.5L-10.99 -0.94L-16 2.43" fill="none" stroke="#9AA3BE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M2.4 -1.5L10.99 -0.94L16 2.43" fill="none" stroke="#9AA3BE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M-2.4 -1.5L-10.88 3.08L-16 9.13" fill="none" stroke="#9AA3BE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M2.4 -1.5L10.88 3.08L16 9.13" fill="none" stroke="#9AA3BE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <ellipse cx="0" cy="-4.6" rx="2.6" ry="3.1" fill="#9AA3BE"/>
+    <ellipse cx="0" cy="3.4" rx="3.4" ry="6.2" fill="#9AA3BE"/>
+  </g></g></g>
+</svg>
