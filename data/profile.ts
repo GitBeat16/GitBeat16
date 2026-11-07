@@ -72,6 +72,8 @@ export const missions = [
   {
     code: 'MISSION 01',
     name: 'Wanderly',
+    short: 'Adaptive AI travel dashboard that reshapes itself around each traveller — won IEEE TechRush 26.',
+    link: 'https://github.com/GitBeat16/TechRush-26',
     subtitle: 'Adaptive AI Travel Dashboard',
     badge: 'Hackathon winner',
     accent: 'red',
@@ -88,6 +90,8 @@ export const missions = [
   {
     code: 'MISSION 02',
     name: 'BoardroomAI',
+    short: 'Pitch to a board of eight AI executives who debate it live, vote, and return an investment decision.',
+    link: 'https://github.com/GitBeat16/HackAgent',
     subtitle: 'AI Virtual Board of Directors',
     badge: 'Hackathon build',
     accent: 'navy',
@@ -102,6 +106,8 @@ export const missions = [
   {
     code: 'MISSION 03',
     name: 'Lumi',
+    short: 'Mobile AI companion with emotion detection, voice chat and mood tracking.',
+    link: 'https://github.com/GitBeat16/aura_2',
     subtitle: 'AI Companion App',
     badge: 'In progress',
     accent: 'navy',
@@ -116,6 +122,8 @@ export const missions = [
   {
     code: 'MISSION 04',
     name: 'Streamlit Applications',
+    short: 'StockZ, a pattern-spotting paper-trading terminal, and Sahay, a peer-learning matchmaker.',
+    link: 'https://github.com/GitBeat16?tab=repositories',
     subtitle: 'StockZ Terminal · Sahay',
     badge: '',
     accent: 'navy',

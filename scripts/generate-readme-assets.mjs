@@ -422,71 +422,50 @@ function arsenal() {
  * its own small badge image and wrapped in a Markdown anchor instead.
  */
 function missionCard(m, i) {
+  /* Compact grid card. README.md lays these out 2x2 and wraps each one in a
+     link to its repository, so the whole card is the click target. */
+  const w = 430;
+  const h = 196;
   const isWin = m.accent === 'red';
   const accent = isWin ? P.red : P.navy;
   const chipAccent = isWin ? P.edgeHi : P.navyGlow;
+  const pad = 22;
 
-  const chips = chipRow(m.stack, {
-    x: 24,
-    y: 100,
-    maxWidth: W - 250,
-    accent: chipAccent,
-    size: 11,
-    delayStep: 40,
-  });
-
-  const descY = 100 + chips.height + 14;
-  const descLines = wrap(m.bullets[0], W - 56, 12);
-  const repoY = descY + descLines.length * 17 + 16;
-  const h = R(repoY + 30);
-
-  /* headline badge — the award reads as the loudest thing on the card */
-  const badgeW = R(textWidth(m.badge, 10.5) * 1.24 + (isWin ? 66 : 30));
+  const badgeW = m.badge ? R(textWidth(m.badge, 9.5) * 1.22 + (isWin ? 46 : 24)) : 0;
   const badge = m.badge
-    ? `<g class="tile" style="animation-delay:200ms">
-         <rect x="${R(W - 26 - badgeW)}" y="22" width="${badgeW}" height="26" rx="13" fill="${
+    ? `<rect x="${R(w - pad - badgeW)}" y="16" width="${badgeW}" height="22" rx="11" fill="${
         isWin ? 'url(#redGrad)' : P.navy
       }" stroke="${isWin ? P.redBright : P.navyLift}" stroke-width="1"/>
-         ${isWin ? icon('trophy', W - 26 - badgeW + 21, 35, 17, '#FFF1EE') : ''}
-         <text x="${R(W - 26 - badgeW / 2 + (isWin ? 16 : 0))}" y="36" font-size="10.5" class="d" fill="${
+       ${isWin ? icon('trophy', w - pad - badgeW + 15, 27, 13, '#FFF1EE') : ''}
+       <text x="${R(w - pad - badgeW / 2 + (isWin ? 10 : 0))}" y="27.5" font-size="9.5" class="d" fill="${
         isWin ? '#FFF1EE' : '#D7DEF8'
-      }" text-anchor="middle" letter-spacing="1">${esc(m.badge.toUpperCase())}</text>
-       </g>`
+      }" text-anchor="middle" letter-spacing="1">${esc(m.badge.toUpperCase())}</text>`
     : '';
 
-  /* repo location, drawn in-card; the clickable twin lives in README.md */
-  const repoLine = m.repos
-    .map((r, k) => {
-      const path = r.url.replace(/^https?:\/\/github\.com\//, '');
-      const tw = R(textWidth(path, 11.5) + 46);
-      const x = 24 + m.repos.slice(0, k).reduce((a, p) => a + R(textWidth(p.url.replace(/^https?:\/\/github\.com\//, ''), 11.5) + 46) + 10, 0);
-      return `<g class="tile" style="animation-delay:${320 + k * 90}ms">
-        <rect x="${x}" y="${R(repoY - 13)}" width="${tw}" height="26" rx="7" fill="${P.panelHi}" stroke="${P.edge}" stroke-width="1"/>
-        ${icon('branch', x + 17, repoY, 15, P.navyGlow)}
-        <text x="${x + 31}" y="${R(repoY + 0.5)}" font-size="11.5" class="dim mono">${esc(path)}</text>
-      </g>`;
-    })
-    .join('');
+  const chips = chipRow(m.stack.slice(0, 4), { x: pad, y: 132, maxWidth: w - pad * 2, accent: chipAccent, size: 10.5, delayStep: 40 });
+  const ax = w - pad - 6;
+
+  const css = `${chipCss}
+  @keyframes mArrow{0%,100%{transform:translate(0,0)}50%{transform:translate(2px,-2px)}}
+  .mArrow{animation:mArrow 1.4s ease-in-out infinite;animation-delay:${i * 0.3}s}`;
 
   const body = `
-  ${panel({ x: 0, y: 0, w: W, h, cut: 18, accent })}
-  <text x="24" y="30" font-size="11" class="d" fill="${P.textFaint}" letter-spacing="2.4">${esc(m.code)}</text>
-  <text x="24" y="58" font-size="25" class="d t">${esc(m.name)}</text>
-  <text x="24" y="80" font-size="12.5" class="dim">${esc(m.subtitle)}</text>
+  ${panel({ x: 0, y: 0, w, h, cut: 16, accent })}
+  ${cornerWeb(1, h - 1, 46, 3, P.edgeHi, 0.22)}
+  <text x="${pad}" y="28" font-size="10.5" class="d" fill="${P.textFaint}" letter-spacing="2.4">${esc(m.code)}</text>
   ${badge}
+  <text x="${pad}" y="60" font-size="22" class="d t">${esc(m.name === 'Streamlit Applications' ? 'StockZ · Sahay' : m.name)}</text>
+  ${bodyText(m.short, { x: pad, y: 88, maxWidth: w - pad * 2, size: 12.5, lh: 18, cls: 'dim' })}
   ${chips.markup}
-  ${bodyText(m.bullets[0], { x: 24, y: descY, maxWidth: W - 56, size: 12, lh: 17, cls: 'dim' })}
-  ${repoLine}
-  ${cornerWeb(W - 1, 1, 56, 1, P.edgeHi, 0.3)}`;
+  <text x="${ax - 14}" y="${h - 22}" font-size="10.5" class="faint mono" text-anchor="end">${m.repos.length > 1 ? 'view repos' : 'view repo'}</text>
+  <g class="mArrow"><path d="M${ax - 5} ${h - 17} l8 -8 M${ax - 3} ${h - 25} h6 v6" stroke="${P.textDim}" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>`;
 
   return svgDoc({
-    w: W,
+    w,
     h,
     title: `${m.name} — ${m.subtitle}`,
-    desc: `${m.code}: ${m.name}, ${m.subtitle}.${m.badge ? ` ${m.badge}.` : ''} Built with ${m.stack.join(
-      ', '
-    )}. ${m.bullets[0]} Repository: ${m.repos.map((r) => r.url).join(', ')}.`,
-    css: `${chipCss}${tileCss}`,
+    desc: `${m.code}: ${m.name}. ${m.short} Built with ${m.stack.join(', ')}.`,
+    css,
     body,
     bg: false,
   });
@@ -811,13 +790,8 @@ head('sec-contact.svg', 'CONTACT', 'open a thread');
 write('about.svg', aboutPanel());
 write('arsenal.svg', arsenal());
 
-/* one card per mission + a clickable badge per repository */
-profile.missions.forEach((m, i) => {
-  write(`mission-0${i + 1}.svg`, missionCard(m, i));
-  m.repos.forEach((r) => {
-    write(`btn-${r.slug}.svg`, linkBadge({ label: r.label, glyph: 'branch', accent: P.navyGlow }));
-  });
-});
+/* one compact card per mission; README.md links each to its repository */
+profile.missions.forEach((m, i) => write(`mission-0${i + 1}.svg`, missionCard(m, i)));
 
 write('achievements.svg', achievements());
 write('contact-run.svg', contactRun());
