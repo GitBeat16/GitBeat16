@@ -51,6 +51,9 @@ fs.mkdirSync(OUT, { recursive: true });
 
 const profile = readProfile(path.join(ROOT, 'data', 'profile.ts'));
 
+/* One type scale for every panel, so the README reads as a single document. */
+const TYPE = { title: 16, body: 13, bodyLh: 19, label: 11, chip: 11.5, note: 11 };
+
 const written = [];
 function write(name, svg) {
   const file = path.join(OUT, name);
@@ -153,7 +156,7 @@ function hero() {
     <stop offset="1" stop-color="${P.navy}" stop-opacity="0"/>
   </radialGradient>`;
 
-  const chips = chipRow(profile.identity.heroStack, { x: 44, y: 224, maxWidth: 520, accent: P.edgeHi, size: 12 });
+  const chips = chipRow(profile.identity.heroStack, { x: 44, y: 224, maxWidth: 520, accent: P.edgeHi, size: TYPE.chip });
 
   /* LinkedIn call-to-action under the stack chips. Links inside an
      <img>-embedded SVG are inert on GitHub, so README.md wraps the whole hero
@@ -287,11 +290,11 @@ function aboutPanel() {
   const ed = profile.education;
   const pad = 28;
   const bioTop = 38;
-  const lh = 23;
+  const lh = TYPE.bodyLh + 3;
   const bio = profile.about
     .map(
       (l, i) =>
-        `<text x="${pad}" y="${bioTop + i * lh}" font-size="13.5" class="${i === 0 ? 't' : 'dim'}">${esc(l)}</text>`
+        `<text x="${pad}" y="${bioTop + i * lh}" font-size="${TYPE.body}" class="${i === 0 ? 't' : 'dim'}">${esc(l)}</text>`
     )
     .join('');
 
@@ -305,8 +308,8 @@ function aboutPanel() {
   ]
     .map(
       ([k, v, x, y]) => `
-      <text x="${x}" y="${y}" font-size="11" class="mono red" letter-spacing="1.5">${k}</text>
-      <text x="${x + 92}" y="${y}" font-size="13" class="t">${esc(v)}</text>`
+      <text x="${x}" y="${y}" font-size="${TYPE.label}" class="mono red" letter-spacing="1.5">${k}</text>
+      <text x="${x + 92}" y="${y}" font-size="${TYPE.body}" class="t">${esc(v)}</text>`
     )
     .join('');
 
@@ -367,7 +370,7 @@ function arsenal() {
       y: 0,
       maxWidth: colW - 40,
       accent: i % 2 ? P.navyGlow : P.edgeHi,
-      size: 11.5,
+      size: TYPE.chip,
       delayStep: 45,
     });
     heights[i] = 62 + chips.height + (grp.note ? 18 : 0);
@@ -389,7 +392,7 @@ function arsenal() {
       y: py + 52,
       maxWidth: colW - 40,
       accent: col ? P.navyGlow : P.edgeHi,
-      size: 11.5,
+      size: TYPE.chip,
       delayStep: 45,
     });
     blocks.push(`
@@ -397,7 +400,7 @@ function arsenal() {
       <text x="${x + 20}" y="${py + 28}" font-size="13" class="d red" letter-spacing="1.4">${esc(
         grp.label.toUpperCase()
       )}</text>
-      ${grp.note ? `<text x="${x + colW - 20}" y="${py + 28}" font-size="10.5" class="faint" text-anchor="end">${esc(grp.note)}</text>` : ''}
+      ${grp.note ? `<text x="${x + colW - 20}" y="${py + 28}" font-size="${TYPE.note}" class="faint" text-anchor="end">${esc(grp.note)}</text>` : ''}
       ${chips.markup}
       ${cornerWeb(x + colW - 1, py + 1, 40, 1, P.edgeHi, 0.28)}
     `);
@@ -431,7 +434,7 @@ function missionCard(m, i) {
   const gut = 6;
   const vpad = 4;
   const w = W2 - gut;
-  const h = 188;
+  const h = 172;
   const ox = i % 2 ? gut : 0;
   const isWin = m.accent === 'red';
   const accent = isWin ? P.red : P.navy;
@@ -449,7 +452,7 @@ function missionCard(m, i) {
       }" text-anchor="middle" letter-spacing="1">${esc(m.badge.toUpperCase())}</text>`
     : '';
 
-  const chips = chipRow(m.stack.slice(0, 4), { x: pad, y: 124, maxWidth: w - pad * 2, accent: chipAccent, size: 11.5, delayStep: 40 });
+  const chips = chipRow(m.stack.slice(0, 4), { x: pad, y: 116, maxWidth: w - pad * 2, accent: chipAccent, size: TYPE.chip, delayStep: 40 });
   const ax = w - pad - 6;
   const label = m.repos.length > 1 ? 'view repos' : 'view repo';
 
@@ -460,13 +463,13 @@ function missionCard(m, i) {
   const body = `<g transform="translate(${ox} ${vpad})">
   ${panel({ x: 0, y: 0, w, h, cut: 16, accent })}
   ${cornerWeb(1, h - 1, 46, 3, P.edgeHi, 0.22)}
-  <text x="${pad}" y="28" font-size="11" class="d" fill="${P.textFaint}" letter-spacing="2.4">${esc(m.code)}</text>
+  <text x="${pad}" y="28" font-size="${TYPE.label}" class="mono red" letter-spacing="1.5">${esc(m.code)}</text>
   ${badge}
-  <text x="${pad}" y="58" font-size="22" class="d t">${esc(m.name === 'Streamlit Applications' ? 'StockZ · Sahay' : m.name)}</text>
-  ${bodyText(m.short, { x: pad, y: 84, maxWidth: w - pad * 2, size: 13.5, lh: 19, cls: 'dim' })}
+  <text x="${pad}" y="56" font-size="${TYPE.title}" class="d t">${esc(m.name === 'Streamlit Applications' ? 'StockZ · Sahay' : m.name)}</text>
+  ${bodyText(m.short, { x: pad, y: 82, maxWidth: w - pad * 2, size: TYPE.body, lh: TYPE.bodyLh, cls: 'dim' })}
   ${chips.markup}
-  <text x="${ax - 14}" y="${h - 20}" font-size="11" class="faint mono" text-anchor="end">${label}</text>
-  <g class="mArrow"><path d="M${ax - 5} ${h - 15} l8 -8 M${ax - 3} ${h - 23} h6 v6" stroke="${P.textDim}" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
+  <text x="${ax - 14}" y="${h - 18}" font-size="${TYPE.note}" class="faint mono" text-anchor="end">${label}</text>
+  <g class="mArrow"><path d="M${ax - 5} ${h - 13} l8 -8 M${ax - 3} ${h - 21} h6 v6" stroke="${P.textDim}" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
   </g>`;
 
   return svgDoc({
@@ -511,7 +514,7 @@ function linkBadge({ label, glyph, accent = P.navyGlow, fill = P.panelHi, height
 /* ════════════════════════════════════════════════════════ 9. ACHIEVEMENTS */
 function achievements() {
   const items = profile.achievements;
-  const rowH = 82;
+  const rowH = 88;
   const h = items.length * (rowH + 12) + 8;
   /* one distinct glyph per achievement, each in its own coloured medallion */
   const MEDALLION = {
@@ -538,8 +541,8 @@ function achievements() {
       return `
       ${panel({ x: 0, y, w: W, h: rowH, cut: 12, accent: a.kind === 'win' ? P.red : P.navy })}
       ${medallion(a.kind, 42, y + rowH / 2)}
-      <text x="76" y="${y + 28}" font-size="15" class="d t">${esc(a.title)}</text>
-      ${bodyText(a.detail, { x: 76, y: y + 50, maxWidth: W - 110, size: 11.5, lh: 16, cls: 'dim' })}`;
+      <text x="76" y="${y + 27}" font-size="${TYPE.title}" class="d t">${esc(a.title)}</text>
+      ${bodyText(a.detail, { x: 76, y: y + 50, maxWidth: W - 110, size: TYPE.body, lh: TYPE.bodyLh, cls: 'dim' })}`;
     })
     .join('');
 

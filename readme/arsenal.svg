@@ -54,7 +54,7 @@
     <path d="M14 8H428" stroke="#B5303F" stroke-width="2.2" fill="none" opacity="0.9"/>
   </g>
       <text x="20" y="36" font-size="13" class="d red" letter-spacing="1.4">LANGUAGES</text>
-      <text x="408" y="36" font-size="10.5" class="faint" text-anchor="end">C++ proficient · Python familiar</text>
+      <text x="408" y="36" font-size="11" class="faint" text-anchor="end">C++ proficient · Python familiar</text>
       <g class="chip" style="animation-delay:0ms">
       <rect x="20" y="60" width="28.32" height="24" rx="7" fill="#151B31" stroke="#33406B" stroke-width="1"/>
       <text x="34.16" y="72.5" font-size="11.5" class="t" text-anchor="middle">C</text>

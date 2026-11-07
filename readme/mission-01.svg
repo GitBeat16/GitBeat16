@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 440 196" width="440" height="196" role="img" aria-label="Wanderly — Adaptive AI Travel Dashboard" preserveAspectRatio="xMidYMid meet">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 440 180" width="440" height="180" role="img" aria-label="Wanderly — Adaptive AI Travel Dashboard" preserveAspectRatio="xMidYMid meet">
 <title>Wanderly — Adaptive AI Travel Dashboard</title>
 <desc>MISSION 01: Wanderly. Adaptive AI travel dashboard that reshapes itself around each traveller — won IEEE TechRush 26. Built with Next.js 16, React 19, TypeScript, Tailwind CSS v4, Supabase (Postgres), Framer Motion.</desc>
 <defs>
@@ -51,12 +51,12 @@
   .mArrow{animation:mArrow 1.4s ease-in-out infinite;animation-delay:0s}</style>
 <g transform="translate(0 4)">
   <g opacity="1">
-    <path d="M16 0H434V172L418 188H0V16Z" fill="#101426" stroke="#232B47" stroke-width="1.4"/>
-    <path d="M16 0H434V172L418 188H0V16Z" fill="url(#halftone)"/>
+    <path d="M16 0H434V156L418 172H0V16Z" fill="#101426" stroke="#232B47" stroke-width="1.4"/>
+    <path d="M16 0H434V156L418 172H0V16Z" fill="url(#halftone)"/>
     <path d="M16 0H434" stroke="#B5303F" stroke-width="2.2" fill="none" opacity="0.9"/>
   </g>
-  <path d="M1 187L1 141M1 187L15.21 143.25M1 187L28.04 149.79M1 187L38.21 159.96M1 187L44.75 172.79M1 187L47 187M1 174.12Q2.73 176.06 4.98 174.75M4.98 174.75Q6.03 177.13 8.57 176.58M8.57 176.58Q8.83 179.17 11.42 179.43M11.42 179.43Q10.87 181.97 13.25 183.02M13.25 183.02Q11.94 185.27 13.88 187M1 164Q4.09 167.46 8.11 165.13M8.11 165.13Q9.98 169.38 14.52 168.39M14.52 168.39Q14.99 173.01 19.61 173.48M19.61 173.48Q18.62 178.02 22.87 179.89M22.87 179.89Q20.54 183.91 24 187M1 153.88Q5.46 158.87 11.23 155.5M11.23 155.5Q13.93 161.62 20.47 160.21M20.47 160.21Q21.14 166.86 27.79 167.53M27.79 167.53Q26.38 174.07 32.5 176.77M32.5 176.77Q29.13 182.54 34.12 187M1 141Q7.19 147.93 15.21 143.25M15.21 143.25Q18.96 151.75 28.04 149.79M28.04 149.79Q28.97 159.03 38.21 159.96M38.21 159.96Q36.25 169.04 44.75 172.79M44.75 172.79Q40.07 180.81 47 187" fill="none" stroke="#33406B" stroke-width="1" opacity="0.22" stroke-linecap="round"/>
-  <text x="20" y="28" font-size="11" class="d" fill="#5C6684" letter-spacing="2.4">MISSION 01</text>
+  <path d="M1 171L1 125M1 171L15.21 127.25M1 171L28.04 133.79M1 171L38.21 143.96M1 171L44.75 156.79M1 171L47 171M1 158.12Q2.73 160.06 4.98 158.75M4.98 158.75Q6.03 161.13 8.57 160.58M8.57 160.58Q8.83 163.17 11.42 163.43M11.42 163.43Q10.87 165.97 13.25 167.02M13.25 167.02Q11.94 169.27 13.88 171M1 148Q4.09 151.46 8.11 149.13M8.11 149.13Q9.98 153.38 14.52 152.39M14.52 152.39Q14.99 157.01 19.61 157.48M19.61 157.48Q18.62 162.02 22.87 163.89M22.87 163.89Q20.54 167.91 24 171M1 137.88Q5.46 142.87 11.23 139.5M11.23 139.5Q13.93 145.62 20.47 144.21M20.47 144.21Q21.14 150.86 27.79 151.53M27.79 151.53Q26.38 158.07 32.5 160.77M32.5 160.77Q29.13 166.54 34.12 171M1 125Q7.19 131.93 15.21 127.25M15.21 127.25Q18.96 135.75 28.04 133.79M28.04 133.79Q28.97 143.03 38.21 143.96M38.21 143.96Q36.25 153.04 44.75 156.79M44.75 156.79Q40.07 164.81 47 171" fill="none" stroke="#33406B" stroke-width="1" opacity="0.22" stroke-linecap="round"/>
+  <text x="20" y="28" font-size="11" class="mono red" letter-spacing="1.5">MISSION 01</text>
   <rect x="261.25" y="16" width="152.75" height="22" rx="11" fill="url(#redGrad)" stroke="#E0475A" stroke-width="1"/>
        <g transform="translate(276.25 27) scale(0.5417)">
     <path d="M-6 -8.5h12v4.5a6 6 0 0 1 -12 0Z" fill="none" stroke="#FFF1EE" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
@@ -66,22 +66,22 @@
     <path d="M-4.4 8.8h8.8" fill="none" stroke="#FFF1EE" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
     <path d="M-2.6 5.8h5.2v3h-5.2Z" fill="none" stroke="#FFF1EE" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></g>
        <text x="347.63" y="27.5" font-size="10" class="d" fill="#FFF1EE" text-anchor="middle" letter-spacing="1">HACKATHON WINNER</text>
-  <text x="20" y="58" font-size="22" class="d t">Wanderly</text>
-  <text x="20" y="84" font-size="13.5" class="dim">Adaptive AI travel dashboard that reshapes itself around</text><text x="20" y="103" font-size="13.5" class="dim">each traveller — won IEEE TechRush 26.</text>
+  <text x="20" y="56" font-size="16" class="d t">Wanderly</text>
+  <text x="20" y="82" font-size="13" class="dim">Adaptive AI travel dashboard that reshapes itself around</text><text x="20" y="101" font-size="13" class="dim">each traveller — won IEEE TechRush 26.</text>
   <g class="chip" style="animation-delay:0ms">
-      <rect x="20" y="124" width="78" height="24" rx="7" fill="#151B31" stroke="#33406B" stroke-width="1"/>
-      <text x="59" y="136.5" font-size="11.5" class="t" text-anchor="middle">Next.js 16</text>
+      <rect x="20" y="116" width="78" height="24" rx="7" fill="#151B31" stroke="#33406B" stroke-width="1"/>
+      <text x="59" y="128.5" font-size="11.5" class="t" text-anchor="middle">Next.js 16</text>
     </g><g class="chip" style="animation-delay:40ms">
-      <rect x="106" y="124" width="70.19" height="24" rx="7" fill="#151B31" stroke="#33406B" stroke-width="1"/>
-      <text x="141.09" y="136.5" font-size="11.5" class="t" text-anchor="middle">React 19</text>
+      <rect x="106" y="116" width="70.19" height="24" rx="7" fill="#151B31" stroke="#33406B" stroke-width="1"/>
+      <text x="141.09" y="128.5" font-size="11.5" class="t" text-anchor="middle">React 19</text>
     </g><g class="chip" style="animation-delay:80ms">
-      <rect x="184.19" y="124" width="82.83" height="24" rx="7" fill="#151B31" stroke="#33406B" stroke-width="1"/>
-      <text x="225.6" y="136.5" font-size="11.5" class="t" text-anchor="middle">TypeScript</text>
+      <rect x="184.19" y="116" width="82.83" height="24" rx="7" fill="#151B31" stroke="#33406B" stroke-width="1"/>
+      <text x="225.6" y="128.5" font-size="11.5" class="t" text-anchor="middle">TypeScript</text>
     </g><g class="chip" style="animation-delay:120ms">
-      <rect x="275.02" y="124" width="109.05" height="24" rx="7" fill="#151B31" stroke="#33406B" stroke-width="1"/>
-      <text x="329.54" y="136.5" font-size="11.5" class="t" text-anchor="middle">Tailwind CSS v4</text>
+      <rect x="275.02" y="116" width="109.05" height="24" rx="7" fill="#151B31" stroke="#33406B" stroke-width="1"/>
+      <text x="329.54" y="128.5" font-size="11.5" class="t" text-anchor="middle">Tailwind CSS v4</text>
     </g>
-  <text x="394" y="168" font-size="11" class="faint mono" text-anchor="end">view repo</text>
-  <g class="mArrow"><path d="M403 173 l8 -8 M405 165 h6 v6" stroke="#9AA3BE" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
+  <text x="394" y="154" font-size="11" class="faint mono" text-anchor="end">view repo</text>
+  <g class="mArrow"><path d="M403 159 l8 -8 M405 151 h6 v6" stroke="#9AA3BE" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
   </g>
 </svg>
