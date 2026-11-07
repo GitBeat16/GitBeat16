@@ -110,15 +110,14 @@
 
 <img src="readme/sec-contact.svg" alt="Contact" width="100%" />
 
-<p>
-  <img align="left" width="37%" src="readme/contact-art.svg" alt="Web-Byte the mascot saying SHIP IT." />
-  <a href="mailto:ksrushti1610@gmail.com"><img width="61%" src="readme/contact-mail.svg" alt="Email ksrushti1610@gmail.com" /></a><br />
-  <a href="https://github.com/GitBeat16"><img width="61%" src="readme/contact-github.svg" alt="GitHub @GitBeat16" /></a><br />
-  <a href="https://www.linkedin.com/in/srushti-kalokhe-161007sk"><img width="61%" src="readme/contact-linkedin.svg" alt="LinkedIn srushti-kalokhe" /></a><br />
-  <a href="https://www.google.com/maps/search/?api=1&query=Pune%2C+Maharashtra"><img width="61%" src="readme/contact-location.svg" alt="Based in Pune, Maharashtra" /></a>
-</p>
+<img src="readme/contact.svg" alt="Contact panel: ksrushti1610@gmail.com, GitHub @GitBeat16, LinkedIn srushti-kalokhe, Pune, Maharashtra" width="100%" />
 
-<br clear="all" />
+<p align="center">
+  <a href="mailto:ksrushti1610@gmail.com"><img width="49%" src="readme/contact-mail.svg" alt="Email ksrushti1610@gmail.com" /></a>
+  <a href="https://github.com/GitBeat16"><img width="49%" src="readme/contact-github.svg" alt="GitHub @GitBeat16" /></a>
+  <a href="https://www.linkedin.com/in/srushti-kalokhe-161007sk"><img width="49%" src="readme/contact-linkedin.svg" alt="LinkedIn srushti-kalokhe" /></a>
+  <a href="https://www.google.com/maps/search/?api=1&query=Pune%2C+Maharashtra"><img width="49%" src="readme/contact-location.svg" alt="Based in Pune, Maharashtra" /></a>
+</p>
 
 <img src="readme/skyline.svg" alt="City skyline at night with blinking windows, web strands slung between the rooftops and the mascot swinging above" width="100%" />
 

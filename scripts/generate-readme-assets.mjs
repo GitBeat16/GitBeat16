@@ -619,11 +619,9 @@ function footer() {
 
 /* ════════════════════════════════════════════════════════════ 11. CONTACT */
 /**
- * The contact card is split into pieces so every row can be a real link:
- * GitHub embeds SVGs through <img>, so one image can carry at most one link.
- * README.md floats the mascot art on the left and stacks the four row tiles
- * (each wrapped in its own anchor) on the right; at the authored widths
- * (37% / 61%) the art and the row stack come out the same height.
+ * contact.svg is the decorative card. Links inside an <img>-embedded SVG are
+ * inert on GitHub, so the working controls are four separate button images
+ * (contact-<slug>.svg) laid out 2x2 under the card, each in its own anchor.
  */
 const CONTACT_ROWS = () => [
   { slug: 'mail', glyph: 'mail', text: profile.identity.email, tint: P.redBright },
@@ -632,25 +630,57 @@ const CONTACT_ROWS = () => [
   { slug: 'location', glyph: 'pin', text: profile.identity.location, tint: P.edgeHi },
 ];
 
-function contactArt() {
-  const w = 330;
-  const h = 200;
-  const scale = 0.4;
-  const css = `${bubbleCss}${mascotCss}`;
+function contact() {
+  const h = 168;
+  const css = `${bubbleCss}${chipCss}${mascotCss}${tileCss}`;
+  const scale = 0.36;
+
+  /* icon + short handle, never a raw URL */
+  const rows = [
+    { glyph: 'mail', text: profile.identity.email, tint: P.redBright },
+    { glyph: 'branch', text: `@${profile.identity.githubHandle}`, tint: P.navyGlow },
+    { glyph: 'linkedin', text: profile.identity.linkedinHandle, tint: P.navyGlow },
+    { glyph: 'pin', text: profile.identity.location, tint: P.edgeHi },
+  ];
+
+  const colX = 344;
+  const rowStep = 33;
+  const rowTop = 40;
+
+  const list = rows
+    .map((r, i) => {
+      const cy = rowTop + i * rowStep;
+      return `<g class="tile" style="animation-delay:${140 + i * 90}ms">
+        <rect x="${colX - 4}" y="${R(cy - 15)}" width="30" height="30" rx="9" fill="${P.panelHi}" stroke="${P.edge}" stroke-width="1"/>
+        ${icon(r.glyph, colX + 11, cy, 17, r.tint)}
+        <text x="${colX + 40}" y="${R(cy + 0.5)}" font-size="13.5" class="t">${esc(r.text)}</text>
+      </g>`;
+    })
+    .join('');
+
   const body = `
-  ${panel({ x: 0, y: 0, w, h, cut: 18, accent: P.red })}
+  ${panel({ x: 0, y: 0, w: W, h, cut: 18, accent: P.red })}
   ${cornerWeb(1, 1, 90, 0, P.edgeHi, 0.3)}
-  ${cornerWeb(w - 1, h - 1, 60, 2, P.edgeHi, 0.22)}
-  <g class="is-excited"><g transform="translate(26 ${R(h - 16 - 240 * scale)}) scale(${scale})">${mascotMarkup({
+  ${cornerWeb(W - 1, h - 1, 70, 2, P.edgeHi, 0.24)}
+  <g class="is-excited"><g transform="translate(30 ${R(h - 16 - 240 * scale)}) scale(${scale})">${mascotMarkup({
     uid: 'ct',
     showTail: true,
   })}</g></g>
-  ${speechBubble({ x: 150, y: 40, text: profile.speech.contact, size: 19 })}`;
-  return svgDoc({ w, h, title: 'Contact', desc: `Web-Byte mascot saying ${profile.speech.contact}`, css, body, bg: false });
+  ${speechBubble({ x: 140, y: 34, text: profile.speech.contact, size: 19 })}
+  ${list}`;
+  return svgDoc({
+    w: W,
+    h,
+    title: 'Contact panel',
+    desc: `Contact ${profile.identity.shortName}: email ${profile.identity.email}, GitHub @${profile.identity.githubHandle}, LinkedIn ${profile.identity.linkedinHandle}, based in ${profile.identity.location}.`,
+    css,
+    body,
+    bg: false,
+  });
 }
 
 function contactRow(r, i) {
-  const w = 540;
+  const w = 430;
   const h = 49;
   const cy = h / 2;
   const css = `${tileCss}
@@ -721,7 +751,7 @@ profile.missions.forEach((m, i) => {
 });
 
 write('achievements.svg', achievements());
-write('contact-art.svg', contactArt());
+write('contact.svg', contact());
 CONTACT_ROWS().forEach((r, i) => write(`contact-${r.slug}.svg`, contactRow(r, i)));
 write('skyline.svg', footer());
 write('mascot.svg', mascotStandalone('idle', 'Web-Byte mascot, idle'));
