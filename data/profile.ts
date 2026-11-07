@@ -10,14 +10,14 @@ export const identity = {
   shortName: 'Srushti Kalokhe',
   handle: 'GitBeat16',
   role: 'Computer Engineering Undergraduate',
-  // Tagline is assembled only from facts on the resume.
-  tagline: 'I build full-stack products end to end — Next.js on the front, FastAPI and Postgres behind it.',
+  tagline: 'Full-stack & AI/ML enthusiast who learns by shipping real products.',
+  /** Chips under the tagline in the hero banner. */
+  heroStack: ['C++', 'Python', 'TypeScript', 'Next.js', 'FastAPI'],
   location: 'Pune, Maharashtra',
   email: 'ksrushti1610@gmail.com',
-  phone: '9657797554',
   github: 'https://github.com/GitBeat16',
   githubHandle: 'GitBeat16',
-  linkedin: 'https://linkedin.com/in/srushti-kalokhe-95a887385',
+  linkedin: 'https://www.linkedin.com/in/srushti-kalokhe-161007sk',
   linkedinHandle: 'srushti-kalokhe',
 } as const;
 
@@ -35,6 +35,7 @@ export const education = {
     { label: 'SSC', value: '96.40 %' },
     { label: 'HSC', value: '76.17 %' },
   ],
+  spoken: ['English', 'Hindi', 'Marathi'],
 } as const;
 
 /** "Spider Arsenal" — grouped exactly as the resume groups them. */
@@ -59,11 +60,6 @@ export const arsenal = [
     id: 'tools',
     label: 'Tools & Platforms',
     items: ['Git / GitHub', 'Vercel', 'Railway', 'Claude & Groq APIs', 'Leaflet / d3-geo', 'Wix Studio'],
-  },
-  {
-    id: 'spoken',
-    label: 'Spoken',
-    items: ['English', 'Hindi', 'Marathi'],
   },
 ] as const;
 
@@ -159,9 +155,11 @@ export const achievements = [
 ] as const;
 
 export const about = [
-  'Second-year Computer Engineering student at PICT Pune (CGPA 9.44), working mostly in TypeScript across Next.js, React Native and FastAPI.',
-  'Most of what I build is full-stack and finished rather than prototyped — Wanderly shipped with hand-rolled auth (scrypt + HMAC session cookies + Google OAuth/PKCE), an offline-first store and a canvas globe, and won the IEEE TechRush 26 frontend track.',
-  'Currently building Lumi, a React Native + FastAPI AI companion app with emotion detection and voice interaction.',
+  'Second-year Computer Engineering student at PICT Pune.',
+  'I build full-stack products with TypeScript, Next.js, React Native and FastAPI.',
+  'Interested in AI/ML, open source, system design and developer tooling —',
+  'curious about how things work beneath the abstraction.',
+  'I learn by building, breaking, understanding and rebuilding. Currently turning ideas into software >.<',
 ] as const;
 
 export const speech = {

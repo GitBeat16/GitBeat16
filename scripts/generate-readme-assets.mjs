@@ -5,7 +5,7 @@
  *   node scripts/generate-readme-assets.mjs
  *
  * Deterministic: same inputs -> byte-identical output, so re-running never
- * creates a noisy diff. Reads data/contributions.json and data/profile.ts.
+ * creates a noisy diff. Reads data/profile.ts.
  */
 
 import fs from 'node:fs';
@@ -40,7 +40,6 @@ import {
   bodyText,
 } from './lib/panels.mjs';
 import { icon } from './lib/icons.mjs';
-import { buildCalendar, level, deriveStats, MONTHS } from './lib/contributions.mjs';
 import { readProfile } from './lib/profile-loader.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -51,7 +50,6 @@ const W = layout.readmeWidth;
 fs.mkdirSync(OUT, { recursive: true });
 
 const profile = readProfile(path.join(ROOT, 'data', 'profile.ts'));
-const contrib = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'contributions.json'), 'utf8'));
 
 const written = [];
 function write(name, svg) {
@@ -138,6 +136,14 @@ function hero() {
   .r2{animation-duration:.8s}.r3{animation-duration:.9s}.r4{animation-duration:1s}
   @keyframes sheen{0%,100%{opacity:.25}50%{opacity:.7}}
   .spot{animation:sheen 6s ease-in-out infinite}
+  @keyframes liRing{0%{transform:scale(1);opacity:.75}70%,100%{transform:scale(1.12,1.45);opacity:0}}
+  .liRing{transform-box:fill-box;transform-origin:50% 50%;animation:liRing 2.6s ease-out infinite;opacity:0}
+  @keyframes liShine{0%,55%{transform:translateX(0)}100%{transform:translateX(320px)}}
+  .liShine{animation:liShine 3.4s ease-in-out infinite}
+  @keyframes liEdge{0%,100%{stroke-opacity:.6}50%{stroke-opacity:1}}
+  .liEdge{animation:liEdge 2.6s ease-in-out infinite}
+  @keyframes liArrow{0%,100%{transform:translate(0,0)}50%{transform:translate(2px,-2px)}}
+  .liArrow{animation:liArrow 1.3s ease-in-out infinite}
   `;
 
   const defs = `
@@ -147,8 +153,32 @@ function hero() {
     <stop offset="1" stop-color="${P.navy}" stop-opacity="0"/>
   </radialGradient>`;
 
-  const stack = ['TypeScript', 'Next.js', 'React Native', 'FastAPI', 'Supabase'];
-  const chips = chipRow(stack, { x: 44, y: 236, maxWidth: 520, accent: P.edgeHi, size: 12 });
+  const chips = chipRow(profile.identity.heroStack, { x: 44, y: 224, maxWidth: 520, accent: P.edgeHi, size: 12 });
+
+  /* LinkedIn call-to-action under the stack chips. Links inside an
+     <img>-embedded SVG are inert on GitHub, so README.md wraps the whole hero
+     in a link to LinkedIn — clicking the pill (or anywhere on the banner) opens it. */
+  const li = `in/${profile.identity.linkedinHandle}`;
+  const ph = 32;
+  const pw = R(textWidth(li, 13) * 1.12 + 92);
+  const px = 44;
+  const py = 266;
+  const pill = `
+  <g class="r4">
+    <rect class="liRing" x="${px}" y="${py}" width="${pw}" height="${ph}" rx="${ph / 2}" fill="none" stroke="${P.navyGlow}" stroke-width="2"/>
+    <rect x="${px}" y="${py}" width="${pw}" height="${ph}" rx="${ph / 2}" fill="url(#liFill)"/>
+    <g clip-path="url(#liClip)"><rect class="liShine" x="${px - 60}" y="${py - 4}" width="34" height="${ph + 8}" fill="#FFFFFF" opacity="0.16" transform="skewX(-20)"/></g>
+    <rect class="liEdge" x="${px}" y="${py}" width="${pw}" height="${ph}" rx="${ph / 2}" fill="none" stroke="${P.navyGlow}" stroke-width="1.5"/>
+    ${icon('linkedin', px + 21, py + ph / 2, 16, '#DCE4FF')}
+    <text x="${px + 38}" y="${R(py + ph / 2 + 0.5)}" font-size="13" class="d" fill="#EEF1FF">${esc(li)}</text>
+    <g class="liArrow"><path d="M${R(px + pw - 26)} ${py + ph / 2 + 4} l8 -8 M${R(px + pw - 24)} ${py + ph / 2 - 4} h6 v6" stroke="#DCE4FF" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
+  </g>`;
+  const liDefs = `
+  <linearGradient id="liFill" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="${P.navyLift}"/>
+    <stop offset="1" stop-color="${P.navy}"/>
+  </linearGradient>
+  <clipPath id="liClip"><rect x="${px}" y="${py}" width="${pw}" height="${ph}" rx="${ph / 2}"/></clipPath>`;
 
   const body = `
   <g opacity="0.85">${skyline({ x: 0, y: h - 108, w: W, h: 108, seed: 11 })}</g>
@@ -174,9 +204,10 @@ function hero() {
     <text x="44" y="164" font-size="15" class="red d" letter-spacing="1.2">${esc(
       profile.identity.role.toUpperCase()
     )}</text>
-    ${bodyText(profile.identity.tagline, { x: 44, y: 194, maxWidth: 500, size: 13.5, lh: 20, cls: 'dim' })}
+    <text x="44" y="194" font-size="14" class="dim">${esc(profile.identity.tagline)}</text>
   </g>
-  <g class="r4">${chips.markup}</g>`;
+  <g class="r4">${chips.markup}</g>
+  ${pill}`;
 
   return svgDoc({
     w: W,
@@ -184,7 +215,7 @@ function hero() {
     title: `${profile.identity.shortName} — ${profile.identity.role}`,
     desc: `Comic-book hero banner: ${profile.identity.shortName}, ${profile.identity.role}. ${profile.identity.tagline}`,
     css,
-    defs,
+    defs: defs + liDefs,
     body,
   });
 }
@@ -248,6 +279,76 @@ function head(file, title, kicker) {
       bg: false,
     })
   );
+}
+
+/* ═══════════════════════════════════════════════════════════════ 4b. ABOUT */
+/** Bio + education readout in the same comic-panel style as the rest. */
+function aboutPanel() {
+  const ed = profile.education;
+  const pad = 28;
+  const bioTop = 38;
+  const lh = 23;
+  const bio = profile.about
+    .map(
+      (l, i) =>
+        `<text x="${pad}" y="${bioTop + i * lh}" font-size="13.5" class="${i === 0 ? 't' : 'dim'}">${esc(l)}</text>`
+    )
+    .join('');
+
+  const sepY = bioTop + (profile.about.length - 1) * lh + 22;
+  const rowY = sepY + 26;
+  const rows = [
+    ['DEGREE', `${ed.degree} · PICT Pune (SPPU)`, pad, rowY],
+    ['YEAR', ed.status.replace(', ', ' · '), pad, rowY + 28],
+    ['BASED IN', profile.identity.location, 520, rowY],
+    ['SPEAKS', ed.spoken.join(' · '), 520, rowY + 28],
+  ]
+    .map(
+      ([k, v, x, y]) => `
+      <text x="${x}" y="${y}" font-size="11" class="mono red" letter-spacing="1.5">${k}</text>
+      <text x="${x + 92}" y="${y}" font-size="13" class="t">${esc(v)}</text>`
+    )
+    .join('');
+
+  const tileY = rowY + 56;
+  const tileH = 62;
+  const gap = 10;
+  const n = ed.marks.length;
+  const tw = (W - pad * 2 - gap * (n - 1)) / n;
+  const tiles = ed.marks
+    .map((m, i) => {
+      const x = R(pad + i * (tw + gap));
+      const hi = i === 0 || m.label === 'MHT-CET';
+      return `<g class="tile" style="animation-delay:${i * 80}ms">
+        ${panel({ x, y: tileY, w: R(tw), h: tileH, cut: 8, accent: hi ? P.redBright : P.navyLift, fill: P.panelHi })}
+        <text x="${R(x + tw / 2)}" y="${tileY + 26}" font-size="19" class="d" fill="${hi ? P.redBright : P.text}" text-anchor="middle">${esc(
+          m.value.replace(' / 10', '').replace(' %ile', '').replace(' %', '%')
+        )}</text>
+        <text x="${R(x + tw / 2)}" y="${tileY + 47}" font-size="9.5" class="faint mono" text-anchor="middle" letter-spacing="1">${esc(
+          (m.value.includes('%ile') ? `${m.label} %ile` : m.label).toUpperCase()
+        )}</text>
+      </g>`;
+    })
+    .join('');
+
+  const h = tileY + tileH + 24;
+  const body = `
+  ${panel({ x: 0, y: 0, w: W, h, cut: 18, accent: P.red })}
+  ${cornerWeb(W - 1, 1, 70, 1, P.edgeHi, 0.26)}
+  ${bio}
+  <rect x="${pad}" y="${sepY}" width="${W - pad * 2}" height="1" fill="url(#edgeGrad)" opacity="0.6"/>
+  ${rows}
+  ${tiles}`;
+
+  return svgDoc({
+    w: W,
+    h,
+    title: 'About',
+    desc: `${profile.about.join(' ')} ${ed.degree}, PICT Pune (SPPU), ${ed.status}. Based in ${profile.identity.location}. Speaks ${ed.spoken.join(', ')}. ${ed.marks.map((m) => `${m.label} ${m.value}`).join(', ')}.`,
+    css: tileCss,
+    body,
+    bg: false,
+  });
 }
 
 /* ═════════════════════════════════════════════════════════════ 5. ARSENAL */
@@ -419,175 +520,6 @@ function linkBadge({ label, glyph, accent = P.navyGlow, fill = P.panelHi, height
   return svgDoc({ w, h: height, title: label, css, body, bg: false });
 }
 
-/* ═══════════════════════════════════════════════ 7. CONTRIBUTION WEB (⭐) */
-function contributionWeb() {
-  const cal = buildCalendar(contrib);
-  const stats = deriveStats(contrib, cal);
-
-  const CELL = 11;
-  const GAP = 3;
-  const STEP = CELL + GAP;
-  const gridX = 46;
-  const gridY = 96;
-  const gridW = cal.weeks.length * STEP;
-  const h = gridY + 7 * STEP + 74;
-
-  /* --- cells --- */
-  const cells = [];
-  const hot = [];
-  cal.weeks.forEach((col, ci) => {
-    col.forEach((cell, ri) => {
-      if (cell.count === null) return;
-      const lv = level(cell.count, cal.max);
-      const x = R(gridX + ci * STEP);
-      const y = R(gridY + ri * STEP);
-      // cascade: one wave sweeping left -> right across the year
-      const delay = R((ci / cal.weeks.length) * 1800 + ri * 30);
-      cells.push(
-        `<rect class="c l${lv}" x="${x}" y="${y}" width="${CELL}" height="${CELL}" rx="2.6" fill="${P.ramp[lv]}" style="animation-delay:${delay}ms"><title>${esc(
-          `${cell.date}: ${cell.count} contribution${cell.count === 1 ? '' : 's'}`
-        )}</title></rect>`
-      );
-      if (lv >= 3) hot.push({ x: x + CELL / 2, y: y + CELL / 2, lv, delay, count: cell.count });
-    });
-  });
-
-  /* --- web strands linking the busiest cells --- */
-  hot.sort((a, b) => a.x - b.x || a.y - b.y);
-  const links = [];
-  for (let i = 0; i < hot.length - 1; i++) {
-    const a = hot[i];
-    const b = hot[i + 1];
-    if (Math.hypot(b.x - a.x, b.y - a.y) > 64) continue;
-    const mx = (a.x + b.x) / 2;
-    const my = (a.y + b.y) / 2 + 9;
-    links.push(
-      `<path class="lnk" d="M${R(a.x)} ${R(a.y)}Q${R(mx)} ${R(my)} ${R(b.x)} ${R(b.y)}" fill="none" stroke="${
-        P.redBright
-      }" stroke-width="0.9" opacity="0.5" style="animation-delay:${R(a.delay + 260)}ms"/>`
-    );
-  }
-
-  /* --- web pulse rings on the very hottest days --- */
-  const pulses = hot
-    .filter((p) => p.lv === 4)
-    .slice(0, 14)
-    .map(
-      (p, i) =>
-        `<circle class="pulse" cx="${R(p.x)}" cy="${R(p.y)}" r="4" fill="none" stroke="${P.redBright}" stroke-width="1.2" style="animation-delay:${R(
-          p.delay + 120
-        )}ms"/>`
-    )
-    .join('');
-
-  /* --- month + weekday labels --- */
-  const monthLabels = cal.months
-    .map(
-      (m) =>
-        `<text x="${R(gridX + m.col * STEP)}" y="${gridY - 12}" font-size="10" class="faint">${esc(m.label)}</text>`
-    )
-    .join('');
-  const dayLabels = ['Mon', 'Wed', 'Fri']
-    .map(
-      (d, i) =>
-        `<text x="${gridX - 10}" y="${R(gridY + (i * 2 + 1) * STEP + CELL / 2)}" font-size="9.5" class="faint" text-anchor="end">${d}</text>`
-    )
-    .join('');
-
-  /* --- legend --- */
-  const legendX = gridX + gridW - 150;
-  const legendY = gridY + 7 * STEP + 20;
-  const legend = `
-    <text x="${legendX - 8}" y="${legendY + 6}" font-size="10" class="faint" text-anchor="end">Less</text>
-    ${P.ramp
-      .map(
-        (c, i) =>
-          `<rect x="${legendX + i * 15}" y="${legendY}" width="11" height="11" rx="2.6" fill="${c}" stroke="${P.edge}" stroke-width="0.6"/>`
-      )
-      .join('')}
-    <text x="${legendX + 5 * 15 + 2}" y="${legendY + 6}" font-size="10" class="faint">More</text>`;
-
-  const css = `
-  ${skylineCss}
-  /* additive motion only — cells are visible at their base style at all times */
-  @keyframes cellIn{0%{transform:scale(.35)}72%{transform:scale(1.2)}100%{transform:scale(1)}}
-  .c{transform-box:fill-box;transform-origin:50% 50%;animation:cellIn .55s cubic-bezier(.3,1.4,.5,1)}
-  @keyframes lnkIn{0%{stroke-dasharray:0 400}100%{stroke-dasharray:400 0}}
-  .lnk{opacity:.5;animation:lnkIn .8s ease-out}
-  @keyframes pulseOut{0%{r:3;opacity:0}25%{opacity:.85}100%{r:15;opacity:0}}
-  .pulse{opacity:0;animation:pulseOut 2.6s ease-out infinite}
-  @keyframes glow{0%,100%{opacity:.85}50%{opacity:1}}
-  .l4{animation:cellIn .55s cubic-bezier(.3,1.4,.5,1), glow 3s ease-in-out infinite 1.2s}
-  `;
-
-  const from = contrib.range.from;
-  const to = contrib.range.to;
-
-  const body = `
-  ${panel({ x: 0, y: 0, w: W, h, cut: 20, accent: P.red, fill: P.panel })}
-  ${cornerWeb(W - 1, 1, 120, 1, P.edgeHi, 0.3)}
-  <text x="24" y="36" font-size="15" class="d t">Every commit spins another thread.</text>
-  <text x="24" y="58" font-size="11.5" class="faint">${esc(`@${contrib.login} · custom calendar, refreshed daily by GitHub Actions`)}</text>
-  <text x="${W - 24}" y="32" font-size="26" class="d" fill="${P.redBright}" text-anchor="end">${cal.total.toLocaleString(
-    'en-US'
-  )}</text>
-  <text x="${W - 24}" y="54" font-size="10.5" class="faint" text-anchor="end">${esc(
-    `contributions · ${from} → ${to}`
-  )}</text>
-  ${monthLabels}${dayLabels}
-  ${cells.join('')}
-  ${links.join('')}
-  ${pulses}
-  ${legend}
-  <text x="24" y="${legendY + 6}" font-size="10.5" class="faint">${esc(
-    `${stats.activeDays} active days · best day ${stats.bestDay.count} on ${stats.bestDay.date} · longest streak ${stats.longestStreak} days`
-  )}</text>`;
-
-  return {
-    svg: svgDoc({
-      w: W,
-      h,
-      title: `Contribution web — ${cal.total} contributions from ${from} to ${to}`,
-      desc: `A spider-web styled GitHub contribution calendar for ${contrib.login}: ${cal.total} contributions between ${from} and ${to}, ${stats.activeDays} active days, longest streak ${stats.longestStreak} days.`,
-      css,
-      body,
-      bg: false,
-    }),
-    cal,
-    stats,
-  };
-}
-
-/* ═══════════════════════════════════════════════════════════════ 8. STATS */
-const prettyDay = (iso) => {
-  if (!iso) return '—';
-  const [, m, d] = iso.split('-');
-  return `${MONTHS[Number(m) - 1].toUpperCase()} ${Number(d)}`;
-};
-
-function statsPanel(cal, stats) {
-  const h = 132;
-  const tw = (W - 4 * 14) / 4;
-  const tiles = [
-    { v: cal.total.toLocaleString('en-US'), l: 'CONTRIBUTIONS · 12 MO' },
-    { v: String(stats.activeDays), l: 'ACTIVE DAYS' },
-    { v: String(stats.bestDay.count), l: `BEST DAY · ${prettyDay(stats.bestDay.date)}` },
-    { v: `${stats.longestStreak}d`, l: 'LONGEST STREAK' },
-  ];
-  const body = tiles
-    .map((t, i) => statTile({ x: i * (tw + 14), y: 8, w: tw, h: h - 24, value: t.v, label: t.l, delay: i * 110 }))
-    .join('');
-  return svgDoc({
-    w: W,
-    h,
-    title: 'GitHub activity summary',
-    desc: tiles.map((t) => `${t.l}: ${t.v}`).join('. '),
-    css: tileCss,
-    body,
-    bg: false,
-  });
-}
-
 /* ════════════════════════════════════════════════════════ 9. ACHIEVEMENTS */
 function achievements() {
   const items = profile.achievements;
@@ -686,53 +618,53 @@ function footer() {
 }
 
 /* ════════════════════════════════════════════════════════════ 11. CONTACT */
-function contact() {
-  const h = 168;
-  const css = `${bubbleCss}${chipCss}${mascotCss}${tileCss}`;
-  const scale = 0.36;
+/**
+ * The contact card is split into pieces so every row can be a real link:
+ * GitHub embeds SVGs through <img>, so one image can carry at most one link.
+ * README.md floats the mascot art on the left and stacks the four row tiles
+ * (each wrapped in its own anchor) on the right; at the authored widths
+ * (37% / 61%) the art and the row stack come out the same height.
+ */
+const CONTACT_ROWS = () => [
+  { slug: 'mail', glyph: 'mail', text: profile.identity.email, tint: P.redBright },
+  { slug: 'github', glyph: 'branch', text: `@${profile.identity.githubHandle}`, tint: P.navyGlow },
+  { slug: 'linkedin', glyph: 'linkedin', text: profile.identity.linkedinHandle, tint: P.navyGlow },
+  { slug: 'location', glyph: 'pin', text: profile.identity.location, tint: P.edgeHi },
+];
 
-  /* icon + short handle, never a raw URL */
-  const rows = [
-    { glyph: 'mail', text: profile.identity.email, tint: P.redBright },
-    { glyph: 'branch', text: `@${profile.identity.githubHandle}`, tint: P.navyGlow },
-    { glyph: 'linkedin', text: profile.identity.linkedinHandle, tint: P.navyGlow },
-    { glyph: 'pin', text: profile.identity.location, tint: P.edgeHi },
-  ];
-
-  const colX = 344;
-  const rowStep = 33;
-  const rowTop = 40;
-
-  const list = rows
-    .map((r, i) => {
-      const cy = rowTop + i * rowStep;
-      return `<g class="tile" style="animation-delay:${140 + i * 90}ms">
-        <rect x="${colX - 4}" y="${R(cy - 15)}" width="30" height="30" rx="9" fill="${P.panelHi}" stroke="${P.edge}" stroke-width="1"/>
-        ${icon(r.glyph, colX + 11, cy, 17, r.tint)}
-        <text x="${colX + 40}" y="${R(cy + 0.5)}" font-size="13.5" class="t">${esc(r.text)}</text>
-      </g>`;
-    })
-    .join('');
-
+function contactArt() {
+  const w = 330;
+  const h = 200;
+  const scale = 0.4;
+  const css = `${bubbleCss}${mascotCss}`;
   const body = `
-  ${panel({ x: 0, y: 0, w: W, h, cut: 18, accent: P.red })}
+  ${panel({ x: 0, y: 0, w, h, cut: 18, accent: P.red })}
   ${cornerWeb(1, 1, 90, 0, P.edgeHi, 0.3)}
-  ${cornerWeb(W - 1, h - 1, 70, 2, P.edgeHi, 0.24)}
-  <g class="is-excited"><g transform="translate(30 ${R(h - 16 - 240 * scale)}) scale(${scale})">${mascotMarkup({
+  ${cornerWeb(w - 1, h - 1, 60, 2, P.edgeHi, 0.22)}
+  <g class="is-excited"><g transform="translate(26 ${R(h - 16 - 240 * scale)}) scale(${scale})">${mascotMarkup({
     uid: 'ct',
     showTail: true,
   })}</g></g>
-  ${speechBubble({ x: 140, y: 34, text: profile.speech.contact, size: 19 })}
-  ${list}`;
-  return svgDoc({
-    w: W,
-    h,
-    title: 'Contact panel',
-    desc: `Contact ${profile.identity.shortName}: email ${profile.identity.email}, GitHub @${profile.identity.githubHandle}, LinkedIn ${profile.identity.linkedinHandle}, based in ${profile.identity.location}.`,
-    css,
-    body,
-    bg: false,
-  });
+  ${speechBubble({ x: 150, y: 40, text: profile.speech.contact, size: 19 })}`;
+  return svgDoc({ w, h, title: 'Contact', desc: `Web-Byte mascot saying ${profile.speech.contact}`, css, body, bg: false });
+}
+
+function contactRow(r, i) {
+  const w = 540;
+  const h = 49;
+  const cy = h / 2;
+  const css = `${tileCss}
+  @keyframes nudge{0%,100%{transform:translate(0,0)}50%{transform:translate(2px,-2px)}}
+  .go{animation:nudge 1.6s ease-in-out infinite;animation-delay:${i * 200}ms}`;
+  const ax = w - 30;
+  const body = `<g>
+    ${panel({ x: 0, y: 2, w, h: h - 4, cut: 10, accent: r.tint, fill: P.panel })}
+    <rect x="12" y="${cy - 15}" width="30" height="30" rx="9" fill="${P.panelHi}" stroke="${P.edge}" stroke-width="1"/>
+    ${icon(r.glyph, 27, cy, 17, r.tint)}
+    <text x="56" y="${R(cy + 0.5)}" font-size="15" class="t">${esc(r.text)}</text>
+    <g class="go"><path d="M${ax - 5} ${cy + 5} l9 -9 M${ax - 3} ${cy - 4} h7 v7" stroke="${P.textDim}" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
+  </g>`;
+  return svgDoc({ w, h, title: r.text, css, body, bg: false });
 }
 
 /* ═════════════════════════════════════════════════════ 12. STANDALONE ART */
@@ -775,10 +707,9 @@ write('divider.svg', divider());
 head('sec-about.svg', 'ABOUT', 'origin story');
 head('sec-arsenal.svg', 'SPIDER ARSENAL', 'tools of the trade');
 head('sec-missions.svg', 'MISSIONS', 'things I shipped');
-head('sec-contrib.svg', 'CONTRIBUTION WEB', 'live from github');
-head('sec-stats.svg', 'SIGNAL', 'activity readout');
 head('sec-achievements.svg', 'ACHIEVEMENTS', 'wall of wins');
 head('sec-contact.svg', 'CONTACT', 'open a thread');
+write('about.svg', aboutPanel());
 write('arsenal.svg', arsenal());
 
 /* one card per mission + a clickable badge per repository */
@@ -789,19 +720,9 @@ profile.missions.forEach((m, i) => {
   });
 });
 
-/* clickable contact controls */
-write('btn-mail.svg', linkBadge({ label: profile.identity.email, glyph: 'mail', accent: P.redBright }));
-write('btn-github.svg', linkBadge({ label: `@${profile.identity.githubHandle}`, glyph: 'branch', accent: P.navyGlow }));
-write(
-  'btn-linkedin.svg',
-  linkBadge({ label: profile.identity.linkedinHandle, glyph: 'linkedin', accent: P.navyGlow })
-);
-
-const cw = contributionWeb();
-write('contribution-web.svg', cw.svg);
-write('stats.svg', statsPanel(cw.cal, cw.stats));
 write('achievements.svg', achievements());
-write('contact.svg', contact());
+write('contact-art.svg', contactArt());
+CONTACT_ROWS().forEach((r, i) => write(`contact-${r.slug}.svg`, contactRow(r, i)));
 write('skyline.svg', footer());
 write('mascot.svg', mascotStandalone('idle', 'Web-Byte mascot, idle'));
 write('mascot-webshoot.svg', mascotStandalone('webshoot', 'Web-Byte mascot firing a web'));

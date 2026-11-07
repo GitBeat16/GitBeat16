@@ -5,7 +5,6 @@ hand-maintained markup, and none of the animation is faked with GIFs.
 
 ```
 data/profile.ts            ← all résumé content (single source of truth)
-data/contributions.json    ← real GitHub calendar data
 shared/theme.mjs           ← colour + type tokens
 shared/mascot.mjs          ← the mascot drawing + its 5 animation states
         │
@@ -19,7 +18,7 @@ shared/mascot.mjs          ← the mascot drawing + its 5 animation states
 
 | command | what it does |
 | --- | --- |
-| `npm run dev` | live prototype at <http://localhost:3000> — Rive/SVG mascot, Framer Motion, interactive contribution web |
+| `npm run dev` | live prototype at <http://localhost:3000> — Rive/SVG mascot, Framer Motion |
 | `npm run assets` | re-export every `readme/*.svg` from the current data |
 | `npm run sync:contributions` | pull the real contribution calendar into `data/contributions.json` |
 | `npm run sync` | both of the above, in order |
@@ -37,20 +36,11 @@ npm run assets
 Every SVG that mentions that content is re-rendered. The prototype picks the
 change up on the next render; no other file needs touching.
 
-## Updating the contribution web
+## Automatic regeneration
 
-```bash
-# exact data (recommended) — any classic PAT with read:user
-GITHUB_TOKEN=ghp_xxx npm run sync
-
-# no token: falls back to the public calendar page
-npm run sync
-```
-
-You normally don't need to run this by hand:
 [`.github/workflows/sync-contributions.yml`](.github/workflows/sync-contributions.yml)
-runs it daily at 03:17 UTC (and on every push to `main`) using the built-in
-`GITHUB_TOKEN`, regenerates the assets, and commits only if something changed.
+re-runs the exporter on every push to `main` that touches `data/`, `shared/`
+or `scripts/`, and commits the refreshed SVGs only if something changed.
 
 ## Why SVG and not GIF
 

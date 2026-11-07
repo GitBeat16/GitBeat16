@@ -1,12 +1,9 @@
-name: Sync contribution web
+name: Regenerate README assets
 
-# Keeps readme/contribution-web.svg (and the stats panel) in step with the
-# real GitHub contribution calendar. Runs daily, on every push to main, and
-# on demand from the Actions tab.
+# Re-exports readme/*.svg whenever the profile data, theme or generator
+# changes, and commits the result if anything differs.
 
 on:
-  schedule:
-    - cron: '17 3 * * *' # 03:17 UTC daily
   push:
     branches: [main]
     paths:
@@ -20,11 +17,11 @@ permissions:
   contents: write
 
 concurrency:
-  group: sync-contributions
+  group: readme-assets
   cancel-in-progress: true
 
 jobs:
-  sync:
+  assets:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -33,12 +30,6 @@ jobs:
         with:
           node-version: 22
 
-      - name: Pull the real contribution calendar
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_LOGIN: ${{ github.repository_owner }}
-        run: node scripts/sync-contributions.mjs
-
       - name: Regenerate README assets
         run: node scripts/generate-readme-assets.mjs
 
@@ -46,9 +37,9 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          if [ -n "$(git status --porcelain data readme)" ]; then
-            git add data readme
-            git commit -m "chore: sync contribution web [skip ci]"
+          if [ -n "$(git status --porcelain readme)" ]; then
+            git add readme
+            git commit -m "chore: regenerate README assets [skip ci]"
             git push
           else
             echo "no changes"

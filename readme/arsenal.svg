@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 880 416" width="880" height="416" role="img" aria-label="Spider Arsenal — languages, frameworks, databases, tools" preserveAspectRatio="xMidYMid meet">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 880 304" width="880" height="304" role="img" aria-label="Spider Arsenal — languages, frameworks, databases, tools" preserveAspectRatio="xMidYMid meet">
 <title>Spider Arsenal — languages, frameworks, databases, tools</title>
-<desc>Languages: C, C++, Python, TypeScript, JavaScript. Frameworks &amp; Libraries: Next.js (App Router), React, React Native (Expo), FastAPI, Tailwind CSS, Framer Motion, Streamlit. Databases &amp; Backend: MongoDB, Supabase (PostgreSQL), REST APIs, JWT / session auth, OAuth 2.0. Tools &amp; Platforms: Git / GitHub, Vercel, Railway, Claude &amp; Groq APIs, Leaflet / d3-geo, Wix Studio. Spoken: English, Hindi, Marathi</desc>
+<desc>Languages: C, C++, Python, TypeScript, JavaScript. Frameworks &amp; Libraries: Next.js (App Router), React, React Native (Expo), FastAPI, Tailwind CSS, Framer Motion, Streamlit. Databases &amp; Backend: MongoDB, Supabase (PostgreSQL), REST APIs, JWT / session auth, OAuth 2.0. Tools &amp; Platforms: Git / GitHub, Vercel, Railway, Claude &amp; Groq APIs, Leaflet / d3-geo, Wix Studio</desc>
 <defs>
   <linearGradient id="bgGrad" x1="0" y1="0" x2="0.4" y2="1">
     <stop offset="0" stop-color="#0C0F1B"/>
@@ -150,21 +150,4 @@
       <text x="634.67" y="248.5" font-size="11.5" class="t" text-anchor="middle">Wix Studio</text>
     </g>
       <path d="M879 153L879 193M879 153L866.64 191.04M879 153L855.49 185.36M879 153L846.64 176.51M879 153L840.96 165.36M879 153L839 153M879 164.2Q877.49 162.51 875.54 163.65M875.54 163.65Q874.63 161.58 872.42 162.06M872.42 162.06Q872.19 159.81 869.94 159.58M869.94 159.58Q870.42 157.37 868.35 156.46M868.35 156.46Q869.49 154.51 867.8 153M879 173Q876.31 169.99 872.82 172.02M872.82 172.02Q871.19 168.33 867.24 169.18M867.24 169.18Q866.84 165.16 862.82 164.76M862.82 164.76Q863.67 160.81 859.98 159.18M859.98 159.18Q862.01 155.69 859 153M879 181.8Q875.13 177.46 870.1 180.39M870.1 180.39Q867.76 175.07 862.07 176.3M862.07 176.3Q861.49 170.51 855.7 169.93M855.7 169.93Q856.93 164.24 851.61 161.9M851.61 161.9Q854.54 156.87 850.2 153M879 193Q873.62 186.98 866.64 191.04M866.64 191.04Q863.38 183.65 855.49 185.36M855.49 185.36Q854.68 177.32 846.64 176.51M846.64 176.51Q848.35 168.62 840.96 165.36M840.96 165.36Q845.02 158.38 839 153" fill="none" stroke="#33406B" stroke-width="1" opacity="0.28" stroke-linecap="round"/>
-      <g opacity="1">
-    <path d="M14 296H428V376L414 390H0V310Z" fill="#101426" stroke="#232B47" stroke-width="1.4"/>
-    <path d="M14 296H428V376L414 390H0V310Z" fill="url(#halftone)"/>
-    <path d="M14 296H428" stroke="#B5303F" stroke-width="2.2" fill="none" opacity="0.9"/>
-  </g>
-      <text x="20" y="324" font-size="13" class="d red" letter-spacing="1.4">SPOKEN</text>
-      <g class="chip" style="animation-delay:0ms">
-      <rect x="20" y="348" width="61.44" height="24" rx="7" fill="#151B31" stroke="#33406B" stroke-width="1"/>
-      <text x="50.72" y="360.5" font-size="11.5" class="t" text-anchor="middle">English</text>
-    </g><g class="chip" style="animation-delay:45ms">
-      <rect x="89.44" y="348" width="48.8" height="24" rx="7" fill="#151B31" stroke="#33406B" stroke-width="1"/>
-      <text x="113.84" y="360.5" font-size="11.5" class="t" text-anchor="middle">Hindi</text>
-    </g><g class="chip" style="animation-delay:90ms">
-      <rect x="146.24" y="348" width="68.11" height="24" rx="7" fill="#151B31" stroke="#33406B" stroke-width="1"/>
-      <text x="180.3" y="360.5" font-size="11.5" class="t" text-anchor="middle">Marathi</text>
-    </g>
-      <path d="M427 297L427 337M427 297L414.64 335.04M427 297L403.49 329.36M427 297L394.64 320.51M427 297L388.96 309.36M427 297L387 297M427 308.2Q425.49 306.51 423.54 307.65M423.54 307.65Q422.63 305.58 420.42 306.06M420.42 306.06Q420.19 303.81 417.94 303.58M417.94 303.58Q418.42 301.37 416.35 300.46M416.35 300.46Q417.49 298.51 415.8 297M427 317Q424.31 313.99 420.82 316.02M420.82 316.02Q419.19 312.33 415.24 313.18M415.24 313.18Q414.84 309.16 410.82 308.76M410.82 308.76Q411.67 304.81 407.98 303.18M407.98 303.18Q410.01 299.69 407 297M427 325.8Q423.13 321.46 418.1 324.39M418.1 324.39Q415.76 319.07 410.07 320.3M410.07 320.3Q409.49 314.51 403.7 313.93M403.7 313.93Q404.93 308.24 399.61 305.9M399.61 305.9Q402.54 300.87 398.2 297M427 337Q421.62 330.98 414.64 335.04M414.64 335.04Q411.38 327.65 403.49 329.36M403.49 329.36Q402.68 321.32 394.64 320.51M394.64 320.51Q396.35 312.62 388.96 309.36M388.96 309.36Q393.02 302.38 387 297" fill="none" stroke="#33406B" stroke-width="1" opacity="0.28" stroke-linecap="round"/>
 </svg>
