@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 430 49" width="430" height="49" role="img" aria-label="@GitBeat16" preserveAspectRatio="xMidYMid meet">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 440 64" width="440" height="64" role="img" aria-label="@GitBeat16" preserveAspectRatio="xMidYMid meet">
 <title>@GitBeat16</title>
 <defs>
   <linearGradient id="bgGrad" x1="0" y1="0" x2="0.4" y2="1">
@@ -30,7 +30,12 @@
   <filter id="tinyGlow" x="-60%" y="-60%" width="220%" height="220%">
     <feGaussianBlur stdDeviation="1.6" result="b"/>
     <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-  </filter></defs>
+  </filter>
+  <linearGradient id="cFill" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#2C3A6B"/>
+    <stop offset="1" stop-color="#172143"/>
+  </linearGradient>
+  <clipPath id="cClip"><rect x="10" y="11" width="420" height="42" rx="21"/></clipPath></defs>
 <style>
   text{font-family:'Segoe UI', 'Helvetica Neue', 'DejaVu Sans', Arial, sans-serif;dominant-baseline:middle}
   .d{font-family:'Trebuchet MS', 'Verdana', 'DejaVu Sans', sans-serif;font-weight:700;letter-spacing:0.5px}
@@ -40,24 +45,24 @@
   .faint{fill:#5C6684}
   .red{fill:#E0475A}
   @media (prefers-reduced-motion: reduce){*{animation:none !important}}
-@keyframes tileIn{0%{transform:translateY(11px) scale(.985)}100%{transform:translateY(0) scale(1)}}
-.tile{animation:tileIn .55s ease-out;transform-box:fill-box}
-  @keyframes nudge{0%,100%{transform:translate(0,0)}50%{transform:translate(2px,-2px)}}
-  .go{animation:nudge 1.6s ease-in-out infinite;animation-delay:200ms}</style>
-<g>
-    <g opacity="1">
-    <path d="M10 2H430V37L420 47H0V12Z" fill="#101426" stroke="#232B47" stroke-width="1.4"/>
-    <path d="M10 2H430V37L420 47H0V12Z" fill="url(#halftone)"/>
-    <path d="M10 2H430" stroke="#4C63B6" stroke-width="2.2" fill="none" opacity="0.9"/>
-  </g>
-    <rect x="12" y="9.5" width="30" height="30" rx="9" fill="#151B31" stroke="#232B47" stroke-width="1"/>
-    <g transform="translate(27 24.5) scale(0.7083)">
-    <path d="M-5.5 -5.5V5.5" fill="none" stroke="#4C63B6" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
-    <path d="M5.5 -3.2V-1C5.5 3.4 1.5 3 -5.5 4" fill="none" stroke="#4C63B6" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
-    <path d="M-5.5 -9.6a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z" fill="#4C63B6"/>
-    <path d="M-5.5 3.6a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z" fill="#4C63B6"/>
-    <path d="M5.5 -9.6a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z" fill="#4C63B6"/></g>
-    <text x="56" y="25" font-size="15" class="t">@GitBeat16</text>
-    <g class="go"><path d="M395 29.5 l9 -9 M397 20.5 h7 v7" stroke="#9AA3BE" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
-  </g>
+  @keyframes cRing{0%{transform:scale(1);opacity:.75}70%,100%{transform:scale(1.04,1.3);opacity:0}}
+  .cRing{transform-box:fill-box;transform-origin:50% 50%;animation:cRing 2.6s ease-out infinite;animation-delay:0.45s;opacity:0}
+  @keyframes cShine{0%,55%{transform:translateX(0)}100%{transform:translateX(540px)}}
+  .cShine{animation:cShine 3.4s ease-in-out infinite;animation-delay:0.45s}
+  @keyframes cEdge{0%,100%{stroke-opacity:.6}50%{stroke-opacity:1}}
+  .cEdge{animation:cEdge 2.6s ease-in-out infinite;animation-delay:0.45s}
+  @keyframes cArrow{0%,100%{transform:translate(0,0)}50%{transform:translate(2px,-2px)}}
+  .cArrow{animation:cArrow 1.3s ease-in-out infinite;animation-delay:0.45s}</style>
+  <rect class="cRing" x="10" y="11" width="420" height="42" rx="21" fill="none" stroke="#4C63B6" stroke-width="2"/>
+  <rect x="10" y="11" width="420" height="42" rx="21" fill="url(#cFill)"/>
+  <g clip-path="url(#cClip)"><rect class="cShine" x="-60" y="7" width="40" height="50" fill="#FFFFFF" opacity="0.16" transform="skewX(-20)"/></g>
+  <rect class="cEdge" x="10" y="11" width="420" height="42" rx="21" fill="none" stroke="#4C63B6" stroke-width="1.5"/>
+  <g transform="translate(38 32) scale(0.7917)">
+    <path d="M-5.5 -5.5V5.5" fill="none" stroke="#F1F3FF" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M5.5 -3.2V-1C5.5 3.4 1.5 3 -5.5 4" fill="none" stroke="#F1F3FF" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M-5.5 -9.6a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z" fill="#F1F3FF"/>
+    <path d="M-5.5 3.6a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z" fill="#F1F3FF"/>
+    <path d="M5.5 -9.6a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z" fill="#F1F3FF"/></g>
+  <text x="62" y="32.5" font-size="16" class="d" fill="#F1F3FF">@GitBeat16</text>
+  <g class="cArrow"><path d="M397 37 l9 -9 M399 28 h7 v7" stroke="#F1F3FF" stroke-width="1.9" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
 </svg>

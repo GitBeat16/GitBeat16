@@ -619,9 +619,10 @@ function footer() {
 
 /* ════════════════════════════════════════════════════════════ 11. CONTACT */
 /**
- * contact.svg is the decorative card. Links inside an <img>-embedded SVG are
- * inert on GitHub, so the working controls are four separate button images
- * (contact-<slug>.svg) laid out 2x2 under the card, each in its own anchor.
+ * contact-run.svg is the decorative motion strip. Links inside an
+ * <img>-embedded SVG are inert on GitHub, so the working controls are four
+ * separate button images (contact-<slug>.svg) laid out 2x2 under the strip,
+ * each in its own anchor.
  */
 const CONTACT_ROWS = () => [
   { slug: 'mail', glyph: 'mail', text: profile.identity.email, tint: P.redBright },
@@ -630,49 +631,97 @@ const CONTACT_ROWS = () => [
   { slug: 'location', glyph: 'pin', text: profile.identity.location, tint: P.edgeHi },
 ];
 
-function contact() {
-  const h = 168;
-  const css = `${bubbleCss}${chipCss}${mascotCss}${tileCss}`;
-  const scale = 0.36;
+/**
+ * Horizontal motion strip above the contact buttons: the mascot fires a web
+ * at an anchor ahead of it, leaps along it, lands, and repeats three times
+ * across the width before fading out and starting over.
+ */
+function contactRun() {
+  const h = 210;
+  const T = 9; // seconds per loop
+  const scale = 0.42;
+  const size = MASCOT_VIEWBOX.w * scale; // ~100
+  const ground = 192;
+  const top = ground - size + 4;
+  const step = 240;
+  const X = [40, 40 + step, 40 + step * 2, 40 + step * 3];
+  // raised right hand, in strip coordinates relative to the mascot's x
+  const hand = { x: R(188 * scale), y: R(top + 164 * scale) };
 
-  /* icon + short handle, never a raw URL */
-  const rows = [
-    { glyph: 'mail', text: profile.identity.email, tint: P.redBright },
-    { glyph: 'branch', text: `@${profile.identity.githubHandle}`, tint: P.navyGlow },
-    { glyph: 'linkedin', text: profile.identity.linkedinHandle, tint: P.navyGlow },
-    { glyph: 'pin', text: profile.identity.location, tint: P.edgeHi },
-  ];
+  // leg k: shoot k*30..k*30+10, jump +10..+22, land +22..+30
+  const legs = [0, 30, 60];
 
-  const colX = 344;
-  const rowStep = 33;
-  const rowTop = 40;
-
-  const list = rows
-    .map((r, i) => {
-      const cy = rowTop + i * rowStep;
-      return `<g class="tile" style="animation-delay:${140 + i * 90}ms">
-        <rect x="${colX - 4}" y="${R(cy - 15)}" width="30" height="30" rx="9" fill="${P.panelHi}" stroke="${P.edge}" stroke-width="1"/>
-        ${icon(r.glyph, colX + 11, cy, 17, r.tint)}
-        <text x="${colX + 40}" y="${R(cy + 0.5)}" font-size="13.5" class="t">${esc(r.text)}</text>
-      </g>`;
-    })
+  const xKeys = [
+    `0%,10%{transform:translateX(0)}`,
+    `22%,40%{transform:translateX(${step}px)}`,
+    `52%,70%{transform:translateX(${step * 2}px)}`,
+    `82%,97%{transform:translateX(${step * 3}px)}`,
+    `98%,100%{transform:translateX(0)}`,
+  ].join('');
+  const yKeys = legs
+    .map(
+      (s) =>
+        `${s + 10}%{transform:translateY(0) rotate(0deg);animation-timing-function:cubic-bezier(.25,.7,.45,1)}` +
+        `${s + 16}%{transform:translateY(-78px) rotate(-12deg);animation-timing-function:cubic-bezier(.55,0,.75,.3)}` +
+        `${s + 22}%{transform:translateY(0) rotate(0deg)}` +
+        `${s + 24}%{transform:translateY(3px) scale(1.06,.9)}` +
+        `${s + 27}%{transform:translateY(0) scale(1,1)}`
+    )
+    .join('');
+  const armKeys = legs
+    .map((s) => `${s + 1}%{transform:rotate(0deg)}${s + 4}%,${s + 12}%{transform:rotate(-52deg)}${s + 16}%{transform:rotate(-20deg)}${s + 20}%{transform:rotate(0deg)}`)
     .join('');
 
+  const webs = [];
+  const anchors = [];
+  let css = `${mascotCss}${particleCss}
+  @keyframes runX{${xKeys}}
+  @keyframes runY{0%{transform:translateY(0)}${yKeys}100%{transform:translateY(0)}}
+  @keyframes runFade{0%,90%{opacity:1}95%,98%{opacity:0}100%{opacity:1}}
+  @keyframes runArm{0%{transform:rotate(0deg)}${armKeys}100%{transform:rotate(0deg)}}
+  .runX{animation:runX ${T}s cubic-bezier(.45,.05,.4,1) infinite}
+  .runY{transform-box:fill-box;transform-origin:50% 100%;animation:runY ${T}s linear infinite}
+  .runFade{animation:runFade ${T}s linear infinite}
+  .is-run .wb-arm-r{animation:runArm ${T}s ease-out infinite}
+  .is-run .wb-eyes{animation:wb-blink 5.4s ease-in-out infinite}
+  .is-run .wb-tail{animation:wb-tailsway 1.4s ease-in-out infinite}
+  `;
+
+  legs.forEach((s, k) => {
+    const x1 = R(X[k] + hand.x);
+    const y1 = hand.y;
+    const ax = R(X[k + 1] + size * 0.55);
+    const ay = 26;
+    const len = R(Math.hypot(ax - x1, ay - y1));
+    css += `
+  @keyframes web${k}{0%,${s + 2}%{stroke-dashoffset:${len};opacity:1}${s + 8}%{stroke-dashoffset:0;opacity:1}${s + 14}%{stroke-dashoffset:0;opacity:.9}${s + 20}%,100%{stroke-dashoffset:0;opacity:0}}
+  .web${k}{stroke-dasharray:${len};stroke-dashoffset:${len};animation:web${k} ${T}s linear infinite}
+  @keyframes splat${k}{0%,${s + 7}%{transform:scale(0);opacity:0}${s + 9}%{transform:scale(1.15);opacity:1}${s + 12}%{transform:scale(1);opacity:1}${s + 22}%,100%{transform:scale(1);opacity:0}}
+  .splat${k}{transform-box:fill-box;transform-origin:50% 50%;animation:splat${k} ${T}s ease-out infinite;opacity:0}`;
+    webs.push(`<path class="web${k}" d="M${x1} ${y1} L${ax} ${ay}" stroke="#EFEAE7" stroke-width="2" stroke-linecap="round" fill="none"/>`);
+    anchors.push(`<g class="splat${k}"><path d="${webNet({ cx: ax, cy: ay, radii: [5, 10, 15], spokes: 8, from: -Math.PI, to: Math.PI, sag: 0.8 })}" fill="none" stroke="#EFEAE7" stroke-width="1" opacity="0.85"/><circle cx="${ax}" cy="${ay}" r="2.4" fill="#EFEAE7"/></g>`);
+  });
+
+  const ledge = `
+  <path d="M0 ${ground + 2} H${W}" stroke="${P.edgeHi}" stroke-width="1.4" opacity="0.7"/>
+  <path d="M0 ${ground + 8} H${W}" stroke="${P.edge}" stroke-width="1" opacity="0.6" stroke-dasharray="2 6"/>`;
+
   const body = `
-  ${panel({ x: 0, y: 0, w: W, h, cut: 18, accent: P.red })}
-  ${cornerWeb(1, 1, 90, 0, P.edgeHi, 0.3)}
-  ${cornerWeb(W - 1, h - 1, 70, 2, P.edgeHi, 0.24)}
-  <g class="is-excited"><g transform="translate(30 ${R(h - 16 - 240 * scale)}) scale(${scale})">${mascotMarkup({
-    uid: 'ct',
-    showTail: true,
-  })}</g></g>
-  ${speechBubble({ x: 140, y: 34, text: profile.speech.contact, size: 19 })}
-  ${list}`;
+  ${particles(W, h - 40, 16, 13)}
+  ${cornerWeb(W - 2, 2, 110, 1, P.edgeHi, 0.25)}
+  ${cornerWeb(2, 2, 80, 0, P.edgeHi, 0.2)}
+  ${ledge}
+  ${webs.join('')}
+  ${anchors.join('')}
+  <g class="runFade"><g class="runX"><g class="runY">
+    <g class="is-run"><g transform="translate(${X[0]} ${top}) scale(${scale})">${mascotMarkup({ uid: 'run', showTail: true })}</g></g>
+  </g></g></g>`;
+
   return svgDoc({
     w: W,
     h,
-    title: 'Contact panel',
-    desc: `Contact ${profile.identity.shortName}: email ${profile.identity.email}, GitHub @${profile.identity.githubHandle}, LinkedIn ${profile.identity.linkedinHandle}, based in ${profile.identity.location}.`,
+    title: 'Web-Byte shooting webs and leaping across the rooftops',
+    desc: 'Animated mascot that fires a web at an anchor ahead, leaps along it and lands, three times across the strip.',
     css,
     body,
     bg: false,
@@ -680,21 +729,41 @@ function contact() {
 }
 
 function contactRow(r, i) {
-  const w = 430;
-  const h = 49;
+  const w = 440;
+  const h = 64;
+  const ph = 42;
+  const px = 10;
+  const py = (h - ph) / 2;
+  const pw = w - px * 2;
   const cy = h / 2;
-  const css = `${tileCss}
-  @keyframes nudge{0%,100%{transform:translate(0,0)}50%{transform:translate(2px,-2px)}}
-  .go{animation:nudge 1.6s ease-in-out infinite;animation-delay:${i * 200}ms}`;
-  const ax = w - 30;
-  const body = `<g>
-    ${panel({ x: 0, y: 2, w, h: h - 4, cut: 10, accent: r.tint, fill: P.panel })}
-    <rect x="12" y="${cy - 15}" width="30" height="30" rx="9" fill="${P.panelHi}" stroke="${P.edge}" stroke-width="1"/>
-    ${icon(r.glyph, 27, cy, 17, r.tint)}
-    <text x="56" y="${R(cy + 0.5)}" font-size="15" class="t">${esc(r.text)}</text>
-    <g class="go"><path d="M${ax - 5} ${cy + 5} l9 -9 M${ax - 3} ${cy - 4} h7 v7" stroke="${P.textDim}" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
-  </g>`;
-  return svgDoc({ w, h, title: r.text, css, body, bg: false });
+  const red = r.slug === 'mail';
+  const ring = red ? P.redBright : P.navyGlow;
+  const d = `${i * 0.45}s`;
+  const css = `
+  @keyframes cRing{0%{transform:scale(1);opacity:.75}70%,100%{transform:scale(1.04,1.3);opacity:0}}
+  .cRing{transform-box:fill-box;transform-origin:50% 50%;animation:cRing 2.6s ease-out infinite;animation-delay:${d};opacity:0}
+  @keyframes cShine{0%,55%{transform:translateX(0)}100%{transform:translateX(${pw + 120}px)}}
+  .cShine{animation:cShine 3.4s ease-in-out infinite;animation-delay:${d}}
+  @keyframes cEdge{0%,100%{stroke-opacity:.6}50%{stroke-opacity:1}}
+  .cEdge{animation:cEdge 2.6s ease-in-out infinite;animation-delay:${d}}
+  @keyframes cArrow{0%,100%{transform:translate(0,0)}50%{transform:translate(2px,-2px)}}
+  .cArrow{animation:cArrow 1.3s ease-in-out infinite;animation-delay:${d}}`;
+  const defs = `
+  <linearGradient id="cFill" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="${red ? P.redDeep : P.navyLift}"/>
+    <stop offset="1" stop-color="${red ? P.redInk : P.navy}"/>
+  </linearGradient>
+  <clipPath id="cClip"><rect x="${px}" y="${py}" width="${pw}" height="${ph}" rx="${ph / 2}"/></clipPath>`;
+  const ax = px + pw - 28;
+  const body = `
+  <rect class="cRing" x="${px}" y="${py}" width="${pw}" height="${ph}" rx="${ph / 2}" fill="none" stroke="${ring}" stroke-width="2"/>
+  <rect x="${px}" y="${py}" width="${pw}" height="${ph}" rx="${ph / 2}" fill="url(#cFill)"/>
+  <g clip-path="url(#cClip)"><rect class="cShine" x="${px - 70}" y="${py - 4}" width="40" height="${ph + 8}" fill="#FFFFFF" opacity="0.16" transform="skewX(-20)"/></g>
+  <rect class="cEdge" x="${px}" y="${py}" width="${pw}" height="${ph}" rx="${ph / 2}" fill="none" stroke="${ring}" stroke-width="1.5"/>
+  ${icon(r.glyph, px + 28, cy, 19, '#F1F3FF')}
+  <text x="${px + 52}" y="${R(cy + 0.5)}" font-size="16" class="d" fill="#F1F3FF">${esc(r.text)}</text>
+  <g class="cArrow"><path d="M${ax - 5} ${cy + 5} l9 -9 M${ax - 3} ${cy - 4} h7 v7" stroke="#F1F3FF" stroke-width="1.9" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>`;
+  return svgDoc({ w, h, title: r.text, css, defs, body, bg: false });
 }
 
 /* ═════════════════════════════════════════════════════ 12. STANDALONE ART */
@@ -751,7 +820,7 @@ profile.missions.forEach((m, i) => {
 });
 
 write('achievements.svg', achievements());
-write('contact.svg', contact());
+write('contact-run.svg', contactRun());
 CONTACT_ROWS().forEach((r, i) => write(`contact-${r.slug}.svg`, contactRow(r, i)));
 write('skyline.svg', footer());
 write('mascot.svg', mascotStandalone('idle', 'Web-Byte mascot, idle'));

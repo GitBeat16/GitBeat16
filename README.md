@@ -110,7 +110,7 @@
 
 <img src="readme/sec-contact.svg" alt="Contact" width="100%" />
 
-<img src="readme/contact.svg" alt="Contact panel: ksrushti1610@gmail.com, GitHub @GitBeat16, LinkedIn srushti-kalokhe, Pune, Maharashtra" width="100%" />
+<img src="readme/contact-run.svg" alt="Web-Byte, the spider-suited mascot, shooting webs and leaping across the rooftops" width="100%" />
 
 <p align="center">
   <a href="mailto:ksrushti1610@gmail.com"><img width="49%" src="readme/contact-mail.svg" alt="Email ksrushti1610@gmail.com" /></a>
