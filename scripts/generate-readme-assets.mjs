@@ -422,47 +422,56 @@ function arsenal() {
  * its own small badge image and wrapped in a Markdown anchor instead.
  */
 function missionCard(m, i) {
-  /* Compact grid card. README.md lays these out 2x2 and wraps each one in a
-     link to its repository, so the whole card is the click target. */
-  const w = 430;
-  const h = 196;
+  /* Compact grid card. Two cards sit side by side in README.md with no
+     whitespace between them, each 50% wide, so each SVG is exactly half of
+     the 880-unit README width: text renders at the same scale as every
+     full-width panel. The 12-unit gutter is built into the SVGs (6 each side
+     of the seam), so the outer edges line up with the panels above. */
+  const W2 = W / 2;
+  const gut = 6;
+  const vpad = 4;
+  const w = W2 - gut;
+  const h = 188;
+  const ox = i % 2 ? gut : 0;
   const isWin = m.accent === 'red';
   const accent = isWin ? P.red : P.navy;
   const chipAccent = isWin ? P.edgeHi : P.navyGlow;
-  const pad = 22;
+  const pad = 20;
 
-  const badgeW = m.badge ? R(textWidth(m.badge, 9.5) * 1.22 + (isWin ? 46 : 24)) : 0;
+  const badgeW = m.badge ? R(textWidth(m.badge, 10) * 1.22 + (isWin ? 46 : 24)) : 0;
   const badge = m.badge
     ? `<rect x="${R(w - pad - badgeW)}" y="16" width="${badgeW}" height="22" rx="11" fill="${
         isWin ? 'url(#redGrad)' : P.navy
       }" stroke="${isWin ? P.redBright : P.navyLift}" stroke-width="1"/>
        ${isWin ? icon('trophy', w - pad - badgeW + 15, 27, 13, '#FFF1EE') : ''}
-       <text x="${R(w - pad - badgeW / 2 + (isWin ? 10 : 0))}" y="27.5" font-size="9.5" class="d" fill="${
+       <text x="${R(w - pad - badgeW / 2 + (isWin ? 10 : 0))}" y="27.5" font-size="10" class="d" fill="${
         isWin ? '#FFF1EE' : '#D7DEF8'
       }" text-anchor="middle" letter-spacing="1">${esc(m.badge.toUpperCase())}</text>`
     : '';
 
-  const chips = chipRow(m.stack.slice(0, 4), { x: pad, y: 132, maxWidth: w - pad * 2, accent: chipAccent, size: 10.5, delayStep: 40 });
+  const chips = chipRow(m.stack.slice(0, 4), { x: pad, y: 124, maxWidth: w - pad * 2, accent: chipAccent, size: 11.5, delayStep: 40 });
   const ax = w - pad - 6;
+  const label = m.repos.length > 1 ? 'view repos' : 'view repo';
 
   const css = `${chipCss}
   @keyframes mArrow{0%,100%{transform:translate(0,0)}50%{transform:translate(2px,-2px)}}
   .mArrow{animation:mArrow 1.4s ease-in-out infinite;animation-delay:${i * 0.3}s}`;
 
-  const body = `
+  const body = `<g transform="translate(${ox} ${vpad})">
   ${panel({ x: 0, y: 0, w, h, cut: 16, accent })}
   ${cornerWeb(1, h - 1, 46, 3, P.edgeHi, 0.22)}
-  <text x="${pad}" y="28" font-size="10.5" class="d" fill="${P.textFaint}" letter-spacing="2.4">${esc(m.code)}</text>
+  <text x="${pad}" y="28" font-size="11" class="d" fill="${P.textFaint}" letter-spacing="2.4">${esc(m.code)}</text>
   ${badge}
-  <text x="${pad}" y="60" font-size="22" class="d t">${esc(m.name === 'Streamlit Applications' ? 'StockZ · Sahay' : m.name)}</text>
-  ${bodyText(m.short, { x: pad, y: 88, maxWidth: w - pad * 2, size: 12.5, lh: 18, cls: 'dim' })}
+  <text x="${pad}" y="58" font-size="22" class="d t">${esc(m.name === 'Streamlit Applications' ? 'StockZ · Sahay' : m.name)}</text>
+  ${bodyText(m.short, { x: pad, y: 84, maxWidth: w - pad * 2, size: 13.5, lh: 19, cls: 'dim' })}
   ${chips.markup}
-  <text x="${ax - 14}" y="${h - 22}" font-size="10.5" class="faint mono" text-anchor="end">${m.repos.length > 1 ? 'view repos' : 'view repo'}</text>
-  <g class="mArrow"><path d="M${ax - 5} ${h - 17} l8 -8 M${ax - 3} ${h - 25} h6 v6" stroke="${P.textDim}" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>`;
+  <text x="${ax - 14}" y="${h - 20}" font-size="11" class="faint mono" text-anchor="end">${label}</text>
+  <g class="mArrow"><path d="M${ax - 5} ${h - 15} l8 -8 M${ax - 3} ${h - 23} h6 v6" stroke="${P.textDim}" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
+  </g>`;
 
   return svgDoc({
-    w,
-    h,
+    w: W2,
+    h: h + vpad * 2,
     title: `${m.name} — ${m.subtitle}`,
     desc: `${m.code}: ${m.name}. ${m.short} Built with ${m.stack.join(', ')}.`,
     css,
@@ -600,14 +609,13 @@ function footer() {
 /**
  * contact-run.svg is the decorative motion strip. Links inside an
  * <img>-embedded SVG are inert on GitHub, so the working controls are four
- * separate button images (contact-<slug>.svg) laid out 2x2 under the strip,
+ * separate button images (contact-<slug>.svg) laid out in one row under the strip,
  * each in its own anchor.
  */
 const CONTACT_ROWS = () => [
   { slug: 'mail', glyph: 'mail', text: profile.identity.email, tint: P.redBright },
   { slug: 'github', glyph: 'branch', text: `@${profile.identity.githubHandle}`, tint: P.navyGlow },
   { slug: 'linkedin', glyph: 'linkedin', text: profile.identity.linkedinHandle, tint: P.navyGlow },
-  { slug: 'location', glyph: 'pin', text: profile.identity.location, tint: P.edgeHi },
 ];
 
 /**
@@ -707,21 +715,27 @@ function contactRun() {
   });
 }
 
-function contactRow(r, i) {
-  const w = 440;
-  const h = 64;
-  const ph = 42;
-  const px = 10;
+function contactRow(r, i, n) {
+  /* n buttons share one README row with no whitespace between them, each
+     100/n % wide, so each SVG is W/n units: same scale as the full-width
+     panels, outer edges flush, 12-unit gutters built in at the seams. */
+  const w = W / n;
+  const gut = 6;
+  const left = i === 0 ? 2 : gut;
+  const right = i === n - 1 ? 2 : gut;
+  const h = 56;
+  const ph = 36;
+  const px = left;
   const py = (h - ph) / 2;
-  const pw = w - px * 2;
+  const pw = w - left - right;
   const cy = h / 2;
   const red = r.slug === 'mail';
   const ring = red ? P.redBright : P.navyGlow;
   const d = `${i * 0.45}s`;
   const css = `
-  @keyframes cRing{0%{transform:scale(1);opacity:.75}70%,100%{transform:scale(1.04,1.3);opacity:0}}
+  @keyframes cRing{0%{transform:scale(1);opacity:.75}70%,100%{transform:scale(1.012,1.3);opacity:0}}
   .cRing{transform-box:fill-box;transform-origin:50% 50%;animation:cRing 2.6s ease-out infinite;animation-delay:${d};opacity:0}
-  @keyframes cShine{0%,55%{transform:translateX(0)}100%{transform:translateX(${pw + 120}px)}}
+  @keyframes cShine{0%,55%{transform:translateX(0)}100%{transform:translateX(${R(pw + 120)}px)}}
   .cShine{animation:cShine 3.4s ease-in-out infinite;animation-delay:${d}}
   @keyframes cEdge{0%,100%{stroke-opacity:.6}50%{stroke-opacity:1}}
   .cEdge{animation:cEdge 2.6s ease-in-out infinite;animation-delay:${d}}
@@ -732,17 +746,17 @@ function contactRow(r, i) {
     <stop offset="0" stop-color="${red ? P.redDeep : P.navyLift}"/>
     <stop offset="1" stop-color="${red ? P.redInk : P.navy}"/>
   </linearGradient>
-  <clipPath id="cClip"><rect x="${px}" y="${py}" width="${pw}" height="${ph}" rx="${ph / 2}"/></clipPath>`;
-  const ax = px + pw - 28;
+  <clipPath id="cClip"><rect x="${R(px)}" y="${py}" width="${R(pw)}" height="${ph}" rx="${ph / 2}"/></clipPath>`;
+  const ax = R(px + pw - 24);
   const body = `
-  <rect class="cRing" x="${px}" y="${py}" width="${pw}" height="${ph}" rx="${ph / 2}" fill="none" stroke="${ring}" stroke-width="2"/>
-  <rect x="${px}" y="${py}" width="${pw}" height="${ph}" rx="${ph / 2}" fill="url(#cFill)"/>
-  <g clip-path="url(#cClip)"><rect class="cShine" x="${px - 70}" y="${py - 4}" width="40" height="${ph + 8}" fill="#FFFFFF" opacity="0.16" transform="skewX(-20)"/></g>
-  <rect class="cEdge" x="${px}" y="${py}" width="${pw}" height="${ph}" rx="${ph / 2}" fill="none" stroke="${ring}" stroke-width="1.5"/>
-  ${icon(r.glyph, px + 28, cy, 19, '#F1F3FF')}
-  <text x="${px + 52}" y="${R(cy + 0.5)}" font-size="16" class="d" fill="#F1F3FF">${esc(r.text)}</text>
-  <g class="cArrow"><path d="M${ax - 5} ${cy + 5} l9 -9 M${ax - 3} ${cy - 4} h7 v7" stroke="#F1F3FF" stroke-width="1.9" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>`;
-  return svgDoc({ w, h, title: r.text, css, defs, body, bg: false });
+  <rect class="cRing" x="${R(px)}" y="${py}" width="${R(pw)}" height="${ph}" rx="${ph / 2}" fill="none" stroke="${ring}" stroke-width="2"/>
+  <rect x="${R(px)}" y="${py}" width="${R(pw)}" height="${ph}" rx="${ph / 2}" fill="url(#cFill)"/>
+  <g clip-path="url(#cClip)"><rect class="cShine" x="${R(px - 70)}" y="${py - 4}" width="40" height="${ph + 8}" fill="#FFFFFF" opacity="0.16" transform="skewX(-20)"/></g>
+  <rect class="cEdge" x="${R(px)}" y="${py}" width="${R(pw)}" height="${ph}" rx="${ph / 2}" fill="none" stroke="${ring}" stroke-width="1.5"/>
+  ${icon(r.glyph, R(px + 22), cy, 16, '#F1F3FF')}
+  <text x="${R(px + 40)}" y="${R(cy + 0.5)}" font-size="13" class="d" fill="#F1F3FF">${esc(r.text)}</text>
+  <g class="cArrow"><path d="M${ax - 5} ${cy + 5} l9 -9 M${ax - 3} ${cy - 4} h7 v7" stroke="#F1F3FF" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>`;
+  return svgDoc({ w: R(w), h, title: r.text, css, defs, body, bg: false });
 }
 
 /* ═════════════════════════════════════════════════════ 12. STANDALONE ART */
@@ -795,7 +809,7 @@ profile.missions.forEach((m, i) => write(`mission-0${i + 1}.svg`, missionCard(m,
 
 write('achievements.svg', achievements());
 write('contact-run.svg', contactRun());
-CONTACT_ROWS().forEach((r, i) => write(`contact-${r.slug}.svg`, contactRow(r, i)));
+CONTACT_ROWS().forEach((r, i, all) => write(`contact-${r.slug}.svg`, contactRow(r, i, all.length)));
 write('skyline.svg', footer());
 write('mascot.svg', mascotStandalone('idle', 'Web-Byte mascot, idle'));
 write('mascot-webshoot.svg', mascotStandalone('webshoot', 'Web-Byte mascot firing a web'));
